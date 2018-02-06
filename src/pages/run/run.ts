@@ -59,7 +59,8 @@ export class RunPage {
     this.ev.subscribe('finished', data => {
       console.log("timerdata: ",data);
       console.log("dist ", this.dist);
-      let jsonObj = {"Distance": this.dist, "Time": data, "Date":new Date()};
+      let myDate = new Date();;
+      let jsonObj = {"Distance": this.dist, "Time": data, "Date":myDate.getDate(), "Month":myDate.getMonth(), "Year":myDate.getFullYear()};
       let raNum = Math.random()*10;
       let name = raNum +"";
       storage.set(name, jsonObj).then((val)=>{
@@ -137,6 +138,7 @@ export class RunPage {
       console.log("yodle",data);
       this.nextPos = new LatLng(data.coords.latitude, data.coords.longitude)
       this.dist += geometry.computeDistanceBetween(this.lastPos, this.nextPos);
+
       console.log("meters: ",  geometry.computeDistanceBetween(this.lastPos, this.nextPos));
       // this.dist += gps_distance(this.lastPos.lat, this.lastPos.lng, this.nextPos.lat, this.nextPos.lng)
       //this.tracking_data.push(new LatLng(data.coords.latitude, data.coords.longitude));

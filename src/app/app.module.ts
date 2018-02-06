@@ -7,6 +7,7 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 import { RunPage} from "../pages/run/run";
+import { CompletedRunsPage } from "../pages/completed-runs/completed-runs";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,6 +23,7 @@ import { IonicStorageModule } from '@ionic/storage';
     ItemDetailsPage,
     ListPage,
     RunPage,
+    CompletedRunsPage,
     TimerComponent,
   ],
   imports: [
@@ -36,6 +38,7 @@ import { IonicStorageModule } from '@ionic/storage';
     ItemDetailsPage,
     ListPage,
     RunPage,
+    CompletedRunsPage,
   ],
   providers: [
     StatusBar,
