@@ -1,0 +1,24 @@
+<!--
+  Generated template for the RunPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>run</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div #map id="map" style="height:70%"></div>
+  <button ion-button [disabled]="start" (click)="getPath()">Start</button>
+  <button ion-button [disabled]="!finish && start" (click)="endPath()">Finish</button>
+  <div><p>distance: {{dist}}</p> </div>
+  <div><p>speed: {{speed}}</p> </div>
+  <div><timer></timer> </div>
+
+</ion-content>
