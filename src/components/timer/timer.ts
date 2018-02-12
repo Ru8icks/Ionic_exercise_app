@@ -2,6 +2,7 @@ import {Component, Input, Output} from '@angular/core';
 import {Events} from "ionic-angular";
 import Rx from 'rxjs/Rx';
 import {Subscription} from "rxjs/Subscription";
+import { start } from 'repl';
 
 /**
  * Generated class for the TimerComponent component.
@@ -19,21 +20,36 @@ export class TimerComponent {
   subscribe: Subscription;
 
   text: string = "Time: ";
-
+  
+ 
+    
   constructor(private ev: Events) {
     console.log('Hello TimerComponent Component');
     this.text = "Time :";
+    
+
+  }
+  ngOnInit(){
+    console.log("ngoninit")
+    this.eventListener();
+  };
+  ngOnDestroy(){
+    console.log("herrherrherrr")
+    this.ev.unsubscribe('start');
+    this.ev.unsubscribe('finish');
+  }
+
+
+  eventListener(){
     this.ev.subscribe('start', data => {
       console.log("eventsworkings! wizardfight");
-      const source = Rx.Observable.timer(1000, 1000);
+      const source = Rx.Observable.timer(0, 1000);
       this.subscribe = source.subscribe(val => {
         console.log(val);
         this.time = val;
         this.text= format(val*1000);
       });
-      console.log("sub: ", this.subscribe)
-
-
+      
     });
     this.ev.subscribe('finish', data => {
       console.log("does this do nothgin");
@@ -42,7 +58,7 @@ export class TimerComponent {
       this.ev.publish('finished', this.time);
 
     });
-
+    
   }
 
 

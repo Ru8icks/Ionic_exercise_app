@@ -55,7 +55,18 @@ export class RunPage {
               private geoLoc: Geolocation,
               private ev: Events,
               private storage: Storage) {
+                
 
+    
+
+  }
+
+  ionViewDidEnter(){
+    console.log("ionviewenter run.ts")
+    this.eventListener();
+    
+  };
+  eventListener(){
     this.ev.subscribe('finished', data => {
       console.log("timerdata: ",data);
       console.log("dist ", this.dist);
@@ -63,15 +74,21 @@ export class RunPage {
       let jsonObj = {"Distance": this.dist, "Time": data, "Date":myDate.getDate(), "Month":myDate.getMonth(), "Year":myDate.getFullYear()};
       let raNum = Math.random()*10;
       let name = raNum +"";
-      storage.set(name, jsonObj).then((val)=>{
+      this.storage.set(name, jsonObj).then((val)=>{
        console.log("nineynine ",val)
       });
-      storage.get(name).then((val)=>{
+      this.storage.get(name).then((val)=>{
         console.log("them values ",val)
       })
+      
     });
 
   }
+  ionViewWillUnload():void {
+    this.ev.unsubscribe('finished');
+    }
+
+  
 
   ngAfterViewInit(){
     let loc: LatLng;

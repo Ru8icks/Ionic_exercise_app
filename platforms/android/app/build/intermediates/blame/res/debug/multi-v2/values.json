@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "159,55,100",
+                        "endColumns": "63,44,58",
+                        "endOffsets": "218,95,154"
+                    },
+                    "to": {
+                        "startLines": "46,47,66",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "2876,2940,5318",
+                        "endColumns": "63,44,58",
+                        "endOffsets": "2935,2980,5372"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SWIM\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\ee4a1bac3fb83395421e024e7c705154\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "215,301,377,463,549,625,702,778,951,1052,1233,1354,1457,1637,1756,1868,1967,2155,2256,2437,2558,2733,2877,2936,2994",
+                        "endColumns": "85,75,85,85,75,76,75,75,100,180,120,102,179,118,111,98,187,100,180,120,174,143,58,57,74",
+                        "endOffsets": "300,376,462,548,624,701,777,853,1051,1232,1353,1456,1636,1755,1867,1966,2154,2255,2436,2557,2732,2876,2935,2993,3068"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,48,49,50,51,52,53,54,55,57,58,59,60,61,62,63,64,65",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,195,275,365,455,535,616,696,2985,3090,3271,3396,3503,3683,3806,3922,4192,4380,4485,4666,4791,4966,5114,5177,5239",
+                        "endColumns": "89,79,89,89,79,80,79,79,104,180,124,106,179,122,115,102,187,104,180,124,174,147,62,61,78",
+                        "endOffsets": "190,270,360,450,530,611,691,771,3085,3266,3391,3498,3678,3801,3917,4020,4375,4480,4661,4786,4961,5109,5172,5234,5313"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\SWIM\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.8.0.aar\\7a336a08067d921a4e1125e268738783\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "4,7",
+                        "startColumns": "0,0",
+                        "startOffsets": "274,437",
+                        "endColumns": "63,166",
+                        "endOffsets": "337,603"
+                    },
+                    "to": {
+                        "startLines": "45,56",
+                        "startColumns": "4,4",
+                        "startOffsets": "2808,4025",
+                        "endColumns": "67,166",
+                        "endOffsets": "2871,4187"
+                    }
+                }
+            ]
+        }
+    ]
+}
