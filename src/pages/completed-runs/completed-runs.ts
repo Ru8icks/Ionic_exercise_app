@@ -33,6 +33,7 @@ export class CompletedRunsPage {
 
   clearWorkouts() {
     this.storage.clear();
+    this.navCtrl.pop()
 
   }
 }

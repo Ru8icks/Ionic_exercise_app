@@ -15,6 +15,8 @@ import { GoogleMaps} from "@ionic-native/google-maps";
 import { Geolocation } from '@ionic-native/geolocation'
 import {TimerComponent} from "../components/timer/timer";
 import { IonicStorageModule } from '@ionic/storage';
+import { ProgramsPage } from '../pages/programs/programs';
+import { ProgramPage } from '../pages/program/program';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { IonicStorageModule } from '@ionic/storage';
     RunPage,
     CompletedRunsPage,
     TimerComponent,
+    ProgramsPage,
+    ProgramPage,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,9 @@ import { IonicStorageModule } from '@ionic/storage';
     ListPage,
     RunPage,
     CompletedRunsPage,
+    ProgramsPage,
+    ProgramPage,
+    
   ],
   providers: [
     StatusBar,

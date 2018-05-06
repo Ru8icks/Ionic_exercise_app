@@ -8,44 +8,44 @@
         "source": "C:\\Users\\SWIM\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\ee4a1bac3fb83395421e024e7c705154\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
-        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxxhdpi_screen.png.flat",
-        "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxxhdpi\\screen.png"
-    },
-    {
         "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
         "source": "C:\\Users\\SWIM\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\ee4a1bac3fb83395421e024e7c705154\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxxhdpi_screen.png.flat",
+        "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxxhdpi\\screen.png"
     },
     {
         "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
         "source": "C:\\Users\\SWIM\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\ee4a1bac3fb83395421e024e7c705154\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
     },
     {
-        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon.png.flat",
-        "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\mipmap-hdpi\\icon.png"
+        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi_screen.png.flat",
+        "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxhdpi\\screen.png"
     },
     {
         "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-hdpi_screen.png.flat",
         "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\drawable-port-hdpi\\screen.png"
     },
     {
-        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi_screen.png.flat",
-        "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxhdpi\\screen.png"
+        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon.png.flat",
+        "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\mipmap-hdpi\\icon.png"
     },
     {
         "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dummy_my_location_button.png.flat",
         "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\drawable\\dummy_my_location_button.png"
     },
     {
-        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon.png.flat",
-        "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\icon.png"
+        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\SWIM\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\ee4a1bac3fb83395421e024e7c705154\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxxhdpi_screen.png.flat",
         "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi\\screen.png"
     },
     {
-        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_googleg_standard_color_18.png.flat",
-        "source": "C:\\Users\\SWIM\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\ee4a1bac3fb83395421e024e7c705154\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
+        "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon.png.flat",
+        "source": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\icon.png"
     },
     {
         "merged": "E:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_text_dark.xml.flat",

@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { TimerComponent } from './timer/timer';
+
 @NgModule({
-	declarations: [TimerComponent],
+	declarations: [TimerComponent,
+    ],
 	imports: [],
-	exports: [TimerComponent]
+	exports: [TimerComponent,
+    ]
 })
 export class ComponentsModule {}
