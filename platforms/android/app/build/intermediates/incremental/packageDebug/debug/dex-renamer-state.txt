@@ -1,4 +1,4 @@
-#Thu May 17 16:50:44 CEST 2018
+#Thu May 17 18:03:29 CEST 2018
 base.0=E\:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
 file.0=E\:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

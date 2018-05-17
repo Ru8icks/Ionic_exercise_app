@@ -14,17 +14,22 @@
 
 
 <ion-content padding>
-    <div > 
-      <ion-list  [dragula]="my-bag" [dragulaModel]="program">  
-        <ion-card  *ngFor="let exercise of program">
-            <ion-card-header>
-              {{exercise.name}}
-            </ion-card-header>
-            <ion-card-content>
-              {{exercise.type}}
-            </ion-card-content>
+    <div class="flex-container" > 
+      <div class="exCard">
+        <ion-list  [dragula]='"my-bag"' [dragulaModel]="program" >  
+          <ion-card  *ngFor="let exercise of program">
+             <ion-item>
+                {{exercise.name}}:
+              
+                {{exercise.type}}
+              </ion-item>
           </ion-card>
         </ion-list>
+      </div>
+      
+      <div >
+        
+      </div>
     </div>
     
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ProgramsPage } from '../programs/programs';
-//import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 import { DragulaService } from 'ng2-dragula/components/dragula.provider';
 
 /**
@@ -19,6 +19,7 @@ import { DragulaService } from 'ng2-dragula/components/dragula.provider';
 })
 export class ProgramPage {
   program = [];
+  
   exercises = [
               {name:"squats", type: "sets"},
               {name:"benchpress", type: "sets"}
@@ -33,18 +34,29 @@ export class ProgramPage {
               private storage: Storage,
               private dragulaService: DragulaService,
             ) {
+              dragulaService.setOptions('my-bag', {
+                removeOnSpill: true,
+                
+               
+              });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgramPage');
   }
   addToProgram(exercise){
-    if(exercise.length==0){
+    if(exercise==undefined){
       console.log("return")
       return
     }
-    console.log(exercise)
+    console.log(exercise.name,exercise.type )
+    for(let item in this.program){
+      console.log(this.program[item] )
+
+    }
+    
     this.program.push(exercise)
+    
     
     
   }
