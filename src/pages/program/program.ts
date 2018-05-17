@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { ProgramsPage } from '../programs/programs';
+//import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+import { DragulaService } from 'ng2-dragula/components/dragula.provider';
 
 /**
  * Generated class for the ProgramPage page.
@@ -29,6 +31,7 @@ export class ProgramPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams, 
               private storage: Storage,
+              private dragulaService: DragulaService,
             ) {
   }
 

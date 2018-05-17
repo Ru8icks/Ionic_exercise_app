@@ -14,8 +14,9 @@
 
 
 <ion-content padding>
-    <div *ngFor="let exercise of program"> 
-        <ion-card>
+    <div > 
+      <ion-list  [dragula]="my-bag" [dragulaModel]="program">  
+        <ion-card  *ngFor="let exercise of program">
             <ion-card-header>
               {{exercise.name}}
             </ion-card-header>
@@ -23,7 +24,9 @@
               {{exercise.type}}
             </ion-card-content>
           </ion-card>
+        </ion-list>
     </div>
+    
 
 
     <ion-item>

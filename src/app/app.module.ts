@@ -18,6 +18,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ProgramsPage } from '../pages/programs/programs';
 import { ProgramPage } from '../pages/program/program';
 
+import {DragulaModule , DragulaService} from "ng2-dragula/ng2-dragula"
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,11 +31,13 @@ import { ProgramPage } from '../pages/program/program';
     TimerComponent,
     ProgramsPage,
     ProgramPage,
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    DragulaModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
