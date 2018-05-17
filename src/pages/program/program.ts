@@ -18,10 +18,12 @@ import { ProgramsPage } from '../programs/programs';
 export class ProgramPage {
   program = [];
   exercises = [
-              {name:"squats"},
-              {name:"benchpress"}
+              {name:"squats", type: "sets"},
+              {name:"benchpress", type: "sets"}
             ];
+  types = ["sets","interval"]
   title=""
+  type=""
           
 
   constructor(public navCtrl: NavController,
@@ -33,20 +35,30 @@ export class ProgramPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgramPage');
   }
-  addToExercises(){
-    console.log(this.title)
-    if(this.title.length==0){
+  addToProgram(exercise){
+    if(exercise.length==0){
+      console.log("return")
       return
     }
-    this.exercises.push({name:this.title});
-    this.title="";
-  }
-  addToProgram(exercise){
     console.log(exercise)
     this.program.push(exercise)
     
     
   }
 
+  addToExercises(){
+    console.log(this.title)
+    console.log(this.type)
+    if(this.title.length==0 || this.type.length==0 ){
+
+      console.log("return")
+      return
+    }
+    
+    this.exercises.push({name:this.title,type:this.type});
+    this.title="";
+    this.type="";
+  }
+ 
 
 }

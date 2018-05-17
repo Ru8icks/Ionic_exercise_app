@@ -90,6 +90,7 @@ var ProgramPage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.storage = storage;
+        this.program = [];
         this.exercises = [
             { name: "squats" },
             { name: "benchpress" }
@@ -107,12 +108,13 @@ var ProgramPage = (function () {
         this.exercises.push({ name: this.title });
         this.title = "";
     };
-    ProgramPage.prototype.addToProgram = function (foo) {
-        console.log(foo);
+    ProgramPage.prototype.addToProgram = function (exercise) {
+        console.log(exercise);
+        this.program.push(exercise);
     };
     ProgramPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-program',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\program\program.html"*/'<!--\n  Generated template for the ProgramPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>program</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-item>\n        <ion-label>Exercise</ion-label>\n        <ion-select [(ngModel)]="ex">\n          <ion-option *ngFor="let ex of exercises" [value]="ex">{{ex.name}}</ion-option>\n        </ion-select>\n    </ion-item>\n    <button (click)="addToProgram(ex.name)" ion-button>Add to program</button>\n    <ion-item>\n      <ion-label color="primary" floating>new exercise</ion-label>\n      <ion-input [(ngModel)]="title"></ion-input>\n    </ion-item>\n        <button (click)="addToExercises()" ion-button>Add to exercises</button>\n\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\program\program.html"*/,
+            selector: 'page-program',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\program\program.html"*/'<!--\n  Generated template for the ProgramPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>program</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <div> \n        <ul>\n            <li *ngFor="let exercise of program">\n              <span >{{exercise}}</span> {{exercise}}\n            </li>\n          </ul>\n    </div>\n\n    <ion-item>\n        <ion-label>Exercise</ion-label>\n        <ion-select [(ngModel)]="ex">\n          <ion-option *ngFor="let ex of exercises" [value]="ex">{{ex.name}}</ion-option>\n        </ion-select>\n    </ion-item>\n    <button (click)="addToProgram(ex.name)" ion-button>Add to program</button>\n    <ion-item>\n      <ion-label color="primary" floating>new exercise</ion-label>\n      <ion-input [(ngModel)]="title"></ion-input>\n    </ion-item>\n        <button (click)="addToExercises()" ion-button>Add to exercises</button>\n\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\program\program.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -155,6 +157,9 @@ var ProgramsPage = (function () {
     function ProgramsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.program = [];
+        this.program.push(navParams.get('data'));
+        console.log(navParams.get('data'));
     }
     ProgramsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProgramPage');
@@ -165,7 +170,7 @@ var ProgramsPage = (function () {
     };
     ProgramsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-programs',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\programs\programs.html"*/'<!--\n  Generated template for the ProgramPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>programs</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<div style="position: absolute; left: 28% ; bottom: 5%; width: 100%" >\n  <button ion-button icon-left (click)="newProgram()">\n    <ion-icon name="add"> </ion-icon>\n     New Program\n  </button>\n</div>\n</ion-content>\n\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\programs\programs.html"*/,
+            selector: 'page-programs',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\programs\programs.html"*/'<!--\n  Generated template for the ProgramPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>programs</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div> \n      <ul class="Exercises">\n          <li *ngFor="let exercise of program">\n            <span >{{exercise}}</span> {{exercise}}\n          </li>\n        </ul>\n  </div>\n<div style="position: absolute; left: 28% ; bottom: 5%; width: 100%" >\n  <button ion-button icon-left (click)="newProgram()">\n    <ion-icon name="add"> </ion-icon>\n     New Program\n  </button>\n</div>\n</ion-content>\n\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\programs\programs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], ProgramsPage);

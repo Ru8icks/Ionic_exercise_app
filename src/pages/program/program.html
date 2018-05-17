@@ -14,13 +14,17 @@
 
 
 <ion-content padding>
-    <div> 
-        <ul>
-            <li *ngFor="let exercise of program">
-              <span >{{exercise}}</span> {{exercise}}
-            </li>
-          </ul>
+    <div *ngFor="let exercise of program"> 
+        <ion-card>
+            <ion-card-header>
+              {{exercise.name}}
+            </ion-card-header>
+            <ion-card-content>
+              {{exercise.type}}
+            </ion-card-content>
+          </ion-card>
     </div>
+
 
     <ion-item>
         <ion-label>Exercise</ion-label>
@@ -28,10 +32,17 @@
           <ion-option *ngFor="let ex of exercises" [value]="ex">{{ex.name}}</ion-option>
         </ion-select>
     </ion-item>
-    <button (click)="addToProgram(ex.name)" ion-button>Add to program</button>
+    <button (click)="addToProgram(ex)" ion-button>Add to program</button>
     <ion-item>
       <ion-label color="primary" floating>new exercise</ion-label>
       <ion-input [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" floating>Type</ion-label>
+        <ion-select [(ngModel)]="type">
+            
+            <ion-option *ngFor="let type of types" [value]="type">{{type}}</ion-option>
+          </ion-select>
     </ion-item>
         <button (click)="addToExercises()" ion-button>Add to exercises</button>
 
