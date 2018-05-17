@@ -15,8 +15,12 @@ import {ProgramPage} from '../program/program';
   templateUrl: 'programs.html',
 })
 export class ProgramsPage {
+  program = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.program.push(navParams.get('data'));
+    console.log(navParams.get('data'))
+
   }
 
   ionViewDidLoad() {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { ProgramsPage } from '../programs/programs';
 
 /**
  * Generated class for the ProgramPage page.
@@ -15,6 +16,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'program.html',
 })
 export class ProgramPage {
+  program = [];
   exercises = [
               {name:"squats"},
               {name:"benchpress"}
@@ -33,10 +35,17 @@ export class ProgramPage {
   }
   addToExercises(){
     console.log(this.title)
+    if(this.title.length==0){
+      return
+    }
     this.exercises.push({name:this.title});
     this.title="";
+  }
+  addToProgram(exercise){
+    console.log(exercise)
+    this.program.push(exercise)
     
-
+    
   }
 
 

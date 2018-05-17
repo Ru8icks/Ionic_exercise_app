@@ -14,6 +14,13 @@
 
 
 <ion-content padding>
+  <div> 
+      <ul class="Exercises">
+          <li *ngFor="let exercise of program">
+            <span >{{exercise}}</span> {{exercise}}
+          </li>
+        </ul>
+  </div>
 <div style="position: absolute; left: 28% ; bottom: 5%; width: 100%" >
   <button ion-button icon-left (click)="newProgram()">
     <ion-icon name="add"> </ion-icon>

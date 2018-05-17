@@ -14,6 +14,13 @@
 
 
 <ion-content padding>
+    <div> 
+        <ul>
+            <li *ngFor="let exercise of program">
+              <span >{{exercise}}</span> {{exercise}}
+            </li>
+          </ul>
+    </div>
 
     <ion-item>
         <ion-label>Exercise</ion-label>
@@ -21,7 +28,7 @@
           <ion-option *ngFor="let ex of exercises" [value]="ex">{{ex.name}}</ion-option>
         </ion-select>
     </ion-item>
-    <button ion-button>Add to program</button>
+    <button (click)="addToProgram(ex.name)" ion-button>Add to program</button>
     <ion-item>
       <ion-label color="primary" floating>new exercise</ion-label>
       <ion-input [(ngModel)]="title"></ion-input>
