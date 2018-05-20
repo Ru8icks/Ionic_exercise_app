@@ -25684,9 +25684,6 @@ page-program .container {
   display: -ms-flexbox;
   display: flex;
   /* or inline-flex */
-}
-
-page-program .container {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -25706,6 +25703,27 @@ page-program .exCard {
   -webkit-flex-basis: 50%;
   -ms-flex-preferred-size: 50%;
   flex-basis: 50%;
+}
+
+page-program .exButtons {
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+page-program .exButtons .top {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+page-program .exButtons .bot {
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 
 page-programs {

@@ -19,10 +19,17 @@ import { DragulaService } from 'ng2-dragula/components/dragula.provider';
 })
 export class ProgramPage {
   program = [];
+  programs = [];
   
   exercises = [
-              {name:"squats", type: "sets"},
-              {name:"benchpress", type: "sets"}
+              {name:"Squats", type: "sets"},
+              {name:"Benchpress", type: "sets"},
+              {name:"Leg press", type: "sets"},
+              {name:"Lunge", type: "sets"},
+              {name:"Leg extension", type: "sets"},
+              {name:"Deadlifts", type: "sets"},
+              {name:"Standing calf raise", type: "sets"},
+              {name:"Push-up", type: "sets"},
             ];
   types = ["sets","interval"]
   title=""
@@ -40,9 +47,15 @@ export class ProgramPage {
                
               });
   }
+  ngOnDestroy() {
+    this.dragulaService.destroy('my-bag');
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgramPage');
+    
+   
+    
   }
   addToProgram(exercise){
     if(exercise==undefined){
@@ -51,7 +64,7 @@ export class ProgramPage {
     }
     console.log(exercise.name,exercise.type )
     for(let item in this.program){
-      console.log(this.program[item] )
+      console.log(this.program[item].name )
 
     }
     
@@ -73,6 +86,19 @@ export class ProgramPage {
     this.exercises.push({name:this.title,type:this.type});
     this.title="";
     this.type="";
+  }
+  addToPrograms(){
+    
+    
+      
+
+    
+    console.log(this.program)
+    this.storage.set('programs',this.program )
+
+  }
+  deleteProgram(){
+    
   }
  
 
