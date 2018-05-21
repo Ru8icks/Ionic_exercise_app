@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ProgramPage} from '../program/program';
 
+import { Observable } from 'rxjs/Observable';
+import { Program } from '../../model/program.model';
+import { ProgramService } from '../../service/program.service';
+ 
 /**
  * Generated class for the ProgramPage page.
  *
@@ -15,16 +19,20 @@ import {ProgramPage} from '../program/program';
   templateUrl: 'programs.html',
 })
 export class ProgramsPage {
-  program = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.program.push(navParams.get('data'));
-    console.log(navParams.get('data'))
+  programs: Observable<Program[]>
 
+  constructor(public navCtrl: NavController, public navParams: NavParams, private programService: ProgramService ) {
+    this.programs = this.programService.getPrograms().snapshotChanges().map(
+      changes => {
+        return changes.map(c => ({
+          key: c.payload.key, ...c.payload.val()
+        }))
+      })  
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProgramPage');
+    console.log('ionViewDidLoad ProgramsPage');
   }
   newProgram(){
     console.log('newn prog new prog');

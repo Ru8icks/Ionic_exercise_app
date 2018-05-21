@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu May 17 18:03:29 CEST 2018
+#Mon May 21 17:46:51 CEST 2018
 175.set=ANDROID_RESOURCE
 122.file=E\:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-googlemaps\\www\\TileOverlay.js
 60.set=ASSET

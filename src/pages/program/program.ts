@@ -4,6 +4,9 @@ import { Storage } from '@ionic/storage';
 import { ProgramsPage } from '../programs/programs';
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 import { DragulaService } from 'ng2-dragula/components/dragula.provider';
+import { Program } from '../../model/program.model'
+import { ProgramService } from '../../service/program.service';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the ProgramPage page.
@@ -18,8 +21,12 @@ import { DragulaService } from 'ng2-dragula/components/dragula.provider';
   templateUrl: 'program.html',
 })
 export class ProgramPage {
-  program = [];
-  programs = [];
+  program: Program = {
+    title:'',
+    content: [],
+  } 
+  
+  programList = []
   
   exercises = [
               {name:"Squats", type: "sets"},
@@ -40,6 +47,8 @@ export class ProgramPage {
               public navParams: NavParams, 
               private storage: Storage,
               private dragulaService: DragulaService,
+              private programService: ProgramService,
+              public alertCtrl: AlertController,
             ) {
               dragulaService.setOptions('my-bag', {
                 removeOnSpill: true,
@@ -62,13 +71,14 @@ export class ProgramPage {
       console.log("return")
       return
     }
+    this.programList.push(exercise)
     console.log(exercise.name,exercise.type )
-    for(let item in this.program){
-      console.log(this.program[item].name )
+    for(let item in this.programList){
+      console.log(this.programList[item].name )
 
     }
     
-    this.program.push(exercise)
+    
     
     
     
@@ -87,19 +97,46 @@ export class ProgramPage {
     this.title="";
     this.type="";
   }
-  addToPrograms(){
-    
-    
-      
-
-    
-    console.log(this.program)
-    this.storage.set('programs',this.program )
-
-  }
+  
   deleteProgram(){
     
   }
+  addToPrograms() {
+    let prompt = this.alertCtrl.create({
+      title: 'Save program',
+      message: "Enter a name for program",
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log(data.title)
+            this.program.title=data.title;
+            this.program.content=this.programList; 
+            console.log(this.programList)
+            this.programService.addProgram(this.program)
+            this.navCtrl.pop();
+          
+            
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+}
  
 
-}
+
