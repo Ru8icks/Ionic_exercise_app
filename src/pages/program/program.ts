@@ -63,8 +63,6 @@ export class ProgramPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgramPage');
     
-   
-    
   }
   addToProgram(exercise){
     if(exercise==undefined){
@@ -77,18 +75,12 @@ export class ProgramPage {
       console.log(this.programList[item].name )
 
     }
-    
-    
-    
-    
-    
   }
 
   addToExercises(){
     console.log(this.title)
     console.log(this.type)
     if(this.title.length==0 || this.type.length==0 ){
-
       console.log("return")
       return
     }

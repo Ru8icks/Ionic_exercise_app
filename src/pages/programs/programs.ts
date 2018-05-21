@@ -5,6 +5,7 @@ import {ProgramPage} from '../program/program';
 import { Observable } from 'rxjs/Observable';
 import { Program } from '../../model/program.model';
 import { ProgramService } from '../../service/program.service';
+import {EditProgramPage} from '../edit-program/edit-program'
  
 /**
  * Generated class for the ProgramPage page.
@@ -38,6 +39,13 @@ export class ProgramsPage {
     console.log('newn prog new prog');
     this.navCtrl.push(ProgramPage)
     
+  }
+  editProgram(program){
+    console.log(program)
+    var myJSON = JSON.stringify(program);
+    console.log(myJSON)
+    this.navCtrl.push(EditProgramPage,program);
+
   }
 
   

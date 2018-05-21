@@ -17,8 +17,12 @@ import {TimerComponent} from "../components/timer/timer";
 import { IonicStorageModule } from '@ionic/storage';
 import { ProgramsPage } from '../pages/programs/programs';
 import { ProgramPage } from '../pages/program/program';
+import {EditProgramPage} from '../pages/edit-program/edit-program'
+ 
+
 
 import {DragulaModule , DragulaService} from "ng2-dragula/ng2-dragula"
+
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -47,6 +51,8 @@ export const firebaseConfig = {
     TimerComponent,
     ProgramsPage,
     ProgramPage,
+    EditProgramPage,
+    
 
   ],
   imports: [
@@ -67,6 +73,7 @@ export const firebaseConfig = {
     CompletedRunsPage,
     ProgramsPage,
     ProgramPage,
+    EditProgramPage,
     
   ],
   providers: [
