@@ -7,6 +7,8 @@ import { Program } from '../../model/program.model';
 import { ProgramService } from '../../service/program.service';
 import {EditProgramPage} from '../edit-program/edit-program'
 import { AlertController } from 'ionic-angular';
+
+import {WorkoutPage} from '../workout/workout';
  
 /**
  * Generated class for the ProgramPage page.
@@ -24,8 +26,13 @@ export class ProgramsPage {
 
   programs: Observable<Program[]>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private programService: ProgramService ) {
-    this.programs = this.programService.getPrograms().snapshotChanges().map(
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public alertCtrl: AlertController,
+              private programService: ProgramService,
+             ) {
+
+      this.programs = this.programService.getPrograms().snapshotChanges().map(
       changes => {
         return changes.map(c => ({
           key: c.payload.key, ...c.payload.val()
@@ -55,7 +62,12 @@ export class ProgramsPage {
         {
           text: 'Workout',
           handler: data => {
+            
+            var myJSON = JSON.stringify(program);
+            console.log(myJSON)
             console.log('Workout clicked');
+            this.navCtrl.push(WorkoutPage,program);
+            
           }
         },
         {
