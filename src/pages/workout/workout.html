@@ -14,5 +14,26 @@
 
 
 <ion-content padding>
+  <div>
+    <ion-item>
+        <ion-input type="number" placeholder="Repetitions" min='0' [(ngModel)]='reps'></ion-input>
+    </ion-item>
+    <ion-item>
+         <ion-input type="number" placeholder="Weight" [(ngModel)]='weight'></ion-input>
+    </ion-item>
+        <button ion-button full (click)=addSetToWorkout(reps,weight)><ion-icon name="add-circle"></ion-icon> Add</button>
+        <div class="sets">
+            <ion-card  *ngFor="let set of setList">
+                <ion-item>
+                   {{set.reps}}
+                    X
+                   {{set.weight}}Kg
+                 </ion-item>
+             </ion-card>
 
+        </div>
+        <div class="notes">
+
+        </div>
+  </div>
 </ion-content>

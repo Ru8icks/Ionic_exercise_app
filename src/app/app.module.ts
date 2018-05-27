@@ -18,6 +18,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ProgramsPage } from '../pages/programs/programs';
 import { ProgramPage } from '../pages/program/program';
 import {EditProgramPage} from '../pages/edit-program/edit-program'
+import { WorkoutPage } from '../pages/workout/workout'
  
 
 
@@ -52,6 +53,7 @@ export const firebaseConfig = {
     ProgramsPage,
     ProgramPage,
     EditProgramPage,
+    WorkoutPage,
     
 
   ],
@@ -74,6 +76,7 @@ export const firebaseConfig = {
     ProgramsPage,
     ProgramPage,
     EditProgramPage,
+    WorkoutPage,
     
   ],
   providers: [

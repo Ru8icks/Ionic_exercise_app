@@ -16,7 +16,7 @@
 <ion-content padding>
     <ion-list>
         <p>sa</p>
-        <ion-item *ngFor="let program of programs | async"  (click)="editProgram(program)">
+        <ion-item *ngFor="let program of programs | async"  (click)="programAction(program)">
           <p>s</p>{{program.title}}
         </ion-item>
       </ion-list>

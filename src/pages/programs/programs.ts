@@ -52,12 +52,7 @@ export class ProgramsPage {
     let prompt = this.alertCtrl.create({
       title: 'Options',
       message: "Select Workout to begin program or Edit to edit program",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title'
-        },
-      ],
+     
       buttons: [
         {
           text: 'Workout',

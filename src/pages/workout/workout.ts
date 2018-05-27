@@ -15,6 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class WorkoutPage {
 
+  setList = []
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,6 +25,11 @@ export class WorkoutPage {
     console.log('ionViewDidLoad WorkoutPage');
     console.log("haia")
     console.log(this.navParams.get('title'))
+  }
+
+  addSetToWorkout(reps,weight){
+    this.setList.push({reps:reps,weight:weight})
+
   }
 
 }
