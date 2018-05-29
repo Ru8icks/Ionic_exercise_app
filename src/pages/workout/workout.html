@@ -23,16 +23,40 @@
     </ion-item>
         <button ion-button full (click)=addSetToWorkout(reps,weight)><ion-icon name="add-circle"></ion-icon> Add</button>
         <div class="sets">
-            <ion-card  *ngFor="let set of setList">
+           <ion-list>
+          <ion-item-sliding *ngFor="let set of setList">
                 <ion-item>
-                   {{set.reps}}
-                    X
-                   {{set.weight}}Kg
-                 </ion-item>
-             </ion-card>
+                  {{set.reps}}X
+                  {{set.weight}}
+                </ion-item>
+                <ion-item-options side="right">
+                  <button ion-button (click)="deleteSet(set)">
+                    <ion-icon name="trash"></ion-icon>Delete
+                  </button>
+                </ion-item-options>
+              </ion-item-sliding>
+            </ion-list>
 
         </div>
         <div class="notes">
+
+            <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>  
+            <ion-list>
+                <ion-item-sliding *ngFor="let note of notes">
+                      <ion-item>
+                          {{note}}
+                      </ion-item>
+                      <ion-item-options side="right">
+                        <button ion-button (click)="deleteNote(note)">
+                          <ion-icon name="trash"></ion-icon>Delete
+                        </button>
+                      </ion-item-options>
+                    </ion-item-sliding>
+                  </ion-list>
+            
+            
+        
+            
 
         </div>
   </div>
