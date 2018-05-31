@@ -19,17 +19,23 @@ import { timer } from 'rxjs/observable/timer';
 })
 export class CoolDownComponent {
   time: number;
+  startTime:number
   @Output() totalTime: number;
   subscribe: Subscription;
 
-  text="";
+  text:string;
+  on:boolean
+
 
 
     
   constructor(private ev: Events) {
     console.log('Hello TimerComponent Component');
     this.time=30000
+    this.startTime=30000
+    
     this.text =format(this.time)
+    this.on = false
     
     
 
@@ -54,6 +60,10 @@ export class CoolDownComponent {
 
   eventListener(){
     this.ev.subscribe('start', data => {
+      if(this.on){
+        return
+      }
+      this.on=true;
       console.log("eventsworkings! wizardfight");
       const source = timer(0, 1000);
       console.log("eventsworkings! wizardfight");
@@ -62,9 +72,10 @@ export class CoolDownComponent {
       
         this.text= format(this.time-=1000);
         if (this.time==0){
-          this.time=30000
-          this.text =format(this.time)
+          this.time=this.startTime;
+          this.text =format(this.startTime)
           this.ev.publish('finish')
+          this.on=false;
         }
       });
       
@@ -75,6 +86,23 @@ export class CoolDownComponent {
       
 
     });
+    
+  }
+  incTime(){
+    if(!this.on){
+      console.log("inc")
+      this.startTime+=5000;
+      this.text=format(this.startTime)  
+    }
+    
+  }
+  decTime(){
+    if(!this.on){
+      console.log("dec")
+      this.startTime-=5000;
+      this.text=format(this.startTime)
+      console.log(this.startTime)  
+    }
     
   }
 

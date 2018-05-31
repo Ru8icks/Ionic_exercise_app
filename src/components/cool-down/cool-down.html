@@ -1,5 +1,9 @@
 <!-- Generated template for the CoolDownComponent component -->
 <div>
-  <button ion-button full (click)='start()'>{{text}}</button> 
+  
+  
+  <button ion-button full clear (click)='incTime()'><ion-icon name="arrow-dropup-circle"></ion-icon></button> 
+  <button ion-button full (click)='start()'>{{text}}</button>
+  <button ion-button full clear (click)='decTime()'><ion-icon name="arrow-dropdown-circle"></ion-icon></button>  
 
 </div>
