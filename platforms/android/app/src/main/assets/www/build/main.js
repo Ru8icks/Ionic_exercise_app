@@ -1032,7 +1032,6 @@ var TimerComponent = (function () {
         this.ev.subscribe('start', function (data) {
             console.log("eventsworkings! wizardfight");
             var source = __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default.a.Observable.timer(0, 1000);
-            console.log("eventsworkings! wizardfight");
             _this.subscribe = source.subscribe(function (val) {
                 console.log(val);
                 _this.time = val;

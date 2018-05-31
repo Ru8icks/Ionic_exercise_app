@@ -3,7 +3,6 @@ import {Events} from "ionic-angular";
 import Rx from 'rxjs/Rx';
 import {Subscription} from "rxjs/Subscription";
 import { start } from 'repl';
-import { timer } from 'rxjs/observable/timer';
 
 /**
  * Generated class for the TimerComponent component.
@@ -45,7 +44,6 @@ export class TimerComponent {
     this.ev.subscribe('start', data => {
       console.log("eventsworkings! wizardfight");
       const source = Rx.Observable.timer(0, 1000);
-      console.log("eventsworkings! wizardfight");
       this.subscribe = source.subscribe(val => {
         console.log(val);
         this.time = val;

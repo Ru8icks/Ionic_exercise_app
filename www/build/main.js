@@ -1032,7 +1032,6 @@ var TimerComponent = (function () {
         this.ev.subscribe('start', function (data) {
             console.log("eventsworkings! wizardfight");
             var source = __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default.a.Observable.timer(0, 1000);
-            console.log("eventsworkings! wizardfight");
             _this.subscribe = source.subscribe(function (val) {
                 console.log(val);
                 _this.time = val;
@@ -1099,7 +1098,8 @@ var CoolDownComponent = (function () {
         this.ev = ev;
         this.text = "";
         console.log('Hello TimerComponent Component');
-        this.text = "Time :";
+        this.time = 30000;
+        this.text = format(this.time);
     }
     CoolDownComponent.prototype.ngOnInit = function () {
         console.log("ngoninit");
@@ -1123,16 +1123,18 @@ var CoolDownComponent = (function () {
             var source = Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_timer__["timer"])(0, 1000);
             console.log("eventsworkings! wizardfight");
             _this.subscribe = source.subscribe(function (val) {
-                console.log(val);
-                _this.time = val;
-                _this.text = format(val * 1000);
+                console.log(_this.time);
+                _this.text = format(_this.time -= 1000);
+                if (_this.time == 0) {
+                    _this.time = 30000;
+                    _this.text = format(_this.time);
+                    _this.ev.publish('finish');
+                }
             });
         });
         this.ev.subscribe('finish', function (data) {
             console.log("does this do nothgin");
             _this.subscribe.unsubscribe();
-            _this.text = format(_this.time * 1000);
-            _this.ev.publish('finished', _this.time);
         });
     };
     __decorate([
@@ -1143,13 +1145,17 @@ var CoolDownComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'cool-down',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\cool-down\cool-down.html"*/'<!-- Generated template for the CoolDownComponent component -->\n<div>\n  <button ion-button full (click)=\'start()\'>{{text}}</button> \n\n</div>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\cool-down\cool-down.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _a || Object])
     ], CoolDownComponent);
     return CoolDownComponent;
+    var _a;
 }());
 
 function format(ms) {
     var minutes = Math.floor(ms / (1000 * 60)), seconds = Math.floor((ms - minutes * 1000 * 60) / 1000);
+    if (minutes <= 0) {
+        return "Time: " + (seconds < 10 ? '0' : '') + seconds + 's.';
+    }
     return "Time: " + minutes + 'm ' + (seconds < 10 ? '0' : '') + seconds + 's.';
 }
 //# sourceMappingURL=cool-down.js.map
