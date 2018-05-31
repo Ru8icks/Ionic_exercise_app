@@ -486,10 +486,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var WorkoutPage = (function () {
-    function WorkoutPage(navCtrl, navParams, alertCtrl) {
+    function WorkoutPage(navCtrl, navParams, alertCtrl, ev) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
+        this.ev = ev;
         this.setList = [];
         this.notes = [];
     }
@@ -500,6 +501,7 @@ var WorkoutPage = (function () {
     };
     WorkoutPage.prototype.addSetToWorkout = function (reps, weight) {
         this.setList.push({ reps: reps, weight: weight });
+        this.ev.publish('start');
     };
     WorkoutPage.prototype.addNote = function () {
         var _this = this;
@@ -543,12 +545,14 @@ var WorkoutPage = (function () {
     };
     WorkoutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n    <ion-item>\n        <ion-input type="number" placeholder="Repetitions" min=\'0\' [(ngModel)]=\'reps\'></ion-input>\n    </ion-item>\n    <ion-item>\n         <ion-input type="number" placeholder="Weight" [(ngModel)]=\'weight\'></ion-input>\n    </ion-item>\n        <button ion-button full (click)=addSetToWorkout(reps,weight)><ion-icon name="add-circle"></ion-icon> Add</button>\n        <div class="sets">\n           <ion-list>\n          <ion-item-sliding *ngFor="let set of setList">\n                <ion-item>\n                  {{set.reps}}X\n                  {{set.weight}}\n                </ion-item>\n                <ion-item-options side="right">\n                  <button ion-button (click)="deleteSet(set)">\n                    <ion-icon name="trash"></ion-icon>Delete\n                  </button>\n                </ion-item-options>\n              </ion-item-sliding>\n            </ion-list>\n\n        </div>\n        <div class="notes">\n\n            <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>  \n            <ion-list>\n                <ion-item-sliding *ngFor="let note of notes">\n                      <ion-item>\n                          {{note}}\n                      </ion-item>\n                      <ion-item-options side="right">\n                        <button ion-button (click)="deleteNote(note)">\n                          <ion-icon name="trash"></ion-icon>Delete\n                        </button>\n                      </ion-item-options>\n                    </ion-item-sliding>\n                  </ion-list>\n            \n            \n        \n            \n\n        </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
+            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n    <ion-item>\n        <ion-input type="number" placeholder="Repetitions" min=\'0\' [(ngModel)]=\'reps\'></ion-input>\n    </ion-item>\n    <ion-item>\n         <ion-input type="number" placeholder="Weight" [(ngModel)]=\'weight\'></ion-input>\n    </ion-item>\n        <button ion-button full (click)=addSetToWorkout(reps,weight)><ion-icon name="add-circle"></ion-icon> Add</button>\n        <div class="sets">\n           <ion-list>\n          <ion-item-sliding *ngFor="let set of setList">\n                <ion-item>\n                  {{set.reps}}X\n                  {{set.weight}}\n                </ion-item>\n                <ion-item-options side="right">\n                  <button ion-button (click)="deleteSet(set)">\n                    <ion-icon name="trash"></ion-icon>Delete\n                  </button>\n                </ion-item-options>\n              </ion-item-sliding>\n            </ion-list>\n\n        </div>\n        <div class="notes">\n\n            <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>  \n            <ion-list>\n                <ion-item-sliding *ngFor="let note of notes">\n                      <ion-item>\n                          {{note}}\n                      </ion-item>\n                      <ion-item-options side="right">\n                        <button ion-button (click)="deleteNote(note)">\n                          <ion-icon name="trash"></ion-icon>Delete\n                        </button>\n                      </ion-item-options>\n                    </ion-item-sliding>\n                  </ion-list>\n            \n            \n        \n            \n\n        </div>\n        <cool-down></cool-down>\n  </div>\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], WorkoutPage);
     return WorkoutPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=workout.js.map
@@ -577,27 +581,27 @@ webpackEmptyAsyncContext.id = 210;
 
 var map = {
 	"../pages/completed-runs/completed-runs.module": [
-		736,
+		739,
 		5
 	],
 	"../pages/edit-program/edit-program.module": [
-		737,
+		740,
 		4
 	],
 	"../pages/program/program.module": [
-		738,
+		741,
 		3
 	],
 	"../pages/programs/programs.module": [
-		739,
+		742,
 		2
 	],
 	"../pages/run/run.module": [
-		740,
+		743,
 		1
 	],
 	"../pages/workout/workout.module": [
-		741,
+		744,
 		0
 	]
 };
@@ -747,22 +751,24 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_google_maps__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_geolocation__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_timer_timer__ = __webpack_require__(500);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_storage__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_programs_programs__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_program_program__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_edit_program_edit_program__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_workout_workout__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_ng2_dragula_ng2_dragula__ = __webpack_require__(733);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_ng2_dragula_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_ng2_dragula_ng2_dragula__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angularfire2__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angularfire2_database__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__service_program_service__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_cool_down_cool_down__ = __webpack_require__(733);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_storage__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_programs_programs__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_program_program__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_edit_program_edit_program__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_workout_workout__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_ng2_dragula_ng2_dragula__ = __webpack_require__(736);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_ng2_dragula_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_ng2_dragula_ng2_dragula__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_angularfire2__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_angularfire2_database__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__service_program_service__ = __webpack_require__(90);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -808,10 +814,11 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_7__pages_run_run__["a" /* RunPage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_completed_runs_completed_runs__["a" /* CompletedRunsPage */],
                 __WEBPACK_IMPORTED_MODULE_13__components_timer_timer__["a" /* TimerComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_programs_programs__["a" /* ProgramsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_program_program__["a" /* ProgramPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_edit_program_edit_program__["a" /* EditProgramPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_workout_workout__["a" /* WorkoutPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_programs_programs__["a" /* ProgramsPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_program_program__["a" /* ProgramPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_edit_program_edit_program__["a" /* EditProgramPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_workout_workout__["a" /* WorkoutPage */],
+                __WEBPACK_IMPORTED_MODULE_14__components_cool_down_cool_down__["a" /* CoolDownComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -825,10 +832,10 @@ var AppModule = (function () {
                         { loadChildren: '../pages/workout/workout.module#WorkoutPageModule', name: 'WorkoutPage', segment: 'workout', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_14__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_19_ng2_dragula_ng2_dragula__["DragulaModule"],
-                __WEBPACK_IMPORTED_MODULE_20_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-                __WEBPACK_IMPORTED_MODULE_21_angularfire2_database__["b" /* AngularFireDatabaseModule */],
+                __WEBPACK_IMPORTED_MODULE_15__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_20_ng2_dragula_ng2_dragula__["DragulaModule"],
+                __WEBPACK_IMPORTED_MODULE_21_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_22_angularfire2_database__["b" /* AngularFireDatabaseModule */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
@@ -838,10 +845,10 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_6__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_7__pages_run_run__["a" /* RunPage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_completed_runs_completed_runs__["a" /* CompletedRunsPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_programs_programs__["a" /* ProgramsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_program_program__["a" /* ProgramPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_edit_program_edit_program__["a" /* EditProgramPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_workout_workout__["a" /* WorkoutPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_programs_programs__["a" /* ProgramsPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_program_program__["a" /* ProgramPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_edit_program_edit_program__["a" /* EditProgramPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_workout_workout__["a" /* WorkoutPage */],
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
@@ -849,7 +856,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_12__ionic_native_geolocation__["a" /* Geolocation */],
                 __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                [__WEBPACK_IMPORTED_MODULE_22__service_program_service__["a" /* ProgramService */]],
+                [__WEBPACK_IMPORTED_MODULE_23__service_program_service__["a" /* ProgramService */]],
             ]
         })
     ], AppModule);
@@ -1025,6 +1032,7 @@ var TimerComponent = (function () {
         this.ev.subscribe('start', function (data) {
             console.log("eventsworkings! wizardfight");
             var source = __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default.a.Observable.timer(0, 1000);
+            console.log("eventsworkings! wizardfight");
             _this.subscribe = source.subscribe(function (val) {
                 console.log(val);
                 _this.time = val;
@@ -1056,6 +1064,95 @@ function format(ms) {
     return "Time: " + minutes + 'm ' + (seconds < 10 ? '0' : '') + seconds + 's.';
 }
 //# sourceMappingURL=timer.js.map
+
+/***/ }),
+
+/***/ 733:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CoolDownComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_timer__ = __webpack_require__(734);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_timer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_timer__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the CoolDownComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var CoolDownComponent = (function () {
+    function CoolDownComponent(ev) {
+        this.ev = ev;
+        this.text = "";
+        console.log('Hello TimerComponent Component');
+        this.text = "Time :";
+    }
+    CoolDownComponent.prototype.ngOnInit = function () {
+        console.log("ngoninit");
+        this.eventListener();
+    };
+    ;
+    CoolDownComponent.prototype.ngOnDestroy = function () {
+        console.log("herrherrherrr");
+        this.ev.unsubscribe('start');
+        this.ev.unsubscribe('finish');
+    };
+    CoolDownComponent.prototype.start = function () {
+        console.log("is here");
+        this.ev.publish('start');
+        console.log("is hereas");
+    };
+    CoolDownComponent.prototype.eventListener = function () {
+        var _this = this;
+        this.ev.subscribe('start', function (data) {
+            console.log("eventsworkings! wizardfight");
+            var source = Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_timer__["timer"])(0, 1000);
+            console.log("eventsworkings! wizardfight");
+            _this.subscribe = source.subscribe(function (val) {
+                console.log(val);
+                _this.time = val;
+                _this.text = format(val * 1000);
+            });
+        });
+        this.ev.subscribe('finish', function (data) {
+            console.log("does this do nothgin");
+            _this.subscribe.unsubscribe();
+            _this.text = format(_this.time * 1000);
+            _this.ev.publish('finished', _this.time);
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Number)
+    ], CoolDownComponent.prototype, "totalTime", void 0);
+    CoolDownComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'cool-down',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\cool-down\cool-down.html"*/'<!-- Generated template for the CoolDownComponent component -->\n<div>\n  <button ion-button full (click)=\'start()\'>{{text}}</button> \n\n</div>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\cool-down\cool-down.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+    ], CoolDownComponent);
+    return CoolDownComponent;
+}());
+
+function format(ms) {
+    var minutes = Math.floor(ms / (1000 * 60)), seconds = Math.floor((ms - minutes * 1000 * 60) / 1000);
+    return "Time: " + minutes + 'm ' + (seconds < 10 ? '0' : '') + seconds + 's.';
+}
+//# sourceMappingURL=cool-down.js.map
 
 /***/ }),
 

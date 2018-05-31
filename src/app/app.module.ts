@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GoogleMaps} from "@ionic-native/google-maps";
 import { Geolocation } from '@ionic-native/geolocation'
 import {TimerComponent} from "../components/timer/timer";
+import { CoolDownComponent} from "../components/cool-down/cool-down";
 import { IonicStorageModule } from '@ionic/storage';
 import { ProgramsPage } from '../pages/programs/programs';
 import { ProgramPage } from '../pages/program/program';
@@ -54,6 +55,7 @@ export const firebaseConfig = {
     ProgramPage,
     EditProgramPage,
     WorkoutPage,
+    CoolDownComponent,
     
 
   ],

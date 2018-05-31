@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { CoolDownComponent} from "../../components/cool-down/cool-down";
+import {Subscription} from "rxjs/Subscription";
 
 /**
  * Generated class for the WorkoutPage page.
@@ -15,25 +17,34 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'workout.html',
 })
 export class WorkoutPage {
+  subscript: Subscription;
 
   setList = []
   notes= []
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, ) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public alertCtrl: AlertController,
+              private ev: Events,
+                ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WorkoutPage');
     console.log("haia")
     console.log(this.navParams.get('title'))
+    
   }
+
 
   addSetToWorkout(reps,weight){
     this.setList.push({reps:reps,weight:weight})
+    this.ev.publish('start')
 
   }
+  
 
   addNote(){
    
