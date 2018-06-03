@@ -512,7 +512,7 @@ var WorkoutPage = (function () {
         this.ev.subscribe('deleteSet', function (data) {
             console.log(data.set, "data.set");
             console.log(data, "data");
-            var index = _this.setList.indexOf(data.set);
+            var index = _this.setList.indexOf(data);
             if (index > -1) {
                 _this.setList.splice(index, 1);
             }
@@ -1353,10 +1353,9 @@ var SetListComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'set-list',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\set-list\set-list.html"*/'<!-- Generated template for the SetListComponent component -->\n<div class="sets">\n    <ion-list>\n   <ion-item-sliding>\n         <ion-item>\n           {{set.reps}}X\n           {{set.weight}}\n         </ion-item>\n         <ion-item-options side="right">\n           <button ion-button (click)="deleteSet(set)">\n             <ion-icon name="trash"></ion-icon>Delete\n           </button>\n         </ion-item-options>\n       </ion-item-sliding>\n     </ion-list>\n\n </div>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\set-list\set-list.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], SetListComponent);
     return SetListComponent;
-    var _a;
 }());
 
 //# sourceMappingURL=set-list.js.map

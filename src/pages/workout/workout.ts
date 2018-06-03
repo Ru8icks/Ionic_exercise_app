@@ -56,7 +56,7 @@ export class WorkoutPage {
     this.ev.subscribe('deleteSet', data => {
       console.log(data.set, "data.set" )
       console.log(data, "data" )
-      let index = this.setList.indexOf(data.set);
+      let index = this.setList.indexOf(data);
       if(index > -1){
        this.setList.splice(index, 1);
      }

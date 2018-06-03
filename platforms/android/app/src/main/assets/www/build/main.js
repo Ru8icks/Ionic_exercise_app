@@ -507,6 +507,7 @@ var WorkoutPage = (function () {
             console.log(data.reps, data.weight, "herer!");
             console.log(data, JSON.stringify(data));
             _this.setList.push(data);
+            console.log(_this.setList);
         });
         this.ev.subscribe('deleteSet', function (data) {
             console.log(data.set, "data.set");
@@ -519,7 +520,7 @@ var WorkoutPage = (function () {
     };
     WorkoutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n      <set>\n      </set>\n      <set-list  *ngFor="let set of setList" >\n\n      </set-list>\n        \n        <note>\n\n        </note>\n        \n        \n  </div>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n    \n    <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
+            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n      <set>\n      </set>\n      <set-list  *ngFor="let set of setList" [set]="set" >\n\n      </set-list>\n        \n        <note>\n\n        </note>\n        \n        \n  </div>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n    \n    <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
@@ -1340,8 +1341,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var SetListComponent = (function () {
     function SetListComponent(ev) {
         this.ev = ev;
-        this.setList = [];
         console.log('Hello SetListComponent Component');
+        console.log();
     }
     SetListComponent.prototype.deleteSet = function (set) {
         this.ev.publish('deleteSet', set);
@@ -1349,10 +1350,10 @@ var SetListComponent = (function () {
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Object)
-    ], SetListComponent.prototype, "setList", void 0);
+    ], SetListComponent.prototype, "set", void 0);
     SetListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'set-list',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\set-list\set-list.html"*/'<!-- Generated template for the SetListComponent component -->\n<div class="sets">\n    <ion-list>\n   <ion-item-sliding>\n         <ion-item>\n           {{set}}X\n           {{set}}\n         </ion-item>\n         <ion-item-options side="right">\n           <button ion-button (click)="deleteSet(set)">\n             <ion-icon name="trash"></ion-icon>Delete\n           </button>\n         </ion-item-options>\n       </ion-item-sliding>\n     </ion-list>\n\n </div>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\set-list\set-list.html"*/
+            selector: 'set-list',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\set-list\set-list.html"*/'<!-- Generated template for the SetListComponent component -->\n<div class="sets">\n    <ion-list>\n   <ion-item-sliding>\n         <ion-item>\n           {{set.reps}}X\n           {{set.weight}}\n         </ion-item>\n         <ion-item-options side="right">\n           <button ion-button (click)="deleteSet(set)">\n             <ion-icon name="trash"></ion-icon>Delete\n           </button>\n         </ion-item-options>\n       </ion-item-sliding>\n     </ion-list>\n\n </div>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\set-list\set-list.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], SetListComponent);
