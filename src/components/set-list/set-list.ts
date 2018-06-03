@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import{Events} from 'ionic-angular';
 
 /**
@@ -13,33 +13,26 @@ import{Events} from 'ionic-angular';
 })
 export class SetListComponent {
 
-  setList = []
-  text: string;
+  @Input() set:Object;
+  
+  
+  
 
-  constructor(private ev: Events,) {
+  constructor(
+              private ev: Events,
+  ) {
     console.log('Hello SetListComponent Component');
-    this.text = 'Hello World';
-    this.eventListener();
+    console.log()
+  
+    
   }
 
   deleteSet(set){
-    let index = this.setList.indexOf(set);
-         if(index > -1){
-          this.setList.splice(index, 1);
-        }
+    this.ev.publish('deleteSet', set)
+   
   
   }
-  eventListener(){
-    this.ev.subscribe('addToSetList', data => {
-      console.log(data)
-      this.setList.push(data)
-
-    })
-    
-    
-    
-
-  }
+ 
 
 
 

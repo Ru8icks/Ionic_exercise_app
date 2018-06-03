@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Events} from 'ionic-angular'
 
 
@@ -17,18 +17,20 @@ export class SetComponent {
   reps:number;
   
 
-  text: string;
+  
 
   constructor(
               private ev: Events,
 
   ) {
     console.log('Hello SetComponent Component');
-    this.text = 'Hello World';
+    
   }
 
   addSetToWorkout(reps,weight){
     console.log("add to workout")
+    console.log(reps, weight)
+    console.log("add to workout", reps, weight)
     this.ev.publish('addToSetList', {reps:reps,weight:weight})
     
     

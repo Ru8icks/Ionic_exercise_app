@@ -4,9 +4,68 @@ webpackJsonp([6],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompletedRunsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(73);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the CompletedRunsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var CompletedRunsPage = (function () {
+    function CompletedRunsPage(navCtrl, navParams, storage) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.storage = storage;
+        this.workouts = [];
+    }
+    CompletedRunsPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        console.log('ionViewDidLoad CompletedRunsPage');
+        this.storage.forEach(function (value, key, iteration) {
+            _this.workouts.push(value);
+            console.log(value);
+        });
+    };
+    CompletedRunsPage.prototype.clearWorkouts = function () {
+        this.storage.clear();
+        this.navCtrl.pop();
+    };
+    CompletedRunsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-completed-runs',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\completed-runs\completed-runs.html"*/'<!--\n\n  Generated template for the CompletedRunsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Completed Workouts</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n<div *ngFor="let item of workouts">\n\n\n\n  <p>Workout took place on {{item.Date}}-{{item.Month}}-{{item.Year}}</p>\n\n  <p>Duration of workout: {{item.Time}}</p>\n\n  <p>Distance travelled: {{item.Distance | number : \'1.1\'}}</p>\n\n\n\n</div>\n\n  <button ion-button  (click)="clearWorkouts()">Clear Workouts</button>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\completed-runs\completed-runs.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+    ], CompletedRunsPage);
+    return CompletedRunsPage;
+}());
+
+//# sourceMappingURL=completed-runs.js.map
+
+/***/ }),
+
+/***/ 174:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProgramPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider__);
@@ -155,72 +214,13 @@ var EditProgramPage = (function () {
 
 /***/ }),
 
-/***/ 174:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompletedRunsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(73);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the CompletedRunsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var CompletedRunsPage = (function () {
-    function CompletedRunsPage(navCtrl, navParams, storage) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.storage = storage;
-        this.workouts = [];
-    }
-    CompletedRunsPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        console.log('ionViewDidLoad CompletedRunsPage');
-        this.storage.forEach(function (value, key, iteration) {
-            _this.workouts.push(value);
-            console.log(value);
-        });
-    };
-    CompletedRunsPage.prototype.clearWorkouts = function () {
-        this.storage.clear();
-        this.navCtrl.pop();
-    };
-    CompletedRunsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-completed-runs',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\completed-runs\completed-runs.html"*/'<!--\n\n  Generated template for the CompletedRunsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Completed Workouts</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n<div *ngFor="let item of workouts">\n\n\n\n  <p>Workout took place on {{item.Date}}-{{item.Month}}-{{item.Year}}</p>\n\n  <p>Duration of workout: {{item.Time}}</p>\n\n  <p>Distance travelled: {{item.Distance | number : \'1.1\'}}</p>\n\n\n\n</div>\n\n  <button ion-button  (click)="clearWorkouts()">Clear Workouts</button>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\completed-runs\completed-runs.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
-    ], CompletedRunsPage);
-    return CompletedRunsPage;
-}());
-
-//# sourceMappingURL=completed-runs.js.map
-
-/***/ }),
-
 /***/ 175:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgramPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider__);
@@ -364,10 +364,10 @@ var ProgramPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgramsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__program_program__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_program_service__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_program_edit_program__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_program_edit_program__ = __webpack_require__(174);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__workout_workout__ = __webpack_require__(177);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -466,7 +466,7 @@ var ProgramsPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkoutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -491,15 +491,35 @@ var WorkoutPage = (function () {
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
         this.ev = ev;
+        this.setList = [];
     }
     WorkoutPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WorkoutPage');
+        this.eventListener();
         console.log("haia");
         console.log(this.navParams.get('title'));
     };
+    WorkoutPage.prototype.saveWorkout = function () {
+    };
+    WorkoutPage.prototype.eventListener = function () {
+        var _this = this;
+        this.ev.subscribe('addToSetList', function (data) {
+            console.log(data.reps, data.weight, "herer!");
+            console.log(data, JSON.stringify(data));
+            _this.setList.push(data);
+        });
+        this.ev.subscribe('deleteSet', function (data) {
+            console.log(data.set, "data.set");
+            console.log(data, "data");
+            var index = _this.setList.indexOf(data.set);
+            if (index > -1) {
+                _this.setList.splice(index, 1);
+            }
+        });
+    };
     WorkoutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n      <set>\n      </set>\n        \n        <note>\n\n        </note>\n        \n        \n  </div>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n    \n    <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
+            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n      <set>\n      </set>\n      <set-list  *ngFor="let set of setList" >\n\n      </set-list>\n        \n        <note>\n\n        </note>\n        \n        \n  </div>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n    \n    <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
@@ -539,15 +559,15 @@ var map = {
 		5
 	],
 	"../pages/edit-program/edit-program.module": [
-		741,
+		743,
 		4
 	],
 	"../pages/program/program.module": [
-		743,
+		744,
 		3
 	],
 	"../pages/programs/programs.module": [
-		744,
+		745,
 		2
 	],
 	"../pages/run/run.module": [
@@ -555,7 +575,7 @@ var map = {
 		1
 	],
 	"../pages/workout/workout.module": [
-		745,
+		747,
 		0
 	]
 };
@@ -581,9 +601,9 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelloIonicPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__run_run__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__completed_runs_completed_runs__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__completed_runs_completed_runs__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__programs_programs__ = __webpack_require__(176);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -631,7 +651,7 @@ var HelloIonicPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -693,13 +713,13 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(498);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_hello_ionic_hello_ionic__ = __webpack_require__(310);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_item_details_item_details__ = __webpack_require__(499);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_run_run__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_completed_runs_completed_runs__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_completed_runs_completed_runs__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(312);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(313);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_google_maps__ = __webpack_require__(266);
@@ -708,22 +728,24 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_cool_down_cool_down__ = __webpack_require__(733);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_set_set__ = __webpack_require__(736);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_note_note__ = __webpack_require__(737);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_storage__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_programs_programs__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_program_program__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_edit_program_edit_program__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_workout_workout__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_ng2_dragula_ng2_dragula__ = __webpack_require__(738);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_ng2_dragula_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22_ng2_dragula_ng2_dragula__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angularfire2__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angularfire2_database__ = __webpack_require__(255);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__service_program_service__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_set_list_set_list__ = __webpack_require__(738);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_storage__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_programs_programs__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_program_program__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_edit_program_edit_program__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_workout_workout__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng2_dragula_ng2_dragula__ = __webpack_require__(739);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng2_dragula_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_ng2_dragula_ng2_dragula__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angularfire2__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angularfire2_database__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__service_program_service__ = __webpack_require__(90);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -772,30 +794,31 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_7__pages_run_run__["a" /* RunPage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_completed_runs_completed_runs__["a" /* CompletedRunsPage */],
                 __WEBPACK_IMPORTED_MODULE_13__components_timer_timer__["a" /* TimerComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_programs_programs__["a" /* ProgramsPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_program_program__["a" /* ProgramPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_edit_program_edit_program__["a" /* EditProgramPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_workout_workout__["a" /* WorkoutPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_programs_programs__["a" /* ProgramsPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_program_program__["a" /* ProgramPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_edit_program_edit_program__["a" /* EditProgramPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_workout_workout__["a" /* WorkoutPage */],
                 __WEBPACK_IMPORTED_MODULE_14__components_cool_down_cool_down__["a" /* CoolDownComponent */],
                 __WEBPACK_IMPORTED_MODULE_15__components_set_set__["a" /* SetComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__components_note_note__["a" /* NoteComponent */]
+                __WEBPACK_IMPORTED_MODULE_16__components_note_note__["a" /* NoteComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_set_list_set_list__["a" /* SetListComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/edit-program/edit-program.module#EditProgramPageModule', name: 'EditProgramPage', segment: 'edit-program', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/completed-runs/completed-runs.module#CompletedRunsPageModule', name: 'CompletedRunsPage', segment: 'completed-runs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-program/edit-program.module#EditProgramPageModule', name: 'EditProgramPage', segment: 'edit-program', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/program/program.module#ProgramPageModule', name: 'ProgramPage', segment: 'program', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/programs/programs.module#ProgramsPageModule', name: 'ProgramsPage', segment: 'programs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/workout/workout.module#WorkoutPageModule', name: 'WorkoutPage', segment: 'workout', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/run/run.module#RunPageModule', name: 'RunPage', segment: 'run', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/run/run.module#RunPageModule', name: 'RunPage', segment: 'run', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/workout/workout.module#WorkoutPageModule', name: 'WorkoutPage', segment: 'workout', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_17__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_22_ng2_dragula_ng2_dragula__["DragulaModule"],
-                __WEBPACK_IMPORTED_MODULE_23_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-                __WEBPACK_IMPORTED_MODULE_24_angularfire2_database__["b" /* AngularFireDatabaseModule */],
+                __WEBPACK_IMPORTED_MODULE_18__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_23_ng2_dragula_ng2_dragula__["DragulaModule"],
+                __WEBPACK_IMPORTED_MODULE_24_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_25_angularfire2_database__["b" /* AngularFireDatabaseModule */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
@@ -805,10 +828,10 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_6__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_7__pages_run_run__["a" /* RunPage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_completed_runs_completed_runs__["a" /* CompletedRunsPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_programs_programs__["a" /* ProgramsPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_program_program__["a" /* ProgramPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_edit_program_edit_program__["a" /* EditProgramPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_workout_workout__["a" /* WorkoutPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_programs_programs__["a" /* ProgramsPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_program_program__["a" /* ProgramPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_edit_program_edit_program__["a" /* EditProgramPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_workout_workout__["a" /* WorkoutPage */],
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
@@ -816,7 +839,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_12__ionic_native_geolocation__["a" /* Geolocation */],
                 __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                [__WEBPACK_IMPORTED_MODULE_25__service_program_service__["a" /* ProgramService */]],
+                [__WEBPACK_IMPORTED_MODULE_26__service_program_service__["a" /* ProgramService */]],
             ]
         })
     ], AppModule);
@@ -833,7 +856,7 @@ var AppModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_hello_ionic_hello_ionic__ = __webpack_require__(310);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_list_list__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_run_run__ = __webpack_require__(96);
@@ -911,7 +934,7 @@ var MyApp = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -949,7 +972,7 @@ var ItemDetailsPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TimerComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__(501);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1129,7 +1152,7 @@ function format(ms) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1151,10 +1174,11 @@ var SetComponent = (function () {
     function SetComponent(ev) {
         this.ev = ev;
         console.log('Hello SetComponent Component');
-        this.text = 'Hello World';
     }
     SetComponent.prototype.addSetToWorkout = function (reps, weight) {
         console.log("add to workout");
+        console.log(reps, weight);
+        console.log("add to workout", reps, weight);
         this.ev.publish('addToSetList', { reps: reps, weight: weight });
     };
     SetComponent.prototype.incReps = function () {
@@ -1214,7 +1238,7 @@ var SetComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NoteComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1289,6 +1313,56 @@ var NoteComponent = (function () {
 
 /***/ }),
 
+/***/ 738:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SetListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the SetListComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var SetListComponent = (function () {
+    function SetListComponent(ev) {
+        this.ev = ev;
+        this.setList = [];
+        console.log('Hello SetListComponent Component');
+    }
+    SetListComponent.prototype.deleteSet = function (set) {
+        this.ev.publish('deleteSet', set);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Object)
+    ], SetListComponent.prototype, "setList", void 0);
+    SetListComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'set-list',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\set-list\set-list.html"*/'<!-- Generated template for the SetListComponent component -->\n<div class="sets">\n    <ion-list>\n   <ion-item-sliding>\n         <ion-item>\n           {{set}}X\n           {{set}}\n         </ion-item>\n         <ion-item-options side="right">\n           <button ion-button (click)="deleteSet(set)">\n             <ion-icon name="trash"></ion-icon>Delete\n           </button>\n         </ion-item-options>\n       </ion-item-sliding>\n     </ion-list>\n\n </div>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\set-list\set-list.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+    ], SetListComponent);
+    return SetListComponent;
+}());
+
+//# sourceMappingURL=set-list.js.map
+
+/***/ }),
+
 /***/ 90:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1341,7 +1415,7 @@ var ProgramService = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RunPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_maps__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_geolocation__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_spherical_geometry_js__ = __webpack_require__(480);
