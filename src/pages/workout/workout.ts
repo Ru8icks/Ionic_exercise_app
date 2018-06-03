@@ -21,8 +21,7 @@ import { SetComponent } from "../../components/set/set";
 export class WorkoutPage {
  
 
-  setList = []
-  notes= []
+  
 
 
 
@@ -37,28 +36,12 @@ export class WorkoutPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WorkoutPage');
-    this.eventListener();
+    
     console.log("haia")
     console.log(this.navParams.get('title'))
     
   }
   
-  eventListener(){
-    this.ev.subscribe('addToSetList', data => {
-      console.log(data)
-      this.setList.push(data)
-
-    })
-    this.ev.subscribe('addToNotes', data => {
-      console.log(data)
-      this.notes.push(data)
-      console.log(data.note);
-
-    })
-    
-    
-
-  }
 
 
 
@@ -66,13 +49,6 @@ export class WorkoutPage {
 
 
 
-    deleteSet(set){
-      let index = this.setList.indexOf(set);
-           if(index > -1){
-            this.setList.splice(index, 1);
-          }
-    
-    }
  
 
   

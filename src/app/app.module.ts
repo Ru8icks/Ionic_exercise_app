@@ -17,6 +17,7 @@ import {TimerComponent} from "../components/timer/timer";
 import { CoolDownComponent} from "../components/cool-down/cool-down";
 import { SetComponent} from "../components/set/set";
 import { NoteComponent} from "../components/note/note";
+import { SetListComponent} from "../components/set-list/set-list";
 
 import { IonicStorageModule } from '@ionic/storage';
 import { ProgramsPage } from '../pages/programs/programs';
@@ -60,7 +61,8 @@ export const firebaseConfig = {
     WorkoutPage,
     CoolDownComponent,
     SetComponent,
-    NoteComponent
+    NoteComponent,
+    SetListComponent,
     
 
   ],
