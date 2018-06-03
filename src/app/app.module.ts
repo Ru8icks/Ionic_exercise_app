@@ -15,6 +15,9 @@ import { GoogleMaps} from "@ionic-native/google-maps";
 import { Geolocation } from '@ionic-native/geolocation'
 import {TimerComponent} from "../components/timer/timer";
 import { CoolDownComponent} from "../components/cool-down/cool-down";
+import { SetComponent} from "../components/set/set";
+import { NoteComponent} from "../components/note/note";
+
 import { IonicStorageModule } from '@ionic/storage';
 import { ProgramsPage } from '../pages/programs/programs';
 import { ProgramPage } from '../pages/program/program';
@@ -56,6 +59,8 @@ export const firebaseConfig = {
     EditProgramPage,
     WorkoutPage,
     CoolDownComponent,
+    SetComponent,
+    NoteComponent
     
 
   ],

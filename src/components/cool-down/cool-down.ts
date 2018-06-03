@@ -1,7 +1,7 @@
 
 
 import {Component, Input, Output} from '@angular/core';
-import {Events} from "ionic-angular";
+
 
 import {Subscription} from "rxjs/Subscription";
 import { start } from 'repl';
@@ -20,7 +20,7 @@ import { timer } from 'rxjs/observable/timer';
 export class CoolDownComponent {
   time: number;
   startTime:number
-  @Output() totalTime: number;
+  
   subscribe: Subscription;
 
   text:string;
@@ -29,7 +29,7 @@ export class CoolDownComponent {
 
 
     
-  constructor(private ev: Events) {
+  constructor() {
     console.log('Hello TimerComponent Component');
     this.time=30000
     this.startTime=30000
@@ -42,52 +42,37 @@ export class CoolDownComponent {
   }
   ngOnInit(){
     console.log("ngoninit")
-    this.eventListener();
+  
   };
   ngOnDestroy(){
     console.log("herrherrherrr")
-    this.ev.unsubscribe('start');
-    this.ev.unsubscribe('finish');
+ 
   }
   
 
   start(){
     console.log("is here")
-    this.ev.publish('start')
-    console.log("is hereas")
-  }
-
-
-  eventListener(){
-    this.ev.subscribe('start', data => {
-      if(this.on){
-        return
-      }
-      this.on=true;
-      console.log("eventsworkings! wizardfight");
-      const source = timer(0, 1000);
-      console.log("eventsworkings! wizardfight");
-      this.subscribe = source.subscribe(val => {
-        console.log( this.time );
-      
-        this.text= format(this.time-=1000);
-        if (this.time==0){
-          this.time=this.startTime;
-          this.text =format(this.startTime)
-          this.ev.publish('finish')
-          this.on=false;
-        }
-      });
-      
-    });
-    this.ev.subscribe('finish', data => {
-      console.log("does this do nothgin");
-      this.subscribe.unsubscribe();
-      
-
-    });
+    if(this.on){
+      return
+    }
+    this.on=true;
+    console.log("! wizardfight");
+    const source = timer(0, 1000);
+    console.log("! wizardfight");
+    this.subscribe = source.subscribe(val => {
+      console.log( this.time );
     
+      this.text= format(this.time-=1000);
+      if (this.time==0){
+        this.time=this.startTime;
+        this.text =format(this.startTime)
+        console.log("reached zero");
+        this.subscribe.unsubscribe();
+        this.on=false;
+      }
+    })
   }
+
   incTime(){
     if(!this.on){
       console.log("inc")

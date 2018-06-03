@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { CoolDownComponent} from "../../components/cool-down/cool-down";
-import {Subscription} from "rxjs/Subscription";
+import { SetComponent } from "../../components/set/set";
+
+
 
 /**
  * Generated class for the WorkoutPage page.
@@ -17,7 +19,7 @@ import {Subscription} from "rxjs/Subscription";
   templateUrl: 'workout.html',
 })
 export class WorkoutPage {
-  subscript: Subscription;
+ 
 
   setList = []
   notes= []
@@ -28,53 +30,40 @@ export class WorkoutPage {
               public navParams: NavParams,
               public alertCtrl: AlertController,
               private ev: Events,
+              
+              
                 ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WorkoutPage');
+    this.eventListener();
     console.log("haia")
     console.log(this.navParams.get('title'))
     
   }
+  
+  eventListener(){
+    this.ev.subscribe('addToSetList', data => {
+      console.log(data)
+      this.setList.push(data)
 
+    })
+    this.ev.subscribe('addToNotes', data => {
+      console.log(data)
+      this.notes.push(data)
+      console.log(data.note);
 
-  addSetToWorkout(reps,weight){
-    this.setList.push({reps:reps,weight:weight})
-    this.ev.publish('start')
+    })
+    
+    
 
   }
+
+
+
   
 
-  addNote(){
-   
-      let prompt = this.alertCtrl.create({
-        
-        message: "Add note for workout",
-        inputs: [
-          {
-            name: 'note',
-            placeholder: 'Note'
-          },
-        ],
-        buttons: [
-          {
-            text: 'Cancel',
-            handler: data => {
-              console.log('Cancel clicked');
-            }
-          },
-          {
-            text: 'Save',
-            handler: data => {
-              this.notes.push(data.note);
-              console.log(data.note);
-            }
-          }
-        ]
-      });
-      prompt.present();
-    }
 
 
     deleteSet(set){
@@ -84,14 +73,7 @@ export class WorkoutPage {
           }
     
     }
-    deleteNote(note){
-      let index = this.notes.indexOf(note);
-           if(index > -1){
-            this.notes.splice(index, 1);
-          }
-
-    }
-  
+ 
 
   
 

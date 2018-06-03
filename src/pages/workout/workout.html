@@ -15,13 +15,8 @@
 
 <ion-content padding>
   <div>
-    <ion-item>
-        <ion-input type="number" placeholder="Repetitions" min='0' [(ngModel)]='reps'></ion-input>
-    </ion-item>
-    <ion-item>
-         <ion-input type="number" placeholder="Weight" [(ngModel)]='weight'></ion-input>
-    </ion-item>
-        <button ion-button full (click)=addSetToWorkout(reps,weight)><ion-icon name="add-circle"></ion-icon> Add</button>
+      <set>
+      </set>
         <div class="sets">
            <ion-list>
           <ion-item-sliding *ngFor="let set of setList">
@@ -38,27 +33,16 @@
             </ion-list>
 
         </div>
-        <div class="notes">
-
-            <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>  
-            <ion-list>
-                <ion-item-sliding *ngFor="let note of notes">
-                      <ion-item>
-                          {{note}}
-                      </ion-item>
-                      <ion-item-options side="right">
-                        <button ion-button (click)="deleteNote(note)">
-                          <ion-icon name="trash"></ion-icon>Delete
-                        </button>
-                      </ion-item-options>
-                    </ion-item-sliding>
-                  </ion-list>
-            
-            
+        <note>
+          
+        </note>
         
-            
-
-        </div>
-        <cool-down></cool-down>
+        
   </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    
+    <cool-down></cool-down>
+  </ion-toolbar>
+</ion-footer>
