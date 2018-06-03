@@ -492,6 +492,7 @@ var WorkoutPage = (function () {
         this.alertCtrl = alertCtrl;
         this.ev = ev;
         this.setList = [];
+        this.notes = [];
     }
     WorkoutPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WorkoutPage');
@@ -516,11 +517,46 @@ var WorkoutPage = (function () {
             if (index > -1) {
                 _this.setList.splice(index, 1);
             }
+            _this.ev.subscribe('deleteNote', function (note) {
+                var index = _this.notes.indexOf(note);
+                if (index > -1) {
+                    _this.notes.splice(index, 1);
+                }
+            });
         });
+    };
+    WorkoutPage.prototype.addNote = function () {
+        var _this = this;
+        var prompt = this.alertCtrl.create({
+            message: "Add note for workout",
+            inputs: [
+                {
+                    name: 'note',
+                    placeholder: 'Note'
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function (data) {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Save',
+                    handler: function (data) {
+                        console.log(data.note);
+                        _this.notes.push(data.note);
+                        console.log('addnote clicked');
+                    }
+                }
+            ]
+        });
+        prompt.present();
     };
     WorkoutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n      <set>\n      </set>\n      <set-list  *ngFor="let set of setList" [set]="set" >\n\n      </set-list>\n        \n        <note>\n\n        </note>\n        \n        \n  </div>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n    \n    <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
+            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n      <set>\n      </set>\n      <set-list  *ngFor="let set of setList" [set]="set" >\n\n      </set-list>\n      <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>  \n      <note *ngFor="let note of notes" [note]="note">\n\n      </note>\n        \n        \n  </div>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n    \n    <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _d || Object])
     ], WorkoutPage);
@@ -570,11 +606,11 @@ var map = {
 		2
 	],
 	"../pages/run/run.module": [
-		746,
+		747,
 		1
 	],
 	"../pages/workout/workout.module": [
-		747,
+		746,
 		0
 	]
 };
@@ -810,8 +846,8 @@ var AppModule = (function () {
                         { loadChildren: '../pages/edit-program/edit-program.module#EditProgramPageModule', name: 'EditProgramPage', segment: 'edit-program', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/program/program.module#ProgramPageModule', name: 'ProgramPage', segment: 'program', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/programs/programs.module#ProgramsPageModule', name: 'ProgramsPage', segment: 'programs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/run/run.module#RunPageModule', name: 'RunPage', segment: 'run', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/workout/workout.module#WorkoutPageModule', name: 'WorkoutPage', segment: 'workout', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/workout/workout.module#WorkoutPageModule', name: 'WorkoutPage', segment: 'workout', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/run/run.module#RunPageModule', name: 'RunPage', segment: 'run', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_18__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
@@ -1260,52 +1296,23 @@ var NoteComponent = (function () {
     function NoteComponent(alertCtrl, ev) {
         this.alertCtrl = alertCtrl;
         this.ev = ev;
-        this.notes = [];
         console.log('Hello NoteComponent Component');
-        this.text = 'Hello World';
     }
-    NoteComponent.prototype.addNote = function () {
-        var _this = this;
-        var prompt = this.alertCtrl.create({
-            message: "Add note for workout",
-            inputs: [
-                {
-                    name: 'note',
-                    placeholder: 'Note'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function (data) {
-                        console.log('Cancel clicked');
-                    }
-                },
-                {
-                    text: 'Save',
-                    handler: function (data) {
-                        _this.notes.push(data.note);
-                        console.log('addnote clicked');
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    };
     NoteComponent.prototype.deleteNote = function (note) {
-        var index = this.notes.indexOf(note);
-        if (index > -1) {
-            this.notes.splice(index, 1);
-        }
+        this.ev.publish('deleteNote', note);
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], NoteComponent.prototype, "note", void 0);
     NoteComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'note',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\note\note.html"*/'<!-- Generated template for the NoteComponent component -->\n<div class="notes">\n\n    <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>  \n    <ion-list>\n        <ion-item-sliding *ngFor="let note of notes">\n              <ion-item>\n                  {{note}}\n              </ion-item>\n              <ion-item-options side="right">\n                <button ion-button (click)="deleteNote(note)">\n                  <ion-icon name="trash"></ion-icon>Delete\n                </button>\n              </ion-item-options>\n            </ion-item-sliding>\n          </ion-list>\n</div>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\note\note.html"*/
+            selector: 'note',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\note\note.html"*/'<!-- Generated template for the NoteComponent component -->\n<div class="notes">\n\n    \n    <ion-list>\n        <ion-item-sliding >\n              <ion-item>\n                  {{note}}\n              </ion-item>\n              <ion-item-options side="right">\n                <button ion-button (click)="deleteNote(note)">\n                  <ion-icon name="trash"></ion-icon>Delete\n                </button>\n              </ion-item-options>\n            </ion-item-sliding>\n          </ion-list>\n</div>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\note\note.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _b || Object])
     ], NoteComponent);
     return NoteComponent;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=note.js.map

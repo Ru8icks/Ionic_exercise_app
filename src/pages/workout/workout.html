@@ -20,10 +20,10 @@
       <set-list  *ngFor="let set of setList" [set]="set" >
 
       </set-list>
-        
-        <note>
+      <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>  
+      <note *ngFor="let note of notes" [note]="note">
 
-        </note>
+      </note>
         
         
   </div>

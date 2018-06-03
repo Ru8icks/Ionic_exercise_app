@@ -19,6 +19,7 @@ import { NoteComponent } from "../../components/note/note";
 })
 export class WorkoutPage {
   setList = [];
+  notes= []
 
   
 
@@ -60,13 +61,56 @@ export class WorkoutPage {
       if(index > -1){
        this.setList.splice(index, 1);
      }
+     
+     this.ev.subscribe('deleteNote',note=>{
+      let index = this.notes.indexOf(note);
+      if(index > -1){
+       this.notes.splice(index, 1);
+     }
+
+     })
     })
+    
 
     
     
     
 
   }
+  addNote(){
+   
+    let prompt = this.alertCtrl.create({
+      
+      message: "Add note for workout",
+      inputs: [
+        {
+          name: 'note',
+          placeholder: 'Note'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log(data.note)
+            this.notes.push(data.note);
+             console.log('addnote clicked');
+
+            
+          
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
 
 
 

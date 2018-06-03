@@ -492,6 +492,7 @@ var WorkoutPage = (function () {
         this.alertCtrl = alertCtrl;
         this.ev = ev;
         this.setList = [];
+        this.notes = [];
     }
     WorkoutPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WorkoutPage');
@@ -512,10 +513,20 @@ var WorkoutPage = (function () {
         this.ev.subscribe('deleteSet', function (data) {
             console.log(data.set, "data.set");
             console.log(data, "data");
-            var index = _this.setList.indexOf(data.set);
+            var index = _this.setList.indexOf(data);
             if (index > -1) {
                 _this.setList.splice(index, 1);
             }
+            _this.ev.subscribe('saveNote', function (data) {
+                _this.notes.push(data.note);
+                console.log('addnote clicked');
+            });
+            _this.ev.subscribe('deleteNote', function (note) {
+                var index = _this.notes.indexOf(note);
+                if (index > -1) {
+                    _this.notes.splice(index, 1);
+                }
+            });
         });
     };
     WorkoutPage = __decorate([
@@ -572,11 +583,11 @@ var map = {
 		2
 	],
 	"../pages/run/run.module": [
-		746,
+		747,
 		1
 	],
 	"../pages/workout/workout.module": [
-		747,
+		746,
 		0
 	]
 };
@@ -812,8 +823,8 @@ var AppModule = (function () {
                         { loadChildren: '../pages/edit-program/edit-program.module#EditProgramPageModule', name: 'EditProgramPage', segment: 'edit-program', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/program/program.module#ProgramPageModule', name: 'ProgramPage', segment: 'program', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/programs/programs.module#ProgramsPageModule', name: 'ProgramsPage', segment: 'programs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/run/run.module#RunPageModule', name: 'RunPage', segment: 'run', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/workout/workout.module#WorkoutPageModule', name: 'WorkoutPage', segment: 'workout', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/workout/workout.module#WorkoutPageModule', name: 'WorkoutPage', segment: 'workout', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/run/run.module#RunPageModule', name: 'RunPage', segment: 'run', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_18__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
@@ -1262,9 +1273,7 @@ var NoteComponent = (function () {
     function NoteComponent(alertCtrl, ev) {
         this.alertCtrl = alertCtrl;
         this.ev = ev;
-        this.notes = [];
         console.log('Hello NoteComponent Component');
-        this.text = 'Hello World';
     }
     NoteComponent.prototype.addNote = function () {
         var _this = this;
@@ -1286,8 +1295,7 @@ var NoteComponent = (function () {
                 {
                     text: 'Save',
                     handler: function (data) {
-                        _this.notes.push(data.note);
-                        console.log('addnote clicked');
+                        _this.ev.publish("saveNote", data.note);
                     }
                 }
             ]
@@ -1295,10 +1303,7 @@ var NoteComponent = (function () {
         prompt.present();
     };
     NoteComponent.prototype.deleteNote = function (note) {
-        var index = this.notes.indexOf(note);
-        if (index > -1) {
-            this.notes.splice(index, 1);
-        }
+        this.ev.publish("deleteNote", note);
     };
     NoteComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
