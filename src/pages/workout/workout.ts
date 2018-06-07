@@ -41,6 +41,12 @@ export class WorkoutPage {
     console.log(this.navParams.get('title'))
     
   }
+  ngOnDestroy(){
+    this.ev.unsubscribe('addToSetList');
+    this.ev.unsubscribe('deleteSet');
+    this.ev.unsubscribe('deleteNote');
+    console.log("unsubscribed events")
+  }
   saveWorkout(){
 
 
