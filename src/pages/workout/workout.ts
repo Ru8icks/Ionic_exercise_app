@@ -20,6 +20,9 @@ import { NoteComponent } from "../../components/note/note";
 export class WorkoutPage {
   setList = [];
   notes= []
+  program = []
+  completedWorkout = []
+
 
   
 
@@ -39,6 +42,9 @@ export class WorkoutPage {
     this.eventListener();
     console.log("haia")
     console.log(this.navParams.get('title'))
+    this.program.push(this.navParams.get('content'))
+    console.log(JSON.stringify(this.program))
+    console.log("current: ",JSON.stringify(this.program[0][0]))
     
   }
   ngOnDestroy(){
@@ -48,6 +54,8 @@ export class WorkoutPage {
     console.log("unsubscribed events")
   }
   saveWorkout(){
+    this.completedWorkout.push(this.program[0][0], this.setList)
+    console.log("current: ",JSON.stringify(this.completedWorkout))
 
 
   }
