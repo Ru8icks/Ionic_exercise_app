@@ -22,6 +22,9 @@ export class WorkoutPage {
   notes= []
   program = []
   completedWorkout = []
+  current;
+  maxWeight= 0;
+  currentName;
 
 
   
@@ -42,9 +45,15 @@ export class WorkoutPage {
     this.eventListener();
     console.log("haia")
     console.log(this.navParams.get('title'))
-    this.program.push(this.navParams.get('content'))
+    this.program = (this.navParams.get('content'))
+    this.program.reverse()
     console.log(JSON.stringify(this.program))
-    console.log("current: ",JSON.stringify(this.program[0][0]))
+    
+    this.current=this.program.pop();
+    this.currentName= this.current.name
+    console.log("current: ",JSON.stringify(this.current))
+   
+    
     
   }
   ngOnDestroy(){
@@ -54,8 +63,15 @@ export class WorkoutPage {
     console.log("unsubscribed events")
   }
   saveWorkout(){
-    this.completedWorkout.push(this.program[0][0], this.setList)
-    console.log("current: ",JSON.stringify(this.completedWorkout))
+    console.log("this max ", this.maxWeight)
+    let obje = {name:this.current.name, type:this.current.type, max:this.maxWeight , sets: this.setList  }
+    this.completedWorkout.push(obje)
+    console.log("completed: ",JSON.stringify(this.completedWorkout))
+    this.maxWeight=0;
+    this.current= this.program.pop()
+    this.currentName= this.current.name
+    console.log("current: ",JSON.stringify(this.current))
+    
 
 
   }
@@ -65,6 +81,10 @@ export class WorkoutPage {
       console.log(data, JSON.stringify(data) )
       this.setList.push(data)
       console.log(this.setList)
+      if(this.maxWeight<= data.weight){
+        console.log("new max weight")
+        this.maxWeight=data.weight;
+      }
       
 
     })
