@@ -496,6 +496,7 @@ var WorkoutPage = (function () {
         this.program = [];
         this.completedWorkout = [];
         this.maxWeight = 0;
+        this.counter = 0;
     }
     WorkoutPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WorkoutPage');
@@ -503,9 +504,9 @@ var WorkoutPage = (function () {
         console.log("haia");
         console.log(this.navParams.get('title'));
         this.program = (this.navParams.get('content'));
-        this.program.reverse();
+        //this.program.reverse()
         console.log(JSON.stringify(this.program));
-        this.current = this.program.pop();
+        this.current = this.program[this.counter];
         this.currentName = this.current.name;
         console.log("current: ", JSON.stringify(this.current));
     };
@@ -521,10 +522,17 @@ var WorkoutPage = (function () {
         this.completedWorkout.push(obje);
         console.log("completed: ", JSON.stringify(this.completedWorkout));
         this.maxWeight = 0;
-        this.current = this.program.pop();
-        this.currentName = this.current.name;
         this.setList = [];
         console.log("current: ", JSON.stringify(this.current), this.setList);
+        if (this.counter < (this.program.length - 1)) {
+            console.log(this.counter, (this.program.length - 1));
+            this.counter++;
+            this.current = this.program[this.counter];
+            this.currentName = this.current.name;
+        }
+        else {
+            console.log(JSON.stringify(this.completedWorkout));
+        }
     };
     WorkoutPage.prototype.eventListener = function () {
         var _this = this;

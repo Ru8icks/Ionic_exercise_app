@@ -524,7 +524,7 @@ var WorkoutPage = (function () {
         this.current = this.program.pop();
         this.currentName = this.current.name;
         this.setList = [];
-        console.log("current: ", JSON.stringify(this.current));
+        console.log("current: ", JSON.stringify(this.current), this.setList);
     };
     WorkoutPage.prototype.eventListener = function () {
         var _this = this;

@@ -25,6 +25,7 @@ export class WorkoutPage {
   current;
   maxWeight= 0;
   currentName;
+  counter=0;
 
 
   
@@ -46,10 +47,10 @@ export class WorkoutPage {
     console.log("haia")
     console.log(this.navParams.get('title'))
     this.program = (this.navParams.get('content'))
-    this.program.reverse()
+    //this.program.reverse()
     console.log(JSON.stringify(this.program))
     
-    this.current=this.program.pop();
+    this.current=this.program[this.counter];
     this.currentName= this.current.name
     console.log("current: ",JSON.stringify(this.current))
    
@@ -68,10 +69,20 @@ export class WorkoutPage {
     this.completedWorkout.push(obje)
     console.log("completed: ",JSON.stringify(this.completedWorkout))
     this.maxWeight=0;
-    this.current= this.program.pop()
-    this.currentName= this.current.name
+
     this.setList = [];
     console.log("current: ",JSON.stringify(this.current), this.setList)
+
+
+    if(this.counter<(this.program.length-1) ){
+      console.log(this.counter, (this.program.length-1))
+      
+      this.counter++
+      this.current= this.program[this.counter]
+      this.currentName= this.current.name
+    } else {
+      console.log(JSON.stringify(this.completedWorkout))
+    }
     
     
 
