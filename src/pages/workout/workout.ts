@@ -70,7 +70,9 @@ export class WorkoutPage {
     this.maxWeight=0;
     this.current= this.program.pop()
     this.currentName= this.current.name
-    console.log("current: ",JSON.stringify(this.current))
+    this.setList = [];
+    console.log("current: ",JSON.stringify(this.current), this.setList)
+    
     
 
 

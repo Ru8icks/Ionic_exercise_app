@@ -503,17 +503,11 @@ var WorkoutPage = (function () {
         console.log("haia");
         console.log(this.navParams.get('title'));
         this.program = (this.navParams.get('content'));
+        this.program.reverse();
         console.log(JSON.stringify(this.program));
-        console.log("current: ", JSON.stringify(this.program[0]));
-        console.log("program: ", JSON.stringify(this.program));
         this.current = this.program.pop();
         this.currentName = this.current.name;
-        console.log("program: ", JSON.stringify(this.program));
-        this.current = this.program.pop();
-        this.current = this.program.pop();
-        this.current = this.program.pop();
-        console.log("program: ", JSON.stringify(this.program));
-        this.current = this.program.pop();
+        console.log("current: ", JSON.stringify(this.current));
     };
     WorkoutPage.prototype.ngOnDestroy = function () {
         this.ev.unsubscribe('addToSetList');
@@ -525,9 +519,12 @@ var WorkoutPage = (function () {
         console.log("this max ", this.maxWeight);
         var obje = { name: this.current.name, type: this.current.type, max: this.maxWeight, sets: this.setList };
         this.completedWorkout.push(obje);
-        console.log("current: ", JSON.stringify(this.completedWorkout));
+        console.log("completed: ", JSON.stringify(this.completedWorkout));
         this.maxWeight = 0;
         this.current = this.program.pop();
+        this.currentName = this.current.name;
+        this.setList = [];
+        console.log("current: ", JSON.stringify(this.current));
     };
     WorkoutPage.prototype.eventListener = function () {
         var _this = this;
