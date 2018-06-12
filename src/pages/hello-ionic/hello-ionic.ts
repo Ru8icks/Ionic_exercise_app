@@ -5,6 +5,7 @@ import { CompletedRunsPage} from "../completed-runs/completed-runs";
 import { ProgramsPage } from '../programs/programs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-hello-ionic',
@@ -30,9 +31,11 @@ export class HelloIonicPage {
 login() {
   let data = this.loginForm.value;
 
+
   if (!data.email) {
     return;
   }
+  
 
   let credentials = {
     email: data.email,
@@ -44,6 +47,10 @@ login() {
       error => this.loginError = error.message
     );
 }
+signup(){
+  this.navCtrl.push(SignupPage);
+}
+
 
   goToRun() {
     this.navCtrl.push(RunPage);

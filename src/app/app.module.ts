@@ -27,6 +27,7 @@ import { WorkoutPage } from '../pages/workout/workout'
 
 import { AuthService } from '../service/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { SignupPage } from '../pages/signup/signup';
  
 
 
@@ -69,6 +70,7 @@ export const firebaseConfig = {
     SetComponent,
     NoteComponent,
     SetListComponent,
+    SignupPage,
     
 
   ],
@@ -93,6 +95,7 @@ export const firebaseConfig = {
     ProgramPage,
     EditProgramPage,
     WorkoutPage,
+    SignupPage,
     
   ],
   providers: [
