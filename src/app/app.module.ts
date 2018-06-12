@@ -24,6 +24,9 @@ import { ProgramsPage } from '../pages/programs/programs';
 import { ProgramPage } from '../pages/program/program';
 import {EditProgramPage} from '../pages/edit-program/edit-program'
 import { WorkoutPage } from '../pages/workout/workout'
+
+import { AuthService } from '../service/auth.service';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
  
 
 
@@ -33,6 +36,9 @@ import {DragulaModule , DragulaService} from "ng2-dragula/ng2-dragula"
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { ProgramService } from '../service/program.service';
 
@@ -73,6 +79,7 @@ export const firebaseConfig = {
     DragulaModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    NgxErrorsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -95,6 +102,8 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     [ProgramService],
+    AngularFireAuth,
+    AuthService,
 
   ]
 })

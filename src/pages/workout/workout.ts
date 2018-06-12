@@ -82,6 +82,7 @@ export class WorkoutPage {
       this.currentName= this.current.name
     } else {
       console.log(JSON.stringify(this.completedWorkout))
+      
     }
     
     

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun May 27 17:25:40 CEST 2018
+#Tue Jun 12 19:44:08 CEST 2018
 175.set=ASSET
 122.file=E\:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\0\\lib\\x86_64\\libtbxml.so
 60.set=ANDROID_RESOURCE
