@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 import { AuthService } from '../service/auth.service';
+import { ProgramsPage } from '../pages/programs/programs';
 
 
 @Component({
@@ -19,17 +20,17 @@ import { AuthService } from '../service/auth.service';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  private auth: AuthService
+  
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage ;
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen
-  ) {
+    public splashScreen: SplashScreen,
+    private auth: AuthService) {
     this.initializeApp();
 
     // set our app's pages
@@ -46,7 +47,26 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      
     });
+    console.log("before afauth")
+    
+    this.auth.afAuth.authState
+    .subscribe(
+      user => {
+        if (user) {
+          this.rootPage = HelloIonicPage;
+        } else {
+          this.rootPage = HelloIonicPage;
+        }
+      },
+      () => {
+        this.rootPage = HelloIonicPage;
+      }
+    );
+    console.log("aftret afauth")
+
+
   }
 
   openPage(page) {
@@ -55,4 +75,15 @@ export class MyApp {
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
   }
+  login() {
+    this.menu.close();
+    this.auth.signOut();
+    this.nav.setRoot(HelloIonicPage);
+  }
+  
+logout() {
+	this.menu.close();
+	this.auth.signOut();
+	this.nav.setRoot(HelloIonicPage);
+}
 }

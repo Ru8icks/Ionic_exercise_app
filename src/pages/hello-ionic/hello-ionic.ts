@@ -51,6 +51,17 @@ signup(){
   this.navCtrl.push(SignupPage);
 }
 
+loginWithGoogle() {
+  this.auth.signInWithGoogle()
+    .then(
+      () => this.navCtrl.setRoot(ProgramsPage),
+      error => console.log(error.message)
+    );
+}
+
+
+
+
 
   goToRun() {
     this.navCtrl.push(RunPage);
