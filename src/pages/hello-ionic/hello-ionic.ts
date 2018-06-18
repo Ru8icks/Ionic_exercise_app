@@ -43,7 +43,7 @@ login() {
   };
   this.auth.signInWithEmail(credentials)
     .then(
-      () => this.navCtrl.setRoot(HelloIonicPage),
+      () => this.navCtrl.setRoot(ProgramsPage),
       error => this.loginError = error.message
     );
 }

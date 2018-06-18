@@ -1,11 +1,13 @@
+
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { Program } from '../model/program.model';
  
 @Injectable()
 export class ProgramService {
  
     private programRef = this.db.list<Program>('programs');
+    
     
  
     constructor(private db: AngularFireDatabase) { }
