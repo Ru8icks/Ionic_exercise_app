@@ -34,16 +34,17 @@ export class ProgramsPage {
               private programService: ProgramService,
              ) {
 
-              this.programs = this.programService.getPrograms().snapshotChanges().pipe(map(
-                changes => {
-                  return changes.map(c => ({
-                    key: c.payload.key, ...c.payload.val()
-                  }))
-                }))
+             
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgramsPage');
+    this.programs = this.programService.getPrograms().snapshotChanges().pipe(map(
+      changes => {
+        return changes.map(c => ({
+          key: c.payload.key, ...c.payload.val()
+        }))
+      }))
   }
   newProgram(){
     console.log('newn prog new prog');
