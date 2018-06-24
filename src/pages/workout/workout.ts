@@ -5,6 +5,8 @@ import { CoolDownComponent} from "../../components/cool-down/cool-down";
 import { SetComponent } from "../../components/set/set";
 import { SetListComponent } from "../../components/set-list/set-list";
 import { NoteComponent } from "../../components/note/note";
+import { WorkoutService } from '../../service/workout.service';
+import { Workout } from '../../model/workout.model';
 /**
  * Generated class for the WorkoutPage page.
  *
@@ -21,11 +23,22 @@ export class WorkoutPage {
   setList = [];
   notes= []
   program = []
-  completedWorkout = []
+  
   current;
   maxWeight= 0;
   currentName;
   counter=0;
+  workout :Workout={
+    rep: 0,
+    weight:0,
+    date: 0,
+    maxWeight:0,
+    name:"",
+    
+};
+    
+
+  
 
 
   
@@ -36,9 +49,13 @@ export class WorkoutPage {
               public navParams: NavParams,
               public alertCtrl: AlertController,
               private ev: Events,
+              private workoutService : WorkoutService,
+
+              
               
               
                 ) {
+                  
   }
 
   ionViewDidLoad() {
@@ -53,6 +70,7 @@ export class WorkoutPage {
     this.current=this.program[this.counter];
     this.currentName= this.current.name
     console.log("current: ",JSON.stringify(this.current))
+    console.log("current: ",JSON.stringify(this.current))
    
     
     
@@ -63,15 +81,17 @@ export class WorkoutPage {
     this.ev.unsubscribe('deleteNote');
     console.log("unsubscribed events")
   }
+
+
+
   saveWorkout(){
     console.log("this max ", this.maxWeight)
-    let obje = {name:this.current.name, type:this.current.type, max:this.maxWeight , sets: this.setList  }
-    this.completedWorkout.push(obje)
-    console.log("completed: ",JSON.stringify(this.completedWorkout))
     this.maxWeight=0;
-
+    
     this.setList = [];
     console.log("current: ",JSON.stringify(this.current), this.setList)
+    console.log("this.counter", this.counter, "this.program.length-1",this.program.length-1)
+    
 
 
     if(this.counter<(this.program.length-1) ){
@@ -81,7 +101,8 @@ export class WorkoutPage {
       this.current= this.program[this.counter]
       this.currentName= this.current.name
     } else {
-      console.log(JSON.stringify(this.completedWorkout))
+      console.log("asdads")
+      
       
     }
     
@@ -93,13 +114,23 @@ export class WorkoutPage {
     this.ev.subscribe('addToSetList', data => {
       console.log(data.reps, data.weight, "herer!")
       console.log(data, JSON.stringify(data) )
-      this.setList.push(data)
-      console.log(this.setList)
+      
+
+      
+      
       if(this.maxWeight<= data.weight){
         console.log("new max weight")
         this.maxWeight=data.weight;
       }
+      this.workout.date=Date.now();
+      this.workout.name=this.currentName;
+      this.workout.rep=data.reps;
+      this.workout.weight=data.weight;
+      this.workout.maxWeight=this.maxWeight;
       
+      this.workoutService.addProgram(this.workout);
+      console.log(JSON.stringify(this.workout),"workorokd")
+      this.setList.push(this.workout)
 
     })
     this.ev.subscribe('deleteSet', data => {
@@ -109,6 +140,8 @@ export class WorkoutPage {
       if(index > -1){
        this.setList.splice(index, 1);
      }
+     console.log(data.key, "key", JSON.stringify(data))
+     //this.workoutService.removeProgram(data)
      
      this.ev.subscribe('deleteNote',note=>{
       let index = this.notes.indexOf(note);

@@ -1,28 +1,46 @@
+
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Program } from '../model/program.model';
+import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
+import { Workout } from '../model/workout.model';
+import { AngularFireAuth } from 'angularfire2/auth';
  
 @Injectable()
 export class WorkoutService {
  
-    private programRef = this.db.list<Program>('programs');
+   
+    
+    workouts: AngularFireList<Workout>;
+    userId: string;
     
  
-    constructor(private db: AngularFireDatabase) { }
+    constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
+        this.afAuth.authState.subscribe(user => {
+            if(user) this.userId = user.uid
+            console.log("userid is set workout")
+            this.workouts = this.db.list<any>(`workouts/${this.userId}`);
+            
+          })
+     }
  
-    getPrograms() {
-        return this.programRef;
+    getPrograms() {    
+        if (!this.userId) {
+            console.log("!this.userId just happened")
+            return;
+        } 
+        this.workouts = this.db.list<any>(`workouts/${this.userId}`);
+        return this.workouts
+    }
+    
+ 
+    addProgram(workout: Workout) {
+        return this.workouts.push(workout);
     }
  
-    addProgram(program: Program) {
-        return this.programRef.push(program);
+    updateProgram(workout: Workout) {
+        return this.workouts.update(workout.key, workout);
     }
  
-    updateProgram(program: Program) {
-        return this.programRef.update(program.key, program);
-    }
- 
-    removeProgram(program: Program) {
-        return this.programRef.remove(program.key);
+    removeProgram(workout: Workout) {
+        return this.workouts.remove(workout.key);
     }
 }

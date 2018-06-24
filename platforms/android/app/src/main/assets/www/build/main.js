@@ -1632,16 +1632,19 @@ var ProgramService = (function () {
         this.db = db;
         this.afAuth = afAuth;
         this.programRef = this.db.list('programs');
-        this.programs = null;
         this.afAuth.authState.subscribe(function (user) {
             if (user)
                 _this.userId = user.uid;
+            console.log("userid is set");
+            _this.programs = _this.db.list("programs/" + _this.userId);
         });
     }
     ProgramService.prototype.getPrograms = function () {
-        if (!this.userId)
+        if (!this.userId) {
+            console.log("!this.userId just happened");
             return;
-        this.programs = this.db.list("items/" + this.userId);
+        }
+        this.programs = this.db.list("programs/" + this.userId);
         return this.programs;
     };
     ProgramService.prototype.addProgram = function (program) {
@@ -1801,12 +1804,12 @@ var ProgramsPage = (function () {
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
         this.programService = programService;
-        this.programs = this.programService.getPrograms().snapshotChanges().pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(function (changes) {
-            return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
-        }));
     }
     ProgramsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProgramsPage');
+        this.programs = this.programService.getPrograms().snapshotChanges().pipe(Object(__WEBPACK_IMPORTED_MODULE_3_rxjs_operators__["map"])(function (changes) {
+            return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
+        }));
     };
     ProgramsPage.prototype.newProgram = function () {
         console.log('newn prog new prog');

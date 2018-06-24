@@ -104,6 +104,7 @@ export class EditProgramPage {
   deleteProgram(){
     this.programService.removeProgram(this.program).then(() => {
       console.log("deldeldel")
+      this.navCtrl.pop();
 
     })
     

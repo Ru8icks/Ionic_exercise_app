@@ -42,6 +42,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { ProgramService } from '../service/program.service';
+import { WorkoutService } from '../service/workout.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyChGFu7NtT3bEYizPdTz6mupR2NRwuNrR8",
@@ -104,9 +105,10 @@ export const firebaseConfig = {
     Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    [ProgramService],
+    ProgramService,
     AngularFireAuth,
     AuthService,
+    WorkoutService,
 
   ]
 })
