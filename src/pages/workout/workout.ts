@@ -28,14 +28,7 @@ export class WorkoutPage {
   maxWeight= 0;
   currentName;
   counter=0;
-  workout :Workout={
-    rep: 0,
-    weight:0,
-    date: 0,
-    maxWeight:0,
-    name:"",
-    
-};
+ 
     
 
   
@@ -86,7 +79,16 @@ export class WorkoutPage {
 
   saveWorkout(){
     console.log("this max ", this.maxWeight)
+    
+     
+    for (let i = 0; i < this.setList.length; i++) {
+      console.log(this.setList [i]);
+      this.setList[i].maxWeight=this.maxWeight;
+      this.workoutService.addProgram(this.setList[i]);
+
+    }
     this.maxWeight=0;
+
     
     this.setList = [];
     console.log("current: ",JSON.stringify(this.current), this.setList)
@@ -102,6 +104,7 @@ export class WorkoutPage {
       this.currentName= this.current.name
     } else {
       console.log("asdads")
+      this.navCtrl.pop()
       
       
     }
@@ -122,15 +125,19 @@ export class WorkoutPage {
         console.log("new max weight")
         this.maxWeight=data.weight;
       }
-      this.workout.date=Date.now();
-      this.workout.name=this.currentName;
-      this.workout.rep=data.reps;
-      this.workout.weight=data.weight;
-      this.workout.maxWeight=this.maxWeight;
+      let workout :Workout={
+        rep: data.reps,
+        weight:data.weight,
+        date: Date.now(),
+        maxWeight:0,
+        name:this.currentName,
+        
+    };
+     
       
-      this.workoutService.addProgram(this.workout);
-      console.log(JSON.stringify(this.workout),"workorokd")
-      this.setList.push(this.workout)
+      //this.workoutService.addProgram(workout);
+      console.log(JSON.stringify(workout),"workorokd")
+      this.setList.push(workout)
 
     })
     this.ev.subscribe('deleteSet', data => {
