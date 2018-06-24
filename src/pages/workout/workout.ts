@@ -54,16 +54,11 @@ export class WorkoutPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad WorkoutPage');
     this.eventListener();
-    console.log("haia")
+   
     console.log(this.navParams.get('title'))
     this.program = (this.navParams.get('content'))
-    //this.program.reverse()
-    console.log(JSON.stringify(this.program))
-    
     this.current=this.program[this.counter];
     this.currentName= this.current.name
-    console.log("current: ",JSON.stringify(this.current))
-    console.log("current: ",JSON.stringify(this.current))
    
     
     
@@ -78,51 +73,25 @@ export class WorkoutPage {
 
 
   saveWorkout(){
-    console.log("this max ", this.maxWeight)
-    
-     
+    //loop throug completed ex and add to db
     for (let i = 0; i < this.setList.length; i++) {
-      console.log(this.setList [i]);
       this.setList[i].maxWeight=this.maxWeight;
       this.workoutService.addProgram(this.setList[i]);
-
     }
-    this.maxWeight=0;
-
-    
+    this.maxWeight=0;    
     this.setList = [];
-    console.log("current: ",JSON.stringify(this.current), this.setList)
-    console.log("this.counter", this.counter, "this.program.length-1",this.program.length-1)
-    
-
-
-    if(this.counter<(this.program.length-1) ){
-      console.log(this.counter, (this.program.length-1))
-      
+    if(this.counter<(this.program.length-1) ){ 
       this.counter++
       this.current= this.program[this.counter]
       this.currentName= this.current.name
     } else {
-      console.log("asdads")
-      this.navCtrl.pop()
-      
-      
+      this.navCtrl.pop()    
     }
-    
-    
-
-
   }
+
   eventListener(){
     this.ev.subscribe('addToSetList', data => {
-      console.log(data.reps, data.weight, "herer!")
-      console.log(data, JSON.stringify(data) )
-      
-
-      
-      
       if(this.maxWeight<= data.weight){
-        console.log("new max weight")
         this.maxWeight=data.weight;
       }
       let workout :Workout={
@@ -131,24 +100,16 @@ export class WorkoutPage {
         date: Date.now(),
         maxWeight:0,
         name:this.currentName,
-        
-    };
-     
-      
-      //this.workoutService.addProgram(workout);
-      console.log(JSON.stringify(workout),"workorokd")
+      }
       this.setList.push(workout)
-
     })
+
+
     this.ev.subscribe('deleteSet', data => {
-      console.log(data.set, "data.set" )
-      console.log(data, "data" )
       let index = this.setList.indexOf(data);
       if(index > -1){
        this.setList.splice(index, 1);
      }
-     console.log(data.key, "key", JSON.stringify(data))
-     //this.workoutService.removeProgram(data)
      
      this.ev.subscribe('deleteNote',note=>{
       let index = this.notes.indexOf(note);
@@ -158,17 +119,10 @@ export class WorkoutPage {
 
      })
     })
-    
-
-    
-    
-    
-
   }
-  addNote(){
-   
+
+  addNote(){ 
     let prompt = this.alertCtrl.create({
-      
       message: "Add note for workout",
       inputs: [
         {
@@ -186,11 +140,7 @@ export class WorkoutPage {
         {
           text: 'Save',
           handler: data => {
-            console.log(data.note)
-            this.notes.push(data.note);
-             console.log('addnote clicked');
-
-            
+            this.notes.push(data.note);          
           
           }
         }
