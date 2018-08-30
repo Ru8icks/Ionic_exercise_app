@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from "ionic-angular";
-import {  RunPage } from "../run/run";
-import { CompletedRunsPage} from "../completed-runs/completed-runs";
-import { ProgramsPage } from '../programs/programs';
+import { ProgramsPage } from '../program-page/programs/programs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { SignupPage } from '../signup/signup';
@@ -63,15 +61,7 @@ loginWithGoogle() {
 
 
 
-  goToRun() {
-    this.navCtrl.push(RunPage);
 
-  }
-
-  goToCompleted() {
-    this.navCtrl.push(CompletedRunsPage);
-
-  }
   goToPrograms(){
     this.navCtrl.push(ProgramsPage)
   }

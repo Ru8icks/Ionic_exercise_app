@@ -4,10 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
-import { RunPage} from "../pages/run/run";
-import { CompletedRunsPage } from "../pages/completed-runs/completed-runs";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,9 +16,9 @@ import { NoteComponent} from "../components/note/note";
 import { SetListComponent} from "../components/set-list/set-list";
 
 import { IonicStorageModule } from '@ionic/storage';
-import { ProgramsPage } from '../pages/programs/programs';
-import { ProgramPage } from '../pages/program/program';
-import {EditProgramPage} from '../pages/edit-program/edit-program'
+import { ProgramsPage } from '../pages/program-page/programs/programs';
+import { ProgramPage } from '../pages/program-page/program/program';
+import {EditProgramPage} from '../pages/program-page/edit-program/edit-program'
 import { WorkoutPage } from '../pages/workout/workout'
 
 import { AuthService } from '../service/auth.service';
@@ -58,10 +54,7 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    RunPage,
-    CompletedRunsPage,
+   
     TimerComponent,
     ProgramsPage,
     ProgramPage,
@@ -88,10 +81,7 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    RunPage,
-    CompletedRunsPage,
+    
     ProgramsPage,
     ProgramPage,
     EditProgramPage,
