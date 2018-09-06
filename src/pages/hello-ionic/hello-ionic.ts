@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from "ionic-angular";
-import {  RunPage } from "../run/run";
-import { CompletedRunsPage} from "../completed-runs/completed-runs";
 import { ProgramsPage } from '../programs/programs';
+import { ProgPage } from '../prog/prog';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { SignupPage } from '../signup/signup';
+
 
 @Component({
   selector: 'page-hello-ionic',
@@ -43,7 +44,7 @@ login() {
   };
   this.auth.signInWithEmail(credentials)
     .then(
-      () => this.navCtrl.setRoot(ProgramsPage),
+      () => this.navCtrl.setRoot(ProgPage),
       error => this.loginError = error.message
     );
 }
@@ -54,7 +55,7 @@ signup(){
 loginWithGoogle() {
   this.auth.signInWithGoogle()
     .then(
-      () => this.navCtrl.setRoot(ProgramsPage),
+      () => this.navCtrl.setRoot(ProgPage),
       error => console.log(error.message)
     );
 }
@@ -63,16 +64,8 @@ loginWithGoogle() {
 
 
 
-  goToRun() {
-    this.navCtrl.push(RunPage);
 
-  }
-
-  goToCompleted() {
-    this.navCtrl.push(CompletedRunsPage);
-
-  }
   goToPrograms(){
-    this.navCtrl.push(ProgramsPage)
+    this.navCtrl.push(ProgPage)
   }
 }

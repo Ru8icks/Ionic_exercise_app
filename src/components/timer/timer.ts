@@ -2,7 +2,7 @@ import {Component, Input, Output} from '@angular/core';
 import {Events} from "ionic-angular";
 import Rx from 'rxjs/Rx';
 import {Subscription} from "rxjs/Subscription";
-import { start } from 'repl';
+//import { start } from 'repl';
 
 /**
  * Generated class for the TimerComponent component.

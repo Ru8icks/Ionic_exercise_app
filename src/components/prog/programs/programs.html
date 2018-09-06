@@ -1,0 +1,16 @@
+
+<ion-content padding>
+  <ion-list>
+      <p>Here are your available programs</p>
+      <ion-item *ngFor="let program of programs | async"  (click)="programAction(program)">
+        <p>s</p>{{program.title}}
+      </ion-item>
+    </ion-list>
+
+<div style="position: absolute; left: 28% ; bottom: 5%; width: 100%" >
+<button ion-button icon-left (click)="newProgram()">
+  <ion-icon name="add"> </ion-icon>
+   New Program
+</button>
+</div>
+</ion-content>

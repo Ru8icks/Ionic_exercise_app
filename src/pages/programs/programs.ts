@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 
 import { Program } from '../../model/program.model';
+
 import { ProgramService } from '../../service/program.service';
+import { CurrentProgramService } from '../../service/currentProgram.service';
 import {EditProgramPage} from '../edit-program/edit-program'
 import { AlertController } from 'ionic-angular';
 
@@ -32,6 +34,7 @@ export class ProgramsPage {
               public navParams: NavParams,
               public alertCtrl: AlertController,
               private programService: ProgramService,
+              private currentProgramService: CurrentProgramService
              ) {
 
              
@@ -74,8 +77,6 @@ export class ProgramsPage {
             console.log(program)
             var myJSON = JSON.stringify(program);
             console.log(myJSON)
-            this.navCtrl.push(EditProgramPage,program);
-        
           
           }
         }

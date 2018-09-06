@@ -41,6 +41,7 @@ export class ProgramService {
     }
  
     removeProgram(program: Program) {
+        console.log("service "+program.key)
         return this.programs.remove(program.key);
     }
 }

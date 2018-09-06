@@ -4,22 +4,25 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
-import { RunPage} from "../pages/run/run";
-import { CompletedRunsPage } from "../pages/completed-runs/completed-runs";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GoogleMaps} from "@ionic-native/google-maps";
 import { Geolocation } from '@ionic-native/geolocation'
+
 import {TimerComponent} from "../components/timer/timer";
 import { CoolDownComponent} from "../components/cool-down/cool-down";
 import { SetComponent} from "../components/set/set";
 import { NoteComponent} from "../components/note/note";
 import { SetListComponent} from "../components/set-list/set-list";
+import { ProgramsComponent} from "../components/prog/programs/programs";
+import { ProgramComponent} from "../components/prog/program/program";
+
+
 
 import { IonicStorageModule } from '@ionic/storage';
+import { ProgPage } from '../pages/prog/prog';
+
 import { ProgramsPage } from '../pages/programs/programs';
 import { ProgramPage } from '../pages/program/program';
 import {EditProgramPage} from '../pages/edit-program/edit-program'
@@ -43,6 +46,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { ProgramService } from '../service/program.service';
 import { WorkoutService } from '../service/workout.service';
+import { CurrentProgramService } from '../service/currentProgram.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyChGFu7NtT3bEYizPdTz6mupR2NRwuNrR8",
@@ -58,20 +62,23 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    RunPage,
-    CompletedRunsPage,
-    TimerComponent,
+    
     ProgramsPage,
+    ProgPage,
     ProgramPage,
     EditProgramPage,
     WorkoutPage,
+    SignupPage,
+
+
+    TimerComponent,
+    ProgramComponent,
     CoolDownComponent,
+    ProgramsComponent,
     SetComponent,
     NoteComponent,
     SetListComponent,
-    SignupPage,
+    
     
 
   ],
@@ -88,15 +95,12 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    RunPage,
-    CompletedRunsPage,
     ProgramsPage,
     ProgramPage,
     EditProgramPage,
     WorkoutPage,
     SignupPage,
+    ProgPage,
     
   ],
   providers: [
@@ -109,6 +113,7 @@ export const firebaseConfig = {
     AngularFireAuth,
     AuthService,
     WorkoutService,
+    CurrentProgramService,
 
   ]
 })

@@ -132,7 +132,7 @@ export class EditProgramPage {
             console.log(data.title)
             this.program.title=data.title;
             this.program.content=this.programList; 
-            console.log(this.programList)
+            console.log(this.program.key)
             this.programService.updateProgram(this.program).then(() => {
               console.log("updateupdate")
               this.navCtrl.pop();
