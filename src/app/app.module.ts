@@ -23,9 +23,6 @@ import { ProgramComponent} from "../components/prog/program/program";
 import { IonicStorageModule } from '@ionic/storage';
 import { ProgPage } from '../pages/prog/prog';
 
-import { ProgramsPage } from '../pages/programs/programs';
-import { ProgramPage } from '../pages/program/program';
-import {EditProgramPage} from '../pages/edit-program/edit-program'
 import { WorkoutPage } from '../pages/workout/workout'
 
 import { AuthService } from '../service/auth.service';
@@ -63,10 +60,8 @@ export const firebaseConfig = {
     MyApp,
     HelloIonicPage,
     
-    ProgramsPage,
     ProgPage,
-    ProgramPage,
-    EditProgramPage,
+   
     WorkoutPage,
     SignupPage,
 
@@ -95,9 +90,6 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HelloIonicPage,
-    ProgramsPage,
-    ProgramPage,
-    EditProgramPage,
     WorkoutPage,
     SignupPage,
     ProgPage,
@@ -114,6 +106,8 @@ export const firebaseConfig = {
     AuthService,
     WorkoutService,
     CurrentProgramService,
+    ProgramComponent,
+    ProgramsComponent,
 
   ]
 })

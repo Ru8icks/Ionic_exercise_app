@@ -14,8 +14,8 @@
 
 <ion-content padding>
 
-  <programs></programs>
+  <programs *ngIf="!viewProgram"></programs>
   
-  <program></program>
+  <program *ngIf="viewProgram"></program>
 
 </ion-content>

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from "ionic-angular";
-import { ProgramsPage } from '../programs/programs';
 import { ProgPage } from '../prog/prog';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { SignupPage } from '../signup/signup';
+import { ProgramService } from '../../service/program.service';
 
 
 @Component({
@@ -18,8 +18,9 @@ export class HelloIonicPage {
 
   constructor(public navCtrl: NavController,
               private auth: AuthService,
+              private programService: ProgramService,
 		          fb: FormBuilder) {
-                
+                programService.getPrograms();
               this.loginForm = fb.group({
                  email: ['', Validators.compose([Validators.required, Validators.email])],
                  password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]

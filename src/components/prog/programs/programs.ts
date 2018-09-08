@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {  NavController, NavParams, Events } from 'ionic-angular';
 
-import {ProgramPage} from '../../../pages/program/program';
+//import {ProgramPage} from '../../../pages/program/program';
 
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
@@ -10,10 +10,12 @@ import { Program } from '../../../model/program.model';
 import { ProgramService } from '../../../service/program.service';
 import { CurrentProgramService } from '../../../service/currentProgram.service';
 
-import {EditProgramPage} from '../../../pages/edit-program/edit-program'
+//import {EditProgramPage} from '../../../pages/edit-program/edit-program'
 import { AlertController } from 'ionic-angular';
 
 import {WorkoutPage} from '../../../pages/workout/workout';
+import {ProgPage} from '../../../pages/prog/prog';
+
  
 /**
  * Generated class for the ProgramsComponent component.
@@ -35,6 +37,7 @@ export class ProgramsComponent {
               private programService: ProgramService,
               public events : Events,
               public currentProgram: CurrentProgramService,
+              public progPage : ProgPage,
              ) {
 
              
@@ -54,7 +57,9 @@ export class ProgramsComponent {
   }
   newProgram(){
     console.log('newn prog new prog');
-    this.navCtrl.push(ProgramPage)
+    this.progPage.toggleView();
+    
+   
     
   }
   pressEvent(e, program) {
@@ -85,6 +90,8 @@ export class ProgramsComponent {
             var myJSON = JSON.stringify(program);
             console.log(myJSON)
             this.currentProgram.changetProgram(JSON.stringify(program))
+            this.progPage.toggleView();
+
 
 
 

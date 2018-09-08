@@ -8,6 +8,8 @@ import { ProgramService } from '../../../service/program.service';
 
 import { CurrentProgramService } from '../../../service/currentProgram.service';
 import { AlertController } from 'ionic-angular';
+
+import {ProgPage} from '../../../pages/prog/prog';
 /**
  * Generated class for the ProgramComponent component.
  *
@@ -50,6 +52,7 @@ export class ProgramComponent {
               public alertCtrl: AlertController,
               public events:Events,
               public currentProgram: CurrentProgramService,
+              public progPage : ProgPage,
             ) {
               dragulaService.setOptions('my-bag', {
                 removeOnSpill: true,
@@ -161,6 +164,7 @@ export class ProgramComponent {
             console.log("saved key: "+this.program.key)
             this.programList=[];
           }
+          this.progPage.toggleView();
 
             
             

@@ -4,8 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 
 import { AuthService } from '../../service/auth.service';
-import { ProgramPage } from '../program/program';
-import { ProgramsPage } from '../programs/programs';
 import { ProgPage } from '../prog/prog';
 
 

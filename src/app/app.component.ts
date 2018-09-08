@@ -10,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 import { AuthService } from '../service/auth.service';
-import { ProgramsPage } from '../pages/programs/programs';
+
 
 
 @Component({

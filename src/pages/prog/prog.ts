@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProgramComponent} from '../../components/prog/program/program'
+
+import { ProgramsComponent} from '../../components/prog/programs/programs'
 /**
  * Generated class for the ProgPage page.
  *
@@ -14,11 +17,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProgPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  viewProgram : boolean = false;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+             // public programComponent: ProgramComponent,
+             // public programsComponent: ProgramsComponent,
+            ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgPage');
+    this.viewProgram = false;
   }
+  toggleView(){
+      console.log(this.viewProgram)
+
+      this.viewProgram=!this.viewProgram
+      console.log(this.viewProgram)
+  }
+
 
 }
