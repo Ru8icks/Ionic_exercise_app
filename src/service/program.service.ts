@@ -33,15 +33,21 @@ export class ProgramService {
     
  
     addProgram(program: Program) {
+        console.log("service "+program.key)
+        console.log("service title"+program.title)
         return this.programs.push(program);
     }
  
     updateProgram(program: Program) {
+        console.log("program.key ", program.key)
+        
         return this.programs.update(program.key, program);
     }
  
     removeProgram(program: Program) {
+        
         console.log("service "+program.key)
+        console.log("service title"+program.title)
         return this.programs.remove(program.key);
     }
 }

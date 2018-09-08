@@ -2,8 +2,9 @@
 <ion-content padding>
   <ion-list>
       <p>Here are your available programs</p>
-      <ion-item *ngFor="let program of programs | async"  (click)="programAction(program)">
+      <ion-item *ngFor="let program of programs | async"  (click)="programAction(program)" (press)="pressEvent($event, program)">
         <p>s</p>{{program.title}}
+        {{program.key}}
       </ion-item>
     </ion-list>
 

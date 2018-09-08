@@ -62,8 +62,16 @@ export class ProgramComponent {
   ngOnInit() {
     this.currentProgram.currentProgram.subscribe(message => {
       
-      this.programList= JSON.parse(message).content;
       this.program= JSON.parse(message);
+      console.log("SUPER SUPER SUPER",this.program.content)
+      if(this.program.content!=undefined){
+        this.programList= this.program.content;
+      }else {
+        
+        this.program.content=[];
+
+      }
+      
       
     })
   }
@@ -73,6 +81,7 @@ export class ProgramComponent {
 
   
   addToProgram(exercise){
+    console.log("adding to prog", exercise, this.programList)
     if(exercise==undefined){
       console.log("return")
       return
@@ -86,7 +95,7 @@ export class ProgramComponent {
   }
 
   addToExercises(){
-    console.log(this.title)
+    console.log("asddtoex ",this.title)
     console.log(this.type)
     if(this.title.length==0 || this.type.length==0 ){
       console.log("return")
@@ -130,13 +139,29 @@ export class ProgramComponent {
         {
           text: 'Save',
           handler: data => {
-            console.log(data.title)
+            console.log("savesave", this.program.title)
+            if(this.program.title=="w"){
+              console.log("null");
+              console.log(data.title)
+              this.program.title=data.title;
+              this.program.content=this.programList; 
+              console.log(this.programList)
+              this.programService.addProgram(this.program)
+              console.log("saved key: "+this.program.key)
+              this.programList=[];
+            
+
+            } else {
+
+            
             this.program.title=data.title;
             this.program.content=this.programList; 
-            console.log(this.programList)
-            this.programService.addProgram(this.program)
+            console.log(this.programList,"22")
+            this.programService.updateProgram(this.program)
             console.log("saved key: "+this.program.key)
             this.programList=[];
+          }
+
             
             
             console.log('Saved clicked');

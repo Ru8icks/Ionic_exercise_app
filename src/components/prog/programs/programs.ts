@@ -44,8 +44,10 @@ export class ProgramsComponent {
     console.log('ionViewDidLoad ProgramsPage111111');
     this.programs = this.programService.getPrograms().snapshotChanges().pipe(map(
       changes => {
+        console.log("chch ch changes");
         return changes.map(c => ({
           key: c.payload.key, ...c.payload.val()
+          
         }))
       }))
      
@@ -54,6 +56,10 @@ export class ProgramsComponent {
     console.log('newn prog new prog');
     this.navCtrl.push(ProgramPage)
     
+  }
+  pressEvent(e, program) {
+    console.log("press event", e)
+    //this.programService.removeProgram(program);    
   }
   programAction(program){
     let prompt = this.alertCtrl.create({

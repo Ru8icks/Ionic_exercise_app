@@ -6,11 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 export class CurrentProgramService {
      
     program: Program = {
+        
         title:'',
         content: [],
       } 
       
-      private messageSource = new BehaviorSubject('{"content":[],"title":""}');
+      private messageSource = new BehaviorSubject('{"content":[],"title":"w"}');
       currentProgram = this.messageSource.asObservable();
       
 
