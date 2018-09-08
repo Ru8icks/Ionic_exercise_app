@@ -66,43 +66,22 @@ export class ProgramsComponent {
     console.log("press event", e)
     //this.programService.removeProgram(program);    
   }
-  programAction(program){
-    let prompt = this.alertCtrl.create({
-      title: 'Options',
-      message: "Select Workout to begin program or Edit to edit program",
-     
-      buttons: [
-        {
-          text: 'Workout',
-          handler: data => {
-            
-            var myJSON = JSON.stringify(program);
-            console.log(myJSON)
-            console.log('Workout clicked');
-            this.navCtrl.push(WorkoutPage,program);
-            
-          }
-        },
-        {
-          text: 'Edit',
-          handler: data => {
-            console.log(program)
-            var myJSON = JSON.stringify(program);
-            console.log(myJSON)
-            this.currentProgram.changetProgram(JSON.stringify(program))
-            this.progPage.toggleView();
+  edit(program){
+    console.log(program)
+    var myJSON = JSON.stringify(program);
+    console.log(myJSON)
+    this.currentProgram.changetProgram(JSON.stringify(program))
+    this.progPage.toggleView();
 
 
-
-
-          
-          
-          }
-        }
-      ]
-    });
-    prompt.present();
   }
+  workout(program){
+    var myJSON = JSON.stringify(program);
+    console.log(myJSON)
+    console.log('Workout clicked');
+    this.navCtrl.push(WorkoutPage,program);
+  }
+ 
 
     
 

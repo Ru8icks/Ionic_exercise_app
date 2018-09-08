@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Sep 08 19:20:11 CEST 2018
+#Sat Sep 08 20:42:38 CEST 2018
 122.file=E\:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-googlemaps\\www\\Polygon.js
 60.set=ASSET
 129.file=E\:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable\\dummy_my_location_button.png

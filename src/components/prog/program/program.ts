@@ -120,6 +120,7 @@ export class ProgramComponent {
       console.log("deldeldel"+ this.program.title+""+this.program.key)
       
     })
+    this.progPage.toggleView();
     
   }
   addToPrograms() {
