@@ -1,45 +1,77 @@
 <div class="flex-container" > 
-    <div class="exButtons">
-        <div class="top" >
-          
-          <button (click)="addToPrograms()" ion-button color="secondary">Add to programs</button></div>
   
-        <div class="bot">  <button (click)="deleteProgram()" ion-button color="danger">Delete program</button></div>
-  
+       
       
-    </div>
-  <div class="exCard">
-    <ion-list  [dragula]='"my-bag"' [dragulaModel]="programList" >  
-      <ion-card  *ngFor="let exercise of programList">
-         <ion-item>
-            {{exercise.name}}:
+    
+    <ion-grid>
+        <ion-row>
           
-            {{exercise.type}}
-          </ion-item>
-      </ion-card>
-    </ion-list>
-  </div>
+          <ion-col>
+              <button small (click)="addToPrograms()" ion-button color="secondary">Add to programs</button>
+          </ion-col>
+          
+          <ion-col>
+              <button small (click)="deleteProgram()" ion-button color="danger">Delete program</button>
+          </ion-col>
+        
+        </ion-row>
+        
+        <ion-card>
+            <ion-card-header>
+                Program:
+              </ion-card-header>
+              <ion-card-content>
+          <ion-row>
+             
+            <ion-col>
+             
+            </ion-col>
+            <ion-col>
+                    <div class="exCard">
+                        <ion-list  [dragula]='"my-bag"' [dragulaModel]="programList" >  
+                          
+                             <ion-item *ngFor="let exercise of programList">
+                                {{exercise.name}}:
+                              
+                                {{exercise.type}}
+                              </ion-item>
+                         
+                        </ion-list>
+                      </div>
+                  
+            </ion-col>
+
+            <ion-col>
+             
+            </ion-col>
+          
+          </ion-row>
+        </ion-card-content>
+            
+        </ion-card>
+        </ion-grid>
+        
+   
+
+
+
+
+  
   
  
 </div>
 
 
 
-<ion-item>
-  <ion-label color="primary" floating>new exercise</ion-label>
-  <ion-input [(ngModel)]="title"></ion-input>
-</ion-item>
-<ion-item>
-    <ion-label color="primary" floating>Type</ion-label>
-    <ion-select [(ngModel)]="type">
-        
-        <ion-option *ngFor="let type of types" [value]="type">{{type}}</ion-option>
-      </ion-select>
-</ion-item>
-    <button (click)="addToExercises()" ion-button>Add to exercises</button>
 
-  
+<ion-card>
+    <ion-card-header>
+        Available exercises:
+      </ion-card-header>
+      <ion-card-content>
       <ion-list>
+        
+          <ion-scroll scrollY="true" style="width: 100%; height: 25vh">
           <ion-item-sliding *ngFor="let ex of exercises">
             <ion-item >
                 {{ex.name}}
@@ -47,16 +79,35 @@
             </ion-item>
             <ion-item-options side="left">
               <button ion-button color="primary" (click)="addToProgram(ex)">
-                <ion-icon name="text"></ion-icon>
-                Text
+                <ion-icon name="add"></ion-icon>
+                Add
               </button>
              
             </ion-item-options>
             <ion-item-options side="right">
               <button ion-button color="primary" (click)="addToProgram(ex)">
-                <ion-icon name="text"></ion-icon>
-                Email
+                <ion-icon name="add"></ion-icon>
+                Add
               </button>
             </ion-item-options>
           </ion-item-sliding>
+        </ion-scroll>
         </ion-list>
+        </ion-card-content>
+        </ion-card>
+      
+
+        <ion-item>
+            <ion-label color="primary" floating>new exercise</ion-label>
+            <ion-input [(ngModel)]="title"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label color="primary" floating>Type</ion-label>
+              <ion-select [(ngModel)]="type">
+                  
+                  <ion-option *ngFor="let type of types" [value]="type">{{type}}</ion-option>
+                </ion-select>
+          </ion-item>
+              <button (click)="addToExercises()" ion-button>Add to exercises</button>
+          
+      

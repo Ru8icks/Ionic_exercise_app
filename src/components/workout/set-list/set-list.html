@@ -1,0 +1,20 @@
+<!-- Generated template for the SetListComponent component -->
+
+
+<div class="sets">
+  
+    <ion-list>
+   <ion-item-sliding>
+         <ion-item>
+           {{set.rep}} X
+           {{set.weight}}
+         </ion-item>
+         <ion-item-options side="right">
+           <button ion-button (click)="deleteSet(set)">
+             <ion-icon name="trash"></ion-icon>Delete
+           </button>
+         </ion-item-options>
+       </ion-item-sliding>
+     </ion-list>
+
+ </div>

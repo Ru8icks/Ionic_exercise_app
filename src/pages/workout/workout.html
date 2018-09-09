@@ -15,26 +15,70 @@
 
 <ion-content padding>
   <div>
-    <h1>{{currentName}}</h1>
+    
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+              <p>Exercise {{counter+1}} out of {{programLength}} :)</p>
+              <h5>{{currentName}}</h5>
+          </ion-col>
+          <ion-col>
+              
+          </ion-col>
+          <ion-col>
+              <button ion-button full (click)=saveWorkout()><ion-icon name="add-circle"></ion-icon>Next</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    
       <set>
       </set>
-      <set-list  *ngFor="let set of setList" [set]="set" >
+      <div *ngIf="hasSet">
+        <h5>Sets:</h5>
+        <ion-card>
+          <ion-card-content>
+            <set-list  *ngFor="let set of setList" [set]="set" >
+            </set-list>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+              
+            </ion-col>
+            <ion-col>
+                <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>
+            </ion-col>
+            <ion-col>
+              
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-      </set-list>
-      <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>  
-      <note *ngFor="let note of notes" [note]="note">
 
-      </note>
+      <div *ngIf="hasNote">
+      <h5>Notes:</h5>
+      <ion-card>
+          <ion-card-content>
+            <note *ngFor="let note of notes" [note]="note">
 
+            </note>
+          </ion-card-content>
+        </ion-card>
+        </div>
 
-      <button ion-button full (click)=saveWorkout()><ion-icon name="add-circle"></ion-icon> Next</button>  
+      
+
+        
         
         
   </div>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    
-    <cool-down></cool-down>
+  <cool-down></cool-down>
   </ion-toolbar>
 </ion-footer>

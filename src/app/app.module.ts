@@ -10,11 +10,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GoogleMaps} from "@ionic-native/google-maps";
 import { Geolocation } from '@ionic-native/geolocation'
 
-import {TimerComponent} from "../components/timer/timer";
-import { CoolDownComponent} from "../components/cool-down/cool-down";
-import { SetComponent} from "../components/set/set";
-import { NoteComponent} from "../components/note/note";
-import { SetListComponent} from "../components/set-list/set-list";
+import {TimerComponent} from "../components/workout/timer/timer";
+import { CoolDownComponent} from "../components/workout/cool-down/cool-down";
+import { SetComponent} from "../components/workout/set/set";
+import { NoteComponent} from "../components/workout/note/note";
+import { SetListComponent} from "../components/workout/set-list/set-list";
 import { ProgramsComponent} from "../components/prog/programs/programs";
 import { ProgramComponent} from "../components/prog/program/program";
 
@@ -24,6 +24,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ProgPage } from '../pages/prog/prog';
 
 import { WorkoutPage } from '../pages/workout/workout'
+import { MenuPage } from '../pages/menu/menu'
+
 
 import { AuthService } from '../service/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
@@ -64,6 +66,7 @@ export const firebaseConfig = {
    
     WorkoutPage,
     SignupPage,
+    MenuPage,
 
 
     TimerComponent,
@@ -93,6 +96,8 @@ export const firebaseConfig = {
     WorkoutPage,
     SignupPage,
     ProgPage,
+    MenuPage,
+
     
   ],
   providers: [

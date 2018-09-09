@@ -93,6 +93,8 @@ ext {
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "../cordova-plugin-googlemaps/starter-build-extras.gradle"
 apply from: "../cordova-plugin-googlemaps/starter-tbxml-android.gradle"
+apply from: "../cordova-plugin-buildinfo/starter-BuildInfo.gradle"
+apply from: "../cordova-plugin-browsertab/starter-BrowserTab.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -263,6 +265,7 @@ dependencies {
     implementation(project(path: ":CordovaLib"))
     compile "com.google.android.gms:play-services-maps:11.8.0"
     compile "com.google.android.gms:play-services-location:11.8.0"
+    compile "com.android.support:customtabs:23.3.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { CoolDownComponent} from "../../components/cool-down/cool-down";
-import { SetComponent } from "../../components/set/set";
-import { SetListComponent } from "../../components/set-list/set-list";
-import { NoteComponent } from "../../components/note/note";
+import { CoolDownComponent} from "../../components/workout/cool-down/cool-down";
+import { SetComponent } from "../../components/workout/set/set";
+import { SetListComponent } from "../../components/workout/set-list/set-list";
+import { NoteComponent } from "../../components/workout/note/note";
 import { WorkoutService } from '../../service/workout.service';
 import { Workout } from '../../model/workout.model';
 /**
@@ -26,9 +26,11 @@ export class WorkoutPage {
   
   current;
   maxWeight= 0;
-  currentName;
+  currentName: string;
   counter=0;
- 
+  programLength: number;
+  hasSet:boolean;
+  hasNote:boolean;
     
 
   
@@ -59,6 +61,11 @@ export class WorkoutPage {
     this.program = (this.navParams.get('content'))
     this.current=this.program[this.counter];
     this.currentName= this.current.name
+    this.programLength = this.program.length;
+    this.hasSet = false;
+    this.hasNote = false;
+
+
    
     
     
@@ -80,6 +87,7 @@ export class WorkoutPage {
     }
     this.maxWeight=0;    
     this.setList = [];
+    this.hasSet = false;
     if(this.counter<(this.program.length-1) ){ 
       this.counter++
       this.current= this.program[this.counter]
@@ -98,10 +106,11 @@ export class WorkoutPage {
         rep: data.reps,
         weight:data.weight,
         date: Date.now(),
-        maxWeight:0,
+        maxWeight:this.maxWeight,
         name:this.currentName,
       }
       this.setList.push(workout)
+      this.hasSet = true;
     })
 
 
@@ -140,6 +149,7 @@ export class WorkoutPage {
         {
           text: 'Save',
           handler: data => {
+            this.hasNote= true;
             this.notes.push(data.note);          
           
           }

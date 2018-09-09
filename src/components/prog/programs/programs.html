@@ -1,6 +1,7 @@
 
 <ion-content padding>
-
+    <ion-scroll scrollY="true" style="width: 100%; height: 65vh">
+      
     <ion-list>
         <ion-item-sliding  *ngFor="let program of programs | async" >
           <ion-item >
@@ -11,33 +12,35 @@
           </ion-item>
           <ion-item-options side="left">
             <button ion-button color="primary" (click)="edit(program)">
-              <ion-icon name="text"></ion-icon>
-              Text
+              <ion-icon name="settings"></ion-icon>
+              edit
             </button>
             <button ion-button color="danger" (click)="workout(program)">
-                <ion-icon name="text"></ion-icon>
-                Text
+                <ion-icon name="pulse"></ion-icon>
+                workout
               </button>
            
           </ion-item-options>
           <ion-item-options side="right">
             <button ion-button color="primary" (click)="edit(program)">
-              <ion-icon name="text"></ion-icon>
-              Email
+              <ion-icon name="settings"></ion-icon>
+              edit
             </button>
             <button ion-button color="danger" (click)="workout(program)">
-                <ion-icon name="text"></ion-icon>
-                Text
+                <ion-icon name="pulse"></ion-icon>
+                workout
               </button>
           </ion-item-options>
         </ion-item-sliding>
       </ion-list>
 
+
+</ion-scroll>
 <div style="position: absolute; left: 28% ; bottom: 5%; width: 100%" >
-<button ion-button icon-left (click)="newProgram()">
-  <ion-icon name="add"> </ion-icon>
-   New Program
-</button>
-</div>
+    <button ion-button icon-left (click)="newProgram()">
+      <ion-icon name="add"> </ion-icon>
+       New Program
+    </button>
+    </div>
 
 </ion-content>

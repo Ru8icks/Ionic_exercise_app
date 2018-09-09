@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 import { AuthService } from '../service/auth.service';
+import { MenuPage } from '../pages/menu/menu';
 
 
 
@@ -52,7 +53,7 @@ export class MyApp {
     .subscribe(
       user => {
         if (user) {
-          this.rootPage = HelloIonicPage;
+          this.rootPage = MenuPage;
         } else {
           this.rootPage = HelloIonicPage;
         }

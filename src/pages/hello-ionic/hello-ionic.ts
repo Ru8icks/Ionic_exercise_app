@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from "ionic-angular";
 import { ProgPage } from '../prog/prog';
+import { MenuPage } from '../menu/menu';
+
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { SignupPage } from '../signup/signup';
-import { ProgramService } from '../../service/program.service';
+//import { ProgramService } from '../../service/program.service';
 
 
 @Component({
@@ -18,9 +20,9 @@ export class HelloIonicPage {
 
   constructor(public navCtrl: NavController,
               private auth: AuthService,
-              private programService: ProgramService,
+             
 		          fb: FormBuilder) {
-                programService.getPrograms();
+                
               this.loginForm = fb.group({
                  email: ['', Validators.compose([Validators.required, Validators.email])],
                  password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
@@ -45,7 +47,7 @@ login() {
   };
   this.auth.signInWithEmail(credentials)
     .then(
-      () => this.navCtrl.setRoot(ProgPage),
+      () => this.navCtrl.setRoot(MenuPage),
       error => this.loginError = error.message
     );
 }
@@ -56,8 +58,11 @@ signup(){
 loginWithGoogle() {
   this.auth.signInWithGoogle()
     .then(
-      () => this.navCtrl.setRoot(ProgPage),
+      
+      () => {console.log("login woth google");
+        this.navCtrl.setRoot(MenuPage),
       error => console.log(error.message)
+    }
     );
 }
 

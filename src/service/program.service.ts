@@ -23,11 +23,13 @@ export class ProgramService {
      }
  
     getPrograms() {    
+        console.log("get programs ")
         if (!this.userId) {
             console.log("!this.userId just happened")
             return;
         } 
         this.programs = this.db.list<Program>(`programs/${this.userId}`);
+        console.log(JSON.stringify(this.programs))
         return this.programs
     }
     

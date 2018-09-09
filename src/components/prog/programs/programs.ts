@@ -57,6 +57,7 @@ export class ProgramsComponent {
   }
   newProgram(){
     console.log('newn prog new prog');
+    this.currentProgram.changetProgram('{"content":[],"title":"w"}')
     this.progPage.toggleView();
     
    

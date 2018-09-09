@@ -20,14 +20,13 @@ export class ProgPage {
   viewProgram : boolean = false;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-             // public programComponent: ProgramComponent,
-             // public programsComponent: ProgramsComponent,
+             
             ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgPage');
-    this.viewProgram = false;
+    //this.viewProgram = false;
   }
   toggleView(){
       console.log(this.viewProgram)

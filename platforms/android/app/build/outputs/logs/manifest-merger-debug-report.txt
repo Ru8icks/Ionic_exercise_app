@@ -7,21 +7,22 @@ INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\Andr
 MERGED from [:tbxml-android:] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\tbxml-android.aar\b33ae48330c7a7ad57bd5df93e2539bb\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-maps-11.8.0.aar\cba7f0e2e48a62272fb502bd063a407c\AndroidManifest.xml:17:1-32:12
 MERGED from [com.google.android.gms:play-services-location:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-11.8.0.aar\2dcf260c84edd2cddfad53d96e87741d\AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:customtabs:23.3.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\customtabs-23.3.0.aar\06760ccd273690fedbe25b4cc7c92383\AndroidManifest.xml:17:1-24:12
 MERGED from [:CordovaLib] E:\here\RUN\Ionic_exercise_app\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
 MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\ee4a1bac3fb83395421e024e7c705154\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-tasks:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.8.0.aar\ccf1f74147bd5775eb104bc62fb9a62e\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\7a336a08067d921a4e1125e268738783\AndroidManifest.xml:17:1-28:12
 MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-maps-license-11.8.0.aar\328b80b4e253a1ca21d0ae7b8da5ff2b\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-location-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-license-11.8.0.aar\9b48a7574bbd82db6dcb144d6934f4c7\AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:2:1-6:12
 MERGED from [com.android.support:support-v4:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\a21ba7d15743b5d532e2036221907199\AndroidManifest.xml:17:1-27:12
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:2:1-6:12
 MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-fragment-25.2.0.aar\690e795eb4380b51b4b3ce092023d6ba\AndroidManifest.xml:17:1-27:12
 MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.2.0.aar\17fae70175d7449f8c28fcc65b71c5fa\AndroidManifest.xml:17:1-27:12
 MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.2.0.aar\731c6d30cc96289bf5341bed83e2460a\AndroidManifest.xml:17:1-27:12
 MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.2.0.aar\50b1c7715b1b30f8fa3fd08782349081\AndroidManifest.xml:17:1-27:12
 MERGED from [com.android.support:support-compat:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-compat-25.2.0.aar\1f05d66be3f9fba6e7e4344526638f9d\AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:2:1-6:12
 INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
 INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
 INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
@@ -67,6 +68,8 @@ MERGED from [com.google.android.gms:play-services-maps:11.8.0] C:\Users\SWIM\.gr
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-maps-11.8.0.aar\cba7f0e2e48a62272fb502bd063a407c\AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-location:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-11.8.0.aar\2dcf260c84edd2cddfad53d96e87741d\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-11.8.0.aar\2dcf260c84edd2cddfad53d96e87741d\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:customtabs:23.3.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\customtabs-23.3.0.aar\06760ccd273690fedbe25b4cc7c92383\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:customtabs:23.3.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\customtabs-23.3.0.aar\06760ccd273690fedbe25b4cc7c92383\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\ee4a1bac3fb83395421e024e7c705154\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\ee4a1bac3fb83395421e024e7c705154\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-tasks:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.8.0.aar\ccf1f74147bd5775eb104bc62fb9a62e\AndroidManifest.xml:7:5-20
@@ -77,14 +80,8 @@ MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] C:\Users\
 MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-maps-license-11.8.0.aar\328b80b4e253a1ca21d0ae7b8da5ff2b\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-location-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-license-11.8.0.aar\9b48a7574bbd82db6dcb144d6934f4c7\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-location-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-license-11.8.0.aar\9b48a7574bbd82db6dcb144d6934f4c7\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:5:5-20
 MERGED from [com.android.support:support-v4:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\a21ba7d15743b5d532e2036221907199\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\a21ba7d15743b5d532e2036221907199\AndroidManifest.xml:25:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:5:5-20
 MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-fragment-25.2.0.aar\690e795eb4380b51b4b3ce092023d6ba\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-fragment-25.2.0.aar\690e795eb4380b51b4b3ce092023d6ba\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.2.0.aar\17fae70175d7449f8c28fcc65b71c5fa\AndroidManifest.xml:25:5-20
@@ -95,6 +92,12 @@ MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\SWIM\.gradle\c
 MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.2.0.aar\50b1c7715b1b30f8fa3fd08782349081\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-compat-25.2.0.aar\1f05d66be3f9fba6e7e4344526638f9d\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-compat-25.2.0.aar\1f05d66be3f9fba6e7e4344526638f9d\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:5:5-20
 	android:supportsRtl
 		ADDED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
 	android:label
@@ -146,12 +149,15 @@ MERGED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\SWIM
 uses-sdk
 ADDED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
 INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
+INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
 MERGED from [:tbxml-android:] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\tbxml-android.aar\b33ae48330c7a7ad57bd5df93e2539bb\AndroidManifest.xml:7:5-43
 MERGED from [:tbxml-android:] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\tbxml-android.aar\b33ae48330c7a7ad57bd5df93e2539bb\AndroidManifest.xml:7:5-43
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-maps-11.8.0.aar\cba7f0e2e48a62272fb502bd063a407c\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-maps-11.8.0.aar\cba7f0e2e48a62272fb502bd063a407c\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-location:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-11.8.0.aar\2dcf260c84edd2cddfad53d96e87741d\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-11.8.0.aar\2dcf260c84edd2cddfad53d96e87741d\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:customtabs:23.3.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\customtabs-23.3.0.aar\06760ccd273690fedbe25b4cc7c92383\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:23.3.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\customtabs-23.3.0.aar\06760ccd273690fedbe25b4cc7c92383\AndroidManifest.xml:20:5-44
 MERGED from [:CordovaLib] E:\here\RUN\Ionic_exercise_app\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
 MERGED from [:CordovaLib] E:\here\RUN\Ionic_exercise_app\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
 MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\ee4a1bac3fb83395421e024e7c705154\AndroidManifest.xml:20:5-44
@@ -164,14 +170,8 @@ MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] C:\Users\
 MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-maps-license-11.8.0.aar\328b80b4e253a1ca21d0ae7b8da5ff2b\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-location-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-license-11.8.0.aar\9b48a7574bbd82db6dcb144d6934f4c7\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-location-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-location-license-11.8.0.aar\9b48a7574bbd82db6dcb144d6934f4c7\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:4:5-43
 MERGED from [com.android.support:support-v4:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\a21ba7d15743b5d532e2036221907199\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\a21ba7d15743b5d532e2036221907199\AndroidManifest.xml:21:5-23:54
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:4:5-43
 MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-fragment-25.2.0.aar\690e795eb4380b51b4b3ce092023d6ba\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-fragment-25.2.0.aar\690e795eb4380b51b4b3ce092023d6ba\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.2.0.aar\17fae70175d7449f8c28fcc65b71c5fa\AndroidManifest.xml:21:5-23:63
@@ -182,6 +182,13 @@ MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\SWIM\.gradle\c
 MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.2.0.aar\50b1c7715b1b30f8fa3fd08782349081\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-compat-25.2.0.aar\1f05d66be3f9fba6e7e4344526638f9d\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-compat-25.2.0.aar\1f05d66be3f9fba6e7e4344526638f9d\AndroidManifest.xml:21:5-23:58
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\1b3f0769aa2beb6224bb39527074a78b\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\7f8988afe9386e049b9939417151395b\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\f8d299049dd57ed3acf681c32efbb655\AndroidManifest.xml:4:5-43
+INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
 INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:25.2.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\a21ba7d15743b5d532e2036221907199\AndroidManifest.xml:23:9-51
@@ -191,6 +198,8 @@ INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\Andr
 		INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		ADDED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:15:15-41
+		INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from E:\here\RUN\Ionic_exercise_app\platforms\android\app\src\main\AndroidManifest.xml:16:5-79
 MERGED from [com.google.android.gms:play-services-maps:11.8.0] C:\Users\SWIM\.gradle\caches\transforms-1\files-1.1\play-services-maps-11.8.0.aar\cba7f0e2e48a62272fb502bd063a407c\AndroidManifest.xml:23:5-79

@@ -1,0 +1,46 @@
+<!-- Generated template for the SetComponent component -->
+
+<div>
+        <ion-card>
+
+               
+              
+                <ion-card-content>
+                        <ion-grid>
+                                <ion-row>
+                                  <ion-col>
+                                    <h3>Repetitions</h3>
+                                    <button ion-button  full clear (click)='incReps()'><ion-icon name="arrow-dropup-circle"></ion-icon></button>
+                                    <ion-item>
+                                     
+                                      <ion-input type="number" placeholder="Repetitions" min='0' [(ngModel)]='reps'></ion-input>
+                                      
+                                  </ion-item>
+                                  <button ion-button full clear (click)='decReps()'><ion-icon name="arrow-dropdown-circle"></ion-icon></button>
+                                  </ion-col>
+                                 
+                                  <ion-col>
+                                  <h3>Kg</h3>
+                                    <button ion-button full clear (click)='incWeight()'><ion-icon name="arrow-dropup-circle"></ion-icon></button>
+                                    <ion-item>
+                                        
+                                         <ion-input type="number" placeholder="Weight" [(ngModel)]='weight'></ion-input>
+                                         
+                                    </ion-item>
+                                    <button ion-button full clear (click)='decWeight()'><ion-icon name="arrow-dropdown-circle"></ion-icon></button>                    
+                                  </ion-col>
+                                </ion-row>
+                              </ion-grid>
+                </ion-card-content>
+              
+              </ion-card>
+              <ion-col>
+                    <button ion-button full (click)=addSetToWorkout(reps,weight)>Add to set</button>
+              </ion-col>
+
+
+     
+   
+
+   
+</div>

@@ -1,0 +1,26 @@
+<!-- Generated template for the NoteComponent component -->
+<ion-card>
+  <ion-card-content>     
+    <div class="notes">
+
+    
+      
+      <ion-list>
+        <ion-item-sliding >
+          <ion-item>
+            {{note}}
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button (click)="deleteNote(note)">
+              <ion-icon name="trash"></ion-icon>Delete
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+        
+
+      </div>
+
+      </ion-card-content>
+
+    </ion-card>
