@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams, Events } from 'ionic-angular';
+import {  NavController, NavParams, Events, LoadingController, Loading } from 'ionic-angular';
 
 //import {ProgramPage} from '../../../pages/program/program';
 
@@ -30,6 +30,9 @@ import {ProgPage} from '../../../pages/prog/prog';
 export class ProgramsComponent {
   
   programs: Observable<Program[]>
+  loading: Loading =  this.loadingCtrl.create({
+    content: 'Please wait...'
+  });;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -38,6 +41,7 @@ export class ProgramsComponent {
               public events : Events,
               public currentProgram: CurrentProgramService,
               public progPage : ProgPage,
+              public loadingCtrl: LoadingController,
              ) {
 
              
@@ -45,15 +49,28 @@ export class ProgramsComponent {
 
   ngOnInit() {
     console.log('ionViewDidLoad ProgramsPage111111');
+    this.presentLoadingDefault()
     this.programs = this.programService.getPrograms().snapshotChanges().pipe(map(
       changes => {
         console.log("chch ch changes");
+        this.removeLoading();
         return changes.map(c => ({
           key: c.payload.key, ...c.payload.val()
+          
           
         }))
       }))
      
+  }
+  presentLoadingDefault() {
+     
+  
+    this.loading.present();
+  
+ 
+  }
+  removeLoading(){
+    this.loading.dismiss();
   }
   newProgram(){
     console.log('newn prog new prog');

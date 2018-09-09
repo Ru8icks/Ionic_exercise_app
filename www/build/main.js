@@ -42,8 +42,8 @@ var MenuPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-menu',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\menu\menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>menu</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\menu\menu.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__service_program_service__["a" /* ProgramService */]])
     ], MenuPage);
     return MenuPage;
@@ -230,8 +230,8 @@ var WorkoutPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout: {{currentName}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n    \n    <ion-grid>\n        <ion-row>\n          <ion-col>\n              <p>Exercise {{counter+1}} out of {{programLength}} :)</p>\n              <h5>{{currentName}}</h5>\n          </ion-col>\n          <ion-col>\n              \n          </ion-col>\n          <ion-col>\n              <button ion-button full (click)=saveWorkout()><ion-icon name="add-circle"></ion-icon>Next</button>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n\n    \n      <set>\n      </set>\n      <div *ngIf="hasSet">\n        <h5>Sets:</h5>\n        <ion-card>\n          <ion-card-content>\n            <set-list  *ngFor="let set of setList" [set]="set" >\n            </set-list>\n          </ion-card-content>\n        </ion-card>\n      </div>\n      \n      <ion-grid>\n          <ion-row>\n            <ion-col>\n              \n            </ion-col>\n            <ion-col>\n                <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>\n            </ion-col>\n            <ion-col>\n              \n            </ion-col>\n          </ion-row>\n        </ion-grid>\n\n\n      <div *ngIf="hasNote">\n      <h5>Notes:</h5>\n      <ion-card>\n          <ion-card-content>\n            <note *ngFor="let note of notes" [note]="note">\n\n            </note>\n          </ion-card-content>\n        </ion-card>\n        </div>\n\n      \n\n        \n        \n        \n  </div>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n  <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
             __WEBPACK_IMPORTED_MODULE_2__service_workout_service__["a" /* WorkoutService */]])
@@ -423,7 +423,7 @@ var HelloIonicPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-hello-ionic',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\hello-ionic\hello-ionic.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Hello Ionic</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n		<ion-grid>\n\n				<ion-row>\n\n					<ion-col>\n\n			\n\n					</ion-col>\n\n					<ion-col>\n\n						<h3>Welcome to Ionic fittness app!</h3>\n\n						<p>\n\n							This app can be used to keep track of your exercise.\n\n						</p>\n\n						<p>\n\n							Log in or sign up to use\n\n						</p>\n\n					</ion-col>\n\n					<ion-col>\n\n						\n\n					</ion-col>\n\n				</ion-row>\n\n			</ion-grid>\n\n\n\n\n\n\n\n	<ion-grid>\n\n			<ion-row>\n\n				<ion-col>\n\n					\n\n				</ion-col>\n\n				<ion-col>\n\n						<form (ngSubmit)="login()" [formGroup]="loginForm">\n\n								<ion-list inset>\n\n						\n\n									<ion-item [ngClass]="{ invalid: emailErrors.hasError(\'*\', [\'touched\', \'dirty\']) }">\n\n										<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>\n\n									</ion-item>\n\n						\n\n									<div ngxErrors="email" #emailErrors="ngxErrors">\n\n										<div [ngxError]="[\'email\', \'required\']" [when]="[\'touched\', \'dirty\']">It should be a valid email</div>\n\n									</div>\n\n						\n\n									<ion-item [ngClass]="{ invalid: passwordErrors.hasError(\'*\', [\'touched\']) }">\n\n										<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>\n\n									</ion-item>\n\n						\n\n									<div ngxErrors="password" #passwordErrors="ngxErrors">\n\n										<div [ngxError]="[\'minlength\', \'required\']" [when]="[\'touched\']">It should be at least 5 characters</div>\n\n									</div>\n\n								</ion-list>\n\n						\n\n								<div padding-horizontal>\n\n									<div class="form-error">{{loginError}}</div>\n\n						\n\n									<button ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>\n\n									<div class="login-footer">\n\n										<p>\n\n											<a href="#">Forgot password?</a>\n\n											If you\'re a new user, please sign up.\n\n										</p>\n\n									</div>\n\n						\n\n									<ion-list>\n\n						\n\n										<button ion-button icon-left block clear (click)="loginWithGoogle()">\n\n											<ion-icon name="logo-google"></ion-icon>\n\n											Log in with Google\n\n										</button>\n\n						\n\n										<button ion-button icon-left block clear (click)="signup()">\n\n											<ion-icon name="person-add"></ion-icon>\n\n											Sign up\n\n										</button>\n\n									</ion-list>\n\n								</div>\n\n							</form>\n\n				</ion-col>\n\n				<ion-col>\n\n					\n\n				</ion-col>\n\n			</ion-row>\n\n		</ion-grid>\n\n  \n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\hello-ionic\hello-ionic.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_5__service_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]])
     ], HelloIonicPage);
@@ -481,7 +481,7 @@ var SignupPage = (function () {
             selector: 'as-page-signup',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\signup\signup.html"*/'\n<ion-header>\n	<ion-navbar>\n		<ion-title>Sign up</ion-title>\n	</ion-navbar>\n</ion-header>\n\n<ion-content>\n\n	<form (ngSubmit)="signup()" [formGroup]="form">\n		<ion-list inset>\n\n			<ion-item [ngClass]="{ invalid: emailErrors.hasError(\'*\', [\'touched\']) }">\n				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>\n			</ion-item>\n\n			<div ngxErrors="email" #emailErrors="ngxErrors">\n				<div [ngxError]="[\'email\', \'required\']" [when]="[\'touched\']">It should be a valid email</div>\n			</div>\n\n			<ion-item [ngClass]="{ invalid: passwordErrors.hasError(\'*\', [\'touched\']) }">\n				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>\n			</ion-item>\n\n			<div ngxErrors="password" #passwordErrors="ngxErrors">\n				<div [ngxError]="[\'minlength\', \'required\']" [when]="[\'touched\']">It should be at least 6 characters</div>\n			</div>\n		</ion-list>\n\n		<div padding-horizontal>\n			<div class="form-error">{{signupError}}</div>\n\n			<button ion-button full type="submit" [disabled]="!form.valid">Sign up</button>\n		</div>\n	</form>\n</ion-content>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\signup\signup.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__service_auth_service__["a" /* AuthService */]])
     ], SignupPage);
     return SignupPage;
@@ -686,7 +686,7 @@ var ProgPage = (function () {
     }
     ProgPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProgPage');
-        //this.viewProgram = false;
+        this.viewProgram = false;
     };
     ProgPage.prototype.toggleView = function () {
         console.log(this.viewProgram);
@@ -697,10 +697,10 @@ var ProgPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-prog',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\prog\prog.html"*/'<!--\n  Generated template for the ProgPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>prog</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <programs *ngIf="!viewProgram"></programs>\n  \n  <program *ngIf="viewProgram"></program>\n\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\prog\prog.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object])
     ], ProgPage);
     return ProgPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=prog.js.map
@@ -787,14 +787,14 @@ var MyApp = (function () {
         this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_2__pages_hello_ionic_hello_ionic__["a" /* HelloIonicPage */]);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\app\app.html"*/'<ion-menu [content]="content">\n\n\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>menu Pages</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <ion-item>\n\n        <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n          {{p.title}}\n\n        </button>\n\n      </ion-item>\n\n      <ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>\n\n      <ion-item (click)="logout()" *ngIf="auth.authenticated">\n\n        <ion-icon name="log-out" item-left></ion-icon>\n\n        Log out\n\n      </ion-item>\n\n      <ion-item (click)="login()" *ngIf="!auth.authenticated">\n\n        <ion-icon name="log-in" item-left></ion-icon>\n\n        Log in\n\n      </ion-item>\n\n      \n\n    </ion-list>\n\n    \n\n\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* MenuController */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_5__service_auth_service__["a" /* AuthService */]])
@@ -1225,7 +1225,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Components.
  */
 var ProgramsComponent = (function () {
-    function ProgramsComponent(navCtrl, navParams, alertCtrl, programService, events, currentProgram, progPage) {
+    function ProgramsComponent(navCtrl, navParams, alertCtrl, programService, events, currentProgram, progPage, loadingCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
@@ -1233,13 +1233,27 @@ var ProgramsComponent = (function () {
         this.events = events;
         this.currentProgram = currentProgram;
         this.progPage = progPage;
+        this.loadingCtrl = loadingCtrl;
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
     }
+    ;
     ProgramsComponent.prototype.ngOnInit = function () {
+        var _this = this;
         console.log('ionViewDidLoad ProgramsPage111111');
+        this.presentLoadingDefault();
         this.programs = this.programService.getPrograms().snapshotChanges().pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["map"])(function (changes) {
             console.log("chch ch changes");
+            _this.removeLoading();
             return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
         }));
+    };
+    ProgramsComponent.prototype.presentLoadingDefault = function () {
+        this.loading.present();
+    };
+    ProgramsComponent.prototype.removeLoading = function () {
+        this.loading.dismiss();
     };
     ProgramsComponent.prototype.newProgram = function () {
         console.log('newn prog new prog');
@@ -1267,15 +1281,10 @@ var ProgramsComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'programs',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\prog\programs\programs.html"*/'\n<ion-content padding>\n    <ion-scroll scrollY="true" style="width: 100%; height: 65vh">\n      \n    <ion-list>\n        <ion-item-sliding  *ngFor="let program of programs | async" >\n          <ion-item >\n              \n              <p>Name: </p>{{program.title}}\n              <p>Key: </p>{{program.key}}\n           \n          </ion-item>\n          <ion-item-options side="left">\n            <button ion-button color="primary" (click)="edit(program)">\n              <ion-icon name="settings"></ion-icon>\n              edit\n            </button>\n            <button ion-button color="danger" (click)="workout(program)">\n                <ion-icon name="pulse"></ion-icon>\n                workout\n              </button>\n           \n          </ion-item-options>\n          <ion-item-options side="right">\n            <button ion-button color="primary" (click)="edit(program)">\n              <ion-icon name="settings"></ion-icon>\n              edit\n            </button>\n            <button ion-button color="danger" (click)="workout(program)">\n                <ion-icon name="pulse"></ion-icon>\n                workout\n              </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n\n\n</ion-scroll>\n<div style="position: absolute; left: 28% ; bottom: 5%; width: 100%" >\n    <button ion-button icon-left (click)="newProgram()">\n      <ion-icon name="add"> </ion-icon>\n       New Program\n    </button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\prog\programs\programs.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3__service_program_service__["a" /* ProgramService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_4__service_currentProgram_service__["a" /* CurrentProgramService */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_prog_prog__["a" /* ProgPage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__service_program_service__["a" /* ProgramService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__service_program_service__["a" /* ProgramService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__service_currentProgram_service__["a" /* CurrentProgramService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__service_currentProgram_service__["a" /* CurrentProgramService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__pages_prog_prog__["a" /* ProgPage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__pages_prog_prog__["a" /* ProgPage */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _h || Object])
     ], ProgramsComponent);
     return ProgramsComponent;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=programs.js.map
@@ -1453,8 +1462,8 @@ var ProgramComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'program',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\prog\program\program.html"*/'<div class="flex-container" > \n  \n       \n      \n    \n    <ion-grid>\n        <ion-row>\n          \n          <ion-col>\n              <button small (click)="addToPrograms()" ion-button color="secondary">Add to programs</button>\n          </ion-col>\n          \n          <ion-col>\n              <button small (click)="deleteProgram()" ion-button color="danger">Delete program</button>\n          </ion-col>\n        \n        </ion-row>\n        \n        <ion-card>\n            <ion-card-header>\n                Program:\n              </ion-card-header>\n              <ion-card-content>\n          <ion-row>\n             \n            <ion-col>\n             \n            </ion-col>\n            <ion-col>\n                    <div class="exCard">\n                        <ion-list  [dragula]=\'"my-bag"\' [dragulaModel]="programList" >  \n                          \n                             <ion-item *ngFor="let exercise of programList">\n                                {{exercise.name}}:\n                              \n                                {{exercise.type}}\n                              </ion-item>\n                         \n                        </ion-list>\n                      </div>\n                  \n            </ion-col>\n\n            <ion-col>\n             \n            </ion-col>\n          \n          </ion-row>\n        </ion-card-content>\n            \n        </ion-card>\n        </ion-grid>\n        \n   \n\n\n\n\n  \n  \n \n</div>\n\n\n\n\n<ion-card>\n    <ion-card-header>\n        Available exercises:\n      </ion-card-header>\n      <ion-card-content>\n      <ion-list>\n        \n          <ion-scroll scrollY="true" style="width: 100%; height: 25vh">\n          <ion-item-sliding *ngFor="let ex of exercises">\n            <ion-item >\n                {{ex.name}}\n             \n            </ion-item>\n            <ion-item-options side="left">\n              <button ion-button color="primary" (click)="addToProgram(ex)">\n                <ion-icon name="add"></ion-icon>\n                Add\n              </button>\n             \n            </ion-item-options>\n            <ion-item-options side="right">\n              <button ion-button color="primary" (click)="addToProgram(ex)">\n                <ion-icon name="add"></ion-icon>\n                Add\n              </button>\n            </ion-item-options>\n          </ion-item-sliding>\n        </ion-scroll>\n        </ion-list>\n        </ion-card-content>\n        </ion-card>\n      \n\n        <ion-item>\n            <ion-label color="primary" floating>new exercise</ion-label>\n            <ion-input [(ngModel)]="title"></ion-input>\n          </ion-item>\n          <ion-item>\n              <ion-label color="primary" floating>Type</ion-label>\n              <ion-select [(ngModel)]="type">\n                  \n                  <ion-option *ngFor="let type of types" [value]="type">{{type}}</ion-option>\n                </ion-select>\n          </ion-item>\n              <button (click)="addToExercises()" ion-button>Add to exercises</button>\n          \n      '/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\prog\program\program.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
             __WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider__["DragulaService"],
             __WEBPACK_IMPORTED_MODULE_4__service_program_service__["a" /* ProgramService */],

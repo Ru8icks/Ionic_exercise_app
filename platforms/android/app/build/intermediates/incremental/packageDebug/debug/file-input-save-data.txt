@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Sep 09 20:46:18 CEST 2018
+#Sun Sep 09 20:55:03 CEST 2018
 175.set=ANDROID_RESOURCE
 122.file=E\:\\here\\RUN\\Ionic_exercise_app\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-port-xxxhdpi-v4\\screen.png
 60.set=ASSET

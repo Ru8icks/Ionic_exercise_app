@@ -26,7 +26,7 @@ export class ProgPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgPage');
-    //this.viewProgram = false;
+    this.viewProgram = false;
   }
   toggleView(){
       console.log(this.viewProgram)
