@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ProgramService } from '../../service/program.service';
+import { WorkoutService } from '../../service/workout.service';
 import { ProgPage } from '../prog/prog';
 import { ProgramComponent } from '../../components/prog/program/program';
 import { ProgramsComponent } from '../../components/prog/programs/programs';
+import { StatsPage } from '../stats/stats';
 
 /**
  * Generated class for the MenuPage page.
@@ -23,6 +25,8 @@ export class MenuPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public programService: ProgramService,
+              public workoutService: WorkoutService,
+              
               //public programComponent: ProgramComponent,
               //public programsComponent: ProgramsComponent,
             ) {
@@ -38,6 +42,7 @@ export class MenuPage {
   }
   goToStats(){
     console.log("pressed stats")
+    this.navCtrl.push(StatsPage)
   }
 
 }

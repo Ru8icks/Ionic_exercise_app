@@ -11,7 +11,7 @@ export class CurrentProgramService {
         content: [],
       } 
       
-      private messageSource = new BehaviorSubject('{"content":[],"title":"w"}');
+      private messageSource = new BehaviorSubject(JSON.stringify(this.program));
       currentProgram = this.messageSource.asObservable();
       
 

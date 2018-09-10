@@ -92,7 +92,7 @@ export class WorkoutPage {
     //loop throug completed ex and add to db
     for (let i = 0; i < this.setList.length; i++) {
       this.setList[i].maxWeight=this.maxWeight;
-      this.workoutService.addProgram(this.setList[i]);
+      this.workoutService.addWorkout(this.setList[i]);
     }
     this.maxWeight=0;    
     this.setList = [];

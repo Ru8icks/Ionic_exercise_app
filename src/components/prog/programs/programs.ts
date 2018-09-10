@@ -73,8 +73,14 @@ export class ProgramsComponent {
     this.loading.dismiss();
   }
   newProgram(){
+     
+    let program: Program = {
+        
+      title:'',
+      content: [],
+    } 
     console.log('newn prog new prog');
-    this.currentProgram.changetProgram('{"content":[],"title":"w"}')
+    this.currentProgram.changetProgram(JSON.stringify(program))
     this.progPage.toggleView();
     
    

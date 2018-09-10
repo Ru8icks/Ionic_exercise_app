@@ -17,6 +17,7 @@ import { NoteComponent} from "../components/workout/note/note";
 import { SetListComponent} from "../components/workout/set-list/set-list";
 import { ProgramsComponent} from "../components/prog/programs/programs";
 import { ProgramComponent} from "../components/prog/program/program";
+import { GraphComponent } from '../components/stats/graph/graph';
 
 
 
@@ -25,7 +26,7 @@ import { ProgPage } from '../pages/prog/prog';
 
 import { WorkoutPage } from '../pages/workout/workout'
 import { MenuPage } from '../pages/menu/menu'
-
+import { StatsPage } from '../pages/stats/stats'
 
 import { AuthService } from '../service/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
@@ -46,6 +47,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ProgramService } from '../service/program.service';
 import { WorkoutService } from '../service/workout.service';
 import { CurrentProgramService } from '../service/currentProgram.service';
+import { ChartsModule } from 'ng2-charts';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyChGFu7NtT3bEYizPdTz6mupR2NRwuNrR8",
@@ -67,6 +69,7 @@ export const firebaseConfig = {
     WorkoutPage,
     SignupPage,
     MenuPage,
+    StatsPage,
 
 
     TimerComponent,
@@ -76,6 +79,7 @@ export const firebaseConfig = {
     SetComponent,
     NoteComponent,
     SetListComponent,
+    GraphComponent,
     
     
 
@@ -88,6 +92,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     NgxErrorsModule,
+    ChartsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -97,6 +102,7 @@ export const firebaseConfig = {
     SignupPage,
     ProgPage,
     MenuPage,
+    StatsPage,
 
     
   ],
@@ -113,6 +119,7 @@ export const firebaseConfig = {
     CurrentProgramService,
     ProgramComponent,
     ProgramsComponent,
+    GraphComponent,
 
   ]
 })

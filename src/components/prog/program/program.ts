@@ -142,9 +142,10 @@ export class ProgramComponent {
         },
         {
           text: 'Save',
+          
           handler: data => {
             console.log("savesave", this.program.title)
-            if(this.program.title=="w"){
+            if(this.program.title==""){
               console.log("null");
               console.log(data.title)
               this.program.title=data.title;

@@ -6,6 +6,7 @@ import { NoteComponent } from './workout/note/note';
 import { SetListComponent } from './workout/set-list/set-list';
 import { ProgramsComponent } from './prog/programs/programs';
 import { ProgramComponent } from './prog/program/program';
+import { GraphComponent } from './stats/graph/graph';
 
 @NgModule({
 	declarations: [TimerComponent,
@@ -15,6 +16,7 @@ import { ProgramComponent } from './prog/program/program';
     SetListComponent,
     ProgramsComponent,
     ProgramComponent,
+    GraphComponent,
     ],
 	imports: [],
 	exports: [TimerComponent,
@@ -24,6 +26,7 @@ import { ProgramComponent } from './prog/program/program';
     SetListComponent,
     ProgramsComponent,
     ProgramComponent,
+    GraphComponent,
     ]
 })
 export class ComponentsModule {}

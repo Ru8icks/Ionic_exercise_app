@@ -22,7 +22,7 @@ export class WorkoutService {
           })
      }
  
-    getPrograms() {    
+    getWorkouts() {    
         if (!this.userId) {
             console.log("!this.userId just happened")
             return;
@@ -32,15 +32,15 @@ export class WorkoutService {
     }
     
  
-    addProgram(workout: Workout) {
+    addWorkout(workout: Workout) {
         return this.workouts.push(workout);
     }
  
-    updateProgram(workout: Workout) {
+    updateWorkout(workout: Workout) {
         return this.workouts.update(workout.key, workout);
     }
  
-    removeProgram(workout: Workout) {
+    removeWorkout(workout: Workout) {
         return this.workouts.remove(workout.key);
     }
 }
