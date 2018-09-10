@@ -80,10 +80,7 @@ export class ProgramsComponent {
    
     
   }
-  pressEvent(e, program) {
-    console.log("press event", e)
-    //this.programService.removeProgram(program);    
-  }
+  
   edit(program){
     console.log(program)
     var myJSON = JSON.stringify(program);

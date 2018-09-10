@@ -25681,3 +25681,7 @@ ion-navbar.toolbar {
 set ion-icon {
   font-size: 15vh;
 }
+
+page-menu button {
+  width: 35vw;
+}

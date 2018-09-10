@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, Keyboard} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { CoolDownComponent} from "../../components/workout/cool-down/cool-down";
 import { SetComponent } from "../../components/workout/set/set";
@@ -31,6 +31,7 @@ export class WorkoutPage {
   programLength: number;
   hasSet:boolean;
   hasNote:boolean;
+  showFooter:boolean = true;
     
 
   
@@ -51,19 +52,26 @@ export class WorkoutPage {
               
                 ) {
                   
+                  
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WorkoutPage');
+    
+    
+    
     this.eventListener();
    
-    console.log(this.navParams.get('title'))
+    console.log("title ",this.navParams)
     this.program = (this.navParams.get('content'))
+    console.log("program ", this.program, " counter ", this.counter)
     this.current=this.program[this.counter];
+
     this.currentName= this.current.name
     this.programLength = this.program.length;
     this.hasSet = false;
     this.hasNote = false;
+    
 
 
    
@@ -74,6 +82,7 @@ export class WorkoutPage {
     this.ev.unsubscribe('addToSetList');
     this.ev.unsubscribe('deleteSet');
     this.ev.unsubscribe('deleteNote');
+    
     console.log("unsubscribed events")
   }
 
@@ -114,11 +123,15 @@ export class WorkoutPage {
     })
 
 
+    
+
+
     this.ev.subscribe('deleteSet', data => {
       let index = this.setList.indexOf(data);
       if(index > -1){
        this.setList.splice(index, 1);
      }
+    })
      
      this.ev.subscribe('deleteNote',note=>{
       let index = this.notes.indexOf(note);
@@ -127,7 +140,7 @@ export class WorkoutPage {
      }
 
      })
-    })
+    
   }
 
   addNote(){ 

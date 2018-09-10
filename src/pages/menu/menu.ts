@@ -30,7 +30,14 @@ export class MenuPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
+    
+  }
+  goToPrograms(){
     this.navCtrl.push(ProgPage)
+
+  }
+  goToStats(){
+    console.log("pressed stats")
   }
 
 }

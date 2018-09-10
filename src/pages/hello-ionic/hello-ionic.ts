@@ -71,7 +71,5 @@ loginWithGoogle() {
 
 
 
-  goToPrograms(){
-    this.navCtrl.push(ProgPage)
-  }
+ 
 }

@@ -25,7 +25,14 @@ export class SetComponent {
   ) {
     console.log('Hello SetComponent Component');
     
+    
   }
+
+  ngOnInit(){
+    console.log("ngoninit")
+   
+  
+  };
 
   addSetToWorkout(reps,weight){
     if(reps ==0 || weight ==0 || reps ==null || weight ==null){
@@ -52,6 +59,7 @@ export class SetComponent {
   
 
   }
+  
 
 
   decReps(){
@@ -70,9 +78,9 @@ export class SetComponent {
     console.log(this.weight)
     if(!this.weight){
       console.log("null")
-      this.weight=1;  
+      this.weight=5;  
     } else {
-      this.weight++;
+      this.weight+=5;
     }
 
   }
@@ -83,7 +91,7 @@ export class SetComponent {
       console.log("null")
         
     } else {
-      this.weight--;
+      this.weight-=5;
     }
     
 

@@ -8,7 +8,7 @@ webpackJsonp([3],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_program_service__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prog_prog__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__prog_prog__ = __webpack_require__(57);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -36,11 +36,16 @@ var MenuPage = (function () {
     }
     MenuPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad MenuPage');
+    };
+    MenuPage.prototype.goToPrograms = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__prog_prog__["a" /* ProgPage */]);
+    };
+    MenuPage.prototype.goToStats = function () {
+        console.log("pressed stats");
     };
     MenuPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-menu',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\menu\menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>menu</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\menu\menu.html"*/,
+            selector: 'page-menu',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\menu\menu.html"*/'<!--\n  Generated template for the MenuPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>menu</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n    <ion-grid>\n        <ion-row>\n          <ion-col>\n            \n          </ion-col>\n          <ion-col>\n              <button ion-button icon-left (click)="goToPrograms()">\n                  \n                   Programs\n                </button>\n          </ion-col>\n          <ion-col>\n           \n          </ion-col>\n        </ion-row>\n     \n          <ion-row>\n            <ion-col>\n              \n            </ion-col>\n            <ion-col>\n                <button ion-button icon-left (click)="goToStats()">\n                    \n                     Stats\n                  </button>\n            </ion-col>\n            <ion-col>\n             \n            </ion-col>\n          </ion-row>\n     \n            <ion-row>\n              <ion-col>\n               \n              </ion-col>\n              <ion-col>\n                  <button ion-button icon-left >\n                      \n                       3rd menu choice\n                    </button>\n              </ion-col>\n              <ion-col>\n                \n              </ion-col>\n            </ion-row>\n          </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\menu\menu.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -133,12 +138,14 @@ var WorkoutPage = (function () {
         this.program = [];
         this.maxWeight = 0;
         this.counter = 0;
+        this.showFooter = true;
     }
     WorkoutPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad WorkoutPage');
         this.eventListener();
-        console.log(this.navParams.get('title'));
+        console.log("title ", this.navParams);
         this.program = (this.navParams.get('content'));
+        console.log("program ", this.program, " counter ", this.counter);
         this.current = this.program[this.counter];
         this.currentName = this.current.name;
         this.programLength = this.program.length;
@@ -190,12 +197,12 @@ var WorkoutPage = (function () {
             if (index > -1) {
                 _this.setList.splice(index, 1);
             }
-            _this.ev.subscribe('deleteNote', function (note) {
-                var index = _this.notes.indexOf(note);
-                if (index > -1) {
-                    _this.notes.splice(index, 1);
-                }
-            });
+        });
+        this.ev.subscribe('deleteNote', function (note) {
+            var index = _this.notes.indexOf(note);
+            if (index > -1) {
+                _this.notes.splice(index, 1);
+            }
         });
     };
     WorkoutPage.prototype.addNote = function () {
@@ -228,15 +235,12 @@ var WorkoutPage = (function () {
     };
     WorkoutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout: {{currentName}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n    \n    <ion-grid>\n        <ion-row>\n          <ion-col>\n              <p>Exercise {{counter+1}} out of {{programLength}} :)</p>\n              <h5>{{currentName}}</h5>\n          </ion-col>\n          <ion-col>\n              \n          </ion-col>\n          <ion-col>\n              <button ion-button full (click)=saveWorkout()><ion-icon name="add-circle"></ion-icon>Next</button>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n\n    \n      <set>\n      </set>\n      <div *ngIf="hasSet">\n        <h5>Sets:</h5>\n        <ion-card>\n          <ion-card-content>\n            <set-list  *ngFor="let set of setList" [set]="set" >\n            </set-list>\n          </ion-card-content>\n        </ion-card>\n      </div>\n      \n      <ion-grid>\n          <ion-row>\n            <ion-col>\n              \n            </ion-col>\n            <ion-col>\n                <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>\n            </ion-col>\n            <ion-col>\n              \n            </ion-col>\n          </ion-row>\n        </ion-grid>\n\n\n      <div *ngIf="hasNote">\n      <h5>Notes:</h5>\n      <ion-card>\n          <ion-card-content>\n            <note *ngFor="let note of notes" [note]="note">\n\n            </note>\n          </ion-card-content>\n        </ion-card>\n        </div>\n\n      \n\n        \n        \n        \n  </div>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n  <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
+            selector: 'page-workout',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/'<!--\n  Generated template for the WorkoutPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>workout: {{currentName}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div>\n    \n    <ion-grid>\n        <ion-row>\n          <ion-col>\n              <p>Exercise {{counter+1}} out of {{programLength}} :)</p>\n              <h5>{{currentName}}</h5>\n          </ion-col>\n          <ion-col>\n              \n          </ion-col>\n          <ion-col>\n              <button ion-button full (click)=saveWorkout()><ion-icon name="add-circle"></ion-icon>Next</button>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n\n    \n      <set>\n      </set>\n      <div *ngIf="hasSet">\n        <h5>Sets:</h5>\n        <ion-card>\n          <ion-card-content>\n            <set-list  *ngFor="let set of setList" [set]="set" >\n            </set-list>\n          </ion-card-content>\n        </ion-card>\n      </div>\n      \n      <ion-grid>\n          <ion-row>\n            <ion-col>\n              \n            </ion-col>\n            <ion-col>\n                <button ion-button full (click)=addNote()><ion-icon name="add-circle"></ion-icon> Add Note</button>\n            </ion-col>\n            <ion-col>\n              \n            </ion-col>\n          </ion-row>\n        </ion-grid>\n\n\n      <div *ngIf="hasNote">\n      <h5>Notes:</h5>\n      <ion-card>\n          <ion-card-content>\n            <note *ngFor="let note of notes" [note]="note">\n\n            </note>\n          </ion-card-content>\n        </ion-card>\n        </div>\n\n      \n\n        \n        \n        \n  </div>\n</ion-content>\n<ion-footer *ngIf="showFooter">\n  <ion-toolbar >\n  <cool-down></cool-down>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\workout\workout.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_2__service_workout_service__["a" /* WorkoutService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__service_workout_service__["a" /* WorkoutService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_workout_service__["a" /* WorkoutService */]) === "function" && _e || Object])
     ], WorkoutPage);
     return WorkoutPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=workout.js.map
@@ -360,11 +364,10 @@ var WorkoutService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelloIonicPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__prog_prog__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__menu_menu__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__service_auth_service__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signup_signup__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu_menu__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_auth_service__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__signup_signup__ = __webpack_require__(309);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -380,15 +383,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 //import { ProgramService } from '../../service/program.service';
 var HelloIonicPage = (function () {
     function HelloIonicPage(navCtrl, auth, fb) {
         this.navCtrl = navCtrl;
         this.auth = auth;
         this.loginForm = fb.group({
-            email: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["g" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_4__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["g" /* Validators */].email])],
-            password: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["g" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_4__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["g" /* Validators */].minLength(6)])]
+            email: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].email])],
+            password: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].minLength(6)])]
         });
     }
     HelloIonicPage.prototype.login = function () {
@@ -402,30 +404,27 @@ var HelloIonicPage = (function () {
             password: data.password
         };
         this.auth.signInWithEmail(credentials)
-            .then(function () { return _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__menu_menu__["a" /* MenuPage */]); }, function (error) { return _this.loginError = error.message; });
+            .then(function () { return _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__menu_menu__["a" /* MenuPage */]); }, function (error) { return _this.loginError = error.message; });
     };
     HelloIonicPage.prototype.signup = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__signup_signup__["a" /* SignupPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__signup_signup__["a" /* SignupPage */]);
     };
     HelloIonicPage.prototype.loginWithGoogle = function () {
         var _this = this;
         this.auth.signInWithGoogle()
             .then(function () {
             console.log("login woth google");
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__menu_menu__["a" /* MenuPage */]),
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__menu_menu__["a" /* MenuPage */]),
                 function (error) { return console.log(error.message); };
         });
-    };
-    HelloIonicPage.prototype.goToPrograms = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__prog_prog__["a" /* ProgPage */]);
     };
     HelloIonicPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-hello-ionic',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\hello-ionic\hello-ionic.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Hello Ionic</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n		<ion-grid>\n\n				<ion-row>\n\n					<ion-col>\n\n			\n\n					</ion-col>\n\n					<ion-col>\n\n						<h3>Welcome to Ionic fittness app!</h3>\n\n						<p>\n\n							This app can be used to keep track of your exercise.\n\n						</p>\n\n						<p>\n\n							Log in or sign up to use\n\n						</p>\n\n					</ion-col>\n\n					<ion-col>\n\n						\n\n					</ion-col>\n\n				</ion-row>\n\n			</ion-grid>\n\n\n\n\n\n\n\n	<ion-grid>\n\n			<ion-row>\n\n				<ion-col>\n\n					\n\n				</ion-col>\n\n				<ion-col>\n\n						<form (ngSubmit)="login()" [formGroup]="loginForm">\n\n								<ion-list inset>\n\n						\n\n									<ion-item [ngClass]="{ invalid: emailErrors.hasError(\'*\', [\'touched\', \'dirty\']) }">\n\n										<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>\n\n									</ion-item>\n\n						\n\n									<div ngxErrors="email" #emailErrors="ngxErrors">\n\n										<div [ngxError]="[\'email\', \'required\']" [when]="[\'touched\', \'dirty\']">It should be a valid email</div>\n\n									</div>\n\n						\n\n									<ion-item [ngClass]="{ invalid: passwordErrors.hasError(\'*\', [\'touched\']) }">\n\n										<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>\n\n									</ion-item>\n\n						\n\n									<div ngxErrors="password" #passwordErrors="ngxErrors">\n\n										<div [ngxError]="[\'minlength\', \'required\']" [when]="[\'touched\']">It should be at least 5 characters</div>\n\n									</div>\n\n								</ion-list>\n\n						\n\n								<div padding-horizontal>\n\n									<div class="form-error">{{loginError}}</div>\n\n						\n\n									<button ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>\n\n									<div class="login-footer">\n\n										<p>\n\n											<a href="#">Forgot password?</a>\n\n											If you\'re a new user, please sign up.\n\n										</p>\n\n									</div>\n\n						\n\n									<ion-list>\n\n						\n\n										<button ion-button icon-left block clear (click)="loginWithGoogle()">\n\n											<ion-icon name="logo-google"></ion-icon>\n\n											Log in with Google\n\n										</button>\n\n						\n\n										<button ion-button icon-left block clear (click)="signup()">\n\n											<ion-icon name="person-add"></ion-icon>\n\n											Sign up\n\n										</button>\n\n									</ion-list>\n\n								</div>\n\n							</form>\n\n				</ion-col>\n\n				<ion-col>\n\n					\n\n				</ion-col>\n\n			</ion-row>\n\n		</ion-grid>\n\n  \n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\hello-ionic\hello-ionic.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_5__service_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */]])
+            __WEBPACK_IMPORTED_MODULE_4__service_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]])
     ], HelloIonicPage);
     return HelloIonicPage;
 }());
@@ -443,7 +442,7 @@ var HelloIonicPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_auth_service__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__prog_prog__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__prog_prog__ = __webpack_require__(57);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -511,7 +510,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 "use strict";
 /* unused harmony export firebaseConfig */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(496);
@@ -528,7 +527,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_prog_programs_programs__ = __webpack_require__(739);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_prog_program_program__ = __webpack_require__(740);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_storage__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_prog_prog__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_prog_prog__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_workout_workout__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_menu_menu__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__service_auth_service__ = __webpack_require__(97);
@@ -651,59 +650,6 @@ var AppModule = (function () {
 }());
 
 //# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ 48:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the ProgPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ProgPage = (function () {
-    function ProgPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewProgram = false;
-    }
-    ProgPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ProgPage');
-        this.viewProgram = false;
-    };
-    ProgPage.prototype.toggleView = function () {
-        console.log(this.viewProgram);
-        this.viewProgram = !this.viewProgram;
-        console.log(this.viewProgram);
-    };
-    ProgPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-prog',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\prog\prog.html"*/'<!--\n  Generated template for the ProgPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>prog</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <programs *ngIf="!viewProgram"></programs>\n  \n  <program *ngIf="viewProgram"></program>\n\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\prog\prog.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object])
-    ], ProgPage);
-    return ProgPage;
-    var _a, _b;
-}());
-
-//# sourceMappingURL=prog.js.map
 
 /***/ }),
 
@@ -890,6 +836,59 @@ function format(ms) {
 
 /***/ }),
 
+/***/ 57:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the ProgPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ProgPage = (function () {
+    function ProgPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewProgram = false;
+    }
+    ProgPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ProgPage');
+        this.viewProgram = false;
+    };
+    ProgPage.prototype.toggleView = function () {
+        console.log(this.viewProgram);
+        this.viewProgram = !this.viewProgram;
+        console.log(this.viewProgram);
+    };
+    ProgPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-prog',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\pages\prog\prog.html"*/'<!--\n  Generated template for the ProgPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>prog</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <programs *ngIf="!viewProgram"></programs>\n  \n  <program *ngIf="viewProgram"></program>\n\n</ion-content>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\pages\prog\prog.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], ProgPage);
+    return ProgPage;
+}());
+
+//# sourceMappingURL=prog.js.map
+
+/***/ }),
+
 /***/ 733:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1018,6 +1017,10 @@ var SetComponent = (function () {
         this.reps = 8;
         console.log('Hello SetComponent Component');
     }
+    SetComponent.prototype.ngOnInit = function () {
+        console.log("ngoninit");
+    };
+    ;
     SetComponent.prototype.addSetToWorkout = function (reps, weight) {
         if (reps == 0 || weight == 0 || reps == null || weight == null) {
             return;
@@ -1050,10 +1053,10 @@ var SetComponent = (function () {
         console.log(this.weight);
         if (!this.weight) {
             console.log("null");
-            this.weight = 1;
+            this.weight = 5;
         }
         else {
-            this.weight++;
+            this.weight += 5;
         }
     };
     SetComponent.prototype.decWeight = function () {
@@ -1062,12 +1065,12 @@ var SetComponent = (function () {
             console.log("null");
         }
         else {
-            this.weight--;
+            this.weight -= 5;
         }
     };
     SetComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'set',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\workout\set\set.html"*/'<!-- Generated template for the SetComponent component -->\n\n<div>\n        <ion-card>\n\n               \n              \n                <ion-card-content>\n                        <ion-grid>\n                                <ion-row>\n                                  <ion-col>\n                                    <h3>Repetitions</h3>\n                                    <button ion-button  full clear (click)=\'incReps()\'><ion-icon name="arrow-dropup-circle"></ion-icon></button>\n                                    <ion-item>\n                                     \n                                      <ion-input type="number" placeholder="Repetitions" min=\'0\' [(ngModel)]=\'reps\'></ion-input>\n                                      \n                                  </ion-item>\n                                  <button ion-button full clear (click)=\'decReps()\'><ion-icon name="arrow-dropdown-circle"></ion-icon></button>\n                                  </ion-col>\n                                 \n                                  <ion-col>\n                                  <h3>Kg</h3>\n                                    <button ion-button full clear (click)=\'incWeight()\'><ion-icon name="arrow-dropup-circle"></ion-icon></button>\n                                    <ion-item>\n                                        \n                                         <ion-input type="number" placeholder="Weight" [(ngModel)]=\'weight\'></ion-input>\n                                         \n                                    </ion-item>\n                                    <button ion-button full clear (click)=\'decWeight()\'><ion-icon name="arrow-dropdown-circle"></ion-icon></button>                    \n                                  </ion-col>\n                                </ion-row>\n                              </ion-grid>\n                </ion-card-content>\n              \n              </ion-card>\n              <ion-col>\n                    <button ion-button full (click)=addSetToWorkout(reps,weight)>Add to set</button>\n              </ion-col>\n\n\n     \n   \n\n   \n</div>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\workout\set\set.html"*/
+            selector: 'set',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\workout\set\set.html"*/'<!-- Generated template for the SetComponent component -->\n\n<div>\n        <ion-card>\n\n               \n              \n                <ion-card-content>\n                        <ion-grid>\n                                <ion-row>\n                                  <ion-col>\n                                    <h3>Repetitions</h3>\n                                    <button ion-button  full clear (click)=\'incReps()\'><ion-icon name="arrow-dropup-circle"></ion-icon></button>\n                                    <ion-item>\n                                     \n                                      <ion-input  type="number" placeholder="Repetitions" min=\'0\' [(ngModel)]=\'reps\'></ion-input>\n                                      \n                                  </ion-item>\n                                  <button ion-button full clear (click)=\'decReps()\'><ion-icon name="arrow-dropdown-circle"></ion-icon></button>\n                                  </ion-col>\n                                 \n                                  <ion-col>\n                                  <h3>Kg</h3>\n                                    <button ion-button full clear (click)=\'incWeight()\'><ion-icon name="arrow-dropup-circle"></ion-icon></button>\n                                    <ion-item>\n                                        \n                                         <ion-input type="number" placeholder="Weight" [(ngModel)]=\'weight\'></ion-input>\n                                         \n                                    </ion-item>\n                                    <button ion-button full clear (click)=\'decWeight()\'><ion-icon name="arrow-dropdown-circle"></ion-icon></button>                    \n                                  </ion-col>\n                                </ion-row>\n                              </ion-grid>\n                </ion-card-content>\n              \n              </ion-card>\n              <ion-col>\n                    <button ion-button full (click)=addSetToWorkout(reps,weight)>Add to set</button>\n              </ion-col>\n\n\n     \n   \n\n   \n</div>\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\workout\set\set.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
     ], SetComponent);
@@ -1191,7 +1194,7 @@ var SetListComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_program_service__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_currentProgram_service__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_workout_workout__ = __webpack_require__(181);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_prog_prog__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_prog_prog__ = __webpack_require__(57);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -1260,10 +1263,6 @@ var ProgramsComponent = (function () {
         this.currentProgram.changetProgram('{"content":[],"title":"w"}');
         this.progPage.toggleView();
     };
-    ProgramsComponent.prototype.pressEvent = function (e, program) {
-        console.log("press event", e);
-        //this.programService.removeProgram(program);    
-    };
     ProgramsComponent.prototype.edit = function (program) {
         console.log(program);
         var myJSON = JSON.stringify(program);
@@ -1303,7 +1302,7 @@ var ProgramsComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_dragula_components_dragula_provider__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_program_service__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__service_currentProgram_service__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_prog_prog__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_prog_prog__ = __webpack_require__(57);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
