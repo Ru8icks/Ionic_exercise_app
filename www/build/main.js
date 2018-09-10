@@ -1707,12 +1707,23 @@ var GraphComponent = (function () {
         this.ev = ev;
         this.workoutService = workoutService;
         this.lineChartData = [
-            { data: [100], label: ' 2' },
+            { data: [[100, 80], [50, 90]], label: ' 2' },
             { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
         ];
-        this.lineChartLabels = ['January', 'February', 'poop', 'April', 'May', 'June', 'July'];
+        this.lineChartLabels = [];
         this.lineChartOptions = {
-            responsive: true
+            responsive: true,
+            scales: {
+                xAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            callback: function (label) {
+                                console.log("asdasdasd12312312");
+                                return new Date(label).getDate() + "/" + (new Date(label).getMonth() + 1) + " @ " + new Date(label).getHours() + ":" + new Date(label).getMinutes();
+                            }
+                        }
+                    }]
+            }
         };
         this.lineChartColors = [
             {
@@ -1760,35 +1771,27 @@ var GraphComponent = (function () {
     GraphComponent.prototype.eventListener = function () {
         var _this = this;
         this.ev.subscribe('addToGraph', function (data) {
-            var graphData = [];
+            var graphDataX = [];
+            var graphDataY = [];
             console.log("data1", data, "  ");
             _this.exercises.forEach(function (element) {
                 console.log("foreach");
                 element.forEach(function (element) {
                     if (element.name == data) {
                         console.log("datas ", data, "   asd", element.maxWeight);
-                        graphData.push(element.maxWeight);
-                        console.log(element.maxWeight, graphData);
+                        graphDataX.push(element.maxWeight);
+                        console.log(element.maxWeight, graphDataX);
+                        graphDataY.push(element.date);
                     }
                 });
-                _this.update(graphData);
+                _this.update(graphDataX, graphDataY, data);
             });
         });
     };
-    GraphComponent.prototype.randomize = function () {
-        var _lineChartData = new Array(this.lineChartData.length);
-        for (var i = 0; i < this.lineChartData.length; i++) {
-            _lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
-            for (var j = 0; j < this.lineChartData[i].data.length; j++) {
-                _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-                console.log("j", j, "i", i, "  ", this.lineChartData[i].data[j]);
-            }
-        }
-        this.lineChartData = _lineChartData;
-    };
-    GraphComponent.prototype.update = function (graphdata) {
+    GraphComponent.prototype.update = function (graphDataX, graphDataY, data) {
         console.log(this.chart.datasets, "this.chart.datasets");
-        this.chart.datasets.push({ data: graphdata, label: 'newgraph' });
+        this.chart.datasets = [{ data: graphDataX, label: data }];
+        this.lineChartLabels = graphDataY;
         //this.chart.chart.update();
         this.chart.refresh();
     };
@@ -1805,7 +1808,7 @@ var GraphComponent = (function () {
     ], GraphComponent.prototype, "chart", void 0);
     GraphComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'graph',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\stats\graph\graph.html"*/'<!-- Generated template for the GraphComponent component -->\n<ion-content padding>\n    <div class="row">\n      <div class="col-md-6">\n        <div style="display: block;">\n        <canvas baseChart width="500" height="400"\n                    [datasets]="lineChartData"\n                    [labels]="lineChartLabels"\n                    [options]="lineChartOptions"\n                    [colors]="lineChartColors"\n                    [legend]="lineChartLegend"\n                    [chartType]="lineChartType"\n                    (chartHover)="chartHovered($event)"\n                    (chartClick)="chartClicked($event)"></canvas>\n        </div>\n      </div>\n    </div>\n  </ion-content>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\stats\graph\graph.html"*/
+            selector: 'graph',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\stats\graph\graph.html"*/'<!-- Generated template for the GraphComponent component -->\n<ion-content padding>\n    <div class="row">\n      <div class="col-md-6">\n      \n        <div style="display: block;" >\n        <canvas baseChart width="500" height="400"\n                    [datasets]="lineChartData"\n                    [labels]="lineChartLabels"\n                    [options]="lineChartOptions"\n                    [colors]="lineChartColors"\n                    [legend]="lineChartLegend"\n                    [chartType]="lineChartType"\n                    (chartHover)="chartHovered($event)"\n                    (chartClick)="chartClicked($event)"\n                    ></canvas>\n        </div>\n       \n      </div>\n    </div>\n  </ion-content>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\stats\graph\graph.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__service_workout_service__["a" /* WorkoutService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_workout_service__["a" /* WorkoutService */]) === "function" && _c || Object])
     ], GraphComponent);

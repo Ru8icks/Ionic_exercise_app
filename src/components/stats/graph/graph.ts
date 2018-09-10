@@ -56,7 +56,8 @@ export class GraphComponent {
   eventListener(){
     
     this.ev.subscribe('addToGraph', data => {
-      let graphData = [];
+      let graphDataX = [];
+      let graphDataY = [];
       console.log("data1", data, "  ", )
       
       
@@ -66,15 +67,18 @@ export class GraphComponent {
           
           if(element.name ==data){
             console.log("datas ",data, "   asd", element.maxWeight)
-            graphData.push(element.maxWeight);
-            console.log(element.maxWeight, graphData)
+            graphDataX.push(element.maxWeight);
+            console.log(element.maxWeight, graphDataX)
+            graphDataY.push(element.date);
+
+
             
             
           }
           
         });
         
-        this.update(graphData)
+        this.update(graphDataX, graphDataY, data)
         
         
       
@@ -95,13 +99,28 @@ export class GraphComponent {
       
   public lineChartData:Array<any> = [
     
-    {data: [100], label: ' 2'},
+    {data: [[100,80],[50,90]], label: ' 2'},
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
     
   ];
-  public lineChartLabels:Array<any> = ['January', 'February', 'poop', 'April', 'May', 'June', 'July'];
+  public lineChartLabels:Array<any> = [];
   public lineChartOptions:any = {
-    responsive: true
+    responsive: true,
+    scales: {
+      xAxes: [{
+        ticks: {
+          beginAtZero: true,
+          
+          
+          
+          callback: label => {
+            console.log("asdasdasd12312312")
+            
+            return `${new Date(label).getDate()}/${new Date(label).getMonth()+1} @ ${new Date(label).getHours()}:${new Date(label).getMinutes()}`
+          }
+        }
+      }]
+    }
   };
   public lineChartColors:Array<any> = [
     { // grey
@@ -132,21 +151,12 @@ export class GraphComponent {
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';
   
-  public randomize():void {
-    let _lineChartData:Array<any> = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = {data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label};
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-        console.log("j",j,"i",i,"  ", this.lineChartData[i].data[j])
-      }
-    }
-    this.lineChartData = _lineChartData;
-  }
 
-  public update(graphdata):void {
+
+  public update(graphDataX, graphDataY, data):void {
     console.log(this.chart.datasets, "this.chart.datasets")
-    this.chart.datasets.push( {data: graphdata, label: 'newgraph'});
+    this.chart.datasets = [ {data: graphDataX, label: data}];
+    this.lineChartLabels = graphDataY;
     //this.chart.chart.update();
     (<any>this.chart).refresh()
     
