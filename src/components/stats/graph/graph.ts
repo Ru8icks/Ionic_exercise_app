@@ -22,6 +22,7 @@ export class GraphComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   exercises :Observable<Workout[]>;
+  private series:boolean = true; 
 
   
   
@@ -58,6 +59,7 @@ export class GraphComponent {
     this.ev.subscribe('addToGraph', data => {
       let graphDataX = [];
       let graphDataY = [];
+      let graphData = [];
       console.log("data1", data, "  ", )
       
       
@@ -70,6 +72,7 @@ export class GraphComponent {
             graphDataX.push(element.maxWeight);
             console.log(element.maxWeight, graphDataX)
             graphDataY.push(element.date);
+            graphData.push({x: new Date(element.date), y: element.maxWeight})
 
 
             
@@ -78,7 +81,7 @@ export class GraphComponent {
           
         });
         
-        this.update(graphDataX, graphDataY, data)
+        this.update(graphData, graphDataX, graphDataY, data)
         
         
       
@@ -108,6 +111,8 @@ export class GraphComponent {
     responsive: true,
     scales: {
       xAxes: [{
+        type: 'time',
+        distribution: 'linear',
         ticks: {
           beginAtZero: true,
           
@@ -122,6 +127,29 @@ export class GraphComponent {
       }]
     }
   };
+
+  public  toggleDistribution(): void{
+    if (this.series){
+      this.lineChartOptions.scales.xAxes[0].distribution = 'linear'
+      console.log("linear")
+
+    } else if (!this.series){
+      this.lineChartOptions.scales.xAxes[0].distribution = 'series'
+      console.log("series", this.lineChartOptions.scales.xAxes)
+    }
+    this.series=!this.series;
+    console.log("the labels",this.lineChartLabels);
+    (<any>this.chart).refresh()
+    
+
+
+  }
+
+
+
+
+
+
   public lineChartColors:Array<any> = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -153,11 +181,12 @@ export class GraphComponent {
   
 
 
-  public update(graphDataX, graphDataY, data):void {
+  public update(graphData, graphDataX, graphDataY, data):void {
     console.log(this.chart.datasets, "this.chart.datasets")
-    this.chart.datasets = [ {data: graphDataX, label: data}];
-    this.lineChartLabels = graphDataY;
+    this.chart.datasets = [ {data: graphData, label: data}];
+    //this.lineChartLabels = graphDataY;
     //this.chart.chart.update();
+    
     (<any>this.chart).refresh()
     
     

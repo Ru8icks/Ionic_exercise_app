@@ -2,9 +2,11 @@
 <ion-content padding>
     <div class="row">
       <div class="col-md-6">
-      
-        <div style="display: block;" >
-        <canvas baseChart width="500" height="400"
+          
+   
+        <div style="display: block; overflow:scroll; width:100vw; ">
+          
+          <canvas baseChart width="420vw" height="500vw" 
                     [datasets]="lineChartData"
                     [labels]="lineChartLabels"
                     [options]="lineChartOptions"
@@ -14,8 +16,29 @@
                     (chartHover)="chartHovered($event)"
                     (chartClick)="chartClicked($event)"
                     ></canvas>
+                    
+                  
+         
         </div>
-       
+        <ion-grid>
+            <ion-row>
+              <ion-col>
+                <button ion-button color="primary" (click)="toggleDistribution()">asdasd</button>
+              </ion-col>
+              <ion-col>
+                2 of 3
+              </ion-col>
+              <ion-col>
+                3 of 3
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+ 
+     
+
+
+
       </div>
     </div>
   </ion-content>

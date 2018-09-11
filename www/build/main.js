@@ -1457,7 +1457,7 @@ var ProgramsComponent = (function () {
     };
     ProgramsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'programs',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\prog\programs\programs.html"*/'\n<ion-content padding>\n    <ion-scroll scrollY="true" style="width: 100%; height: 65vh">\n      \n    <ion-list>\n        <ion-item-sliding  *ngFor="let program of programs | async" >\n          <ion-item >\n              \n              <p>Name: </p>{{program.title}}\n              <p>Key: </p>{{program.key}}\n           \n          </ion-item>\n          <ion-item-options side="left">\n            <button ion-button color="primary" (click)="edit(program)">\n              <ion-icon name="settings"></ion-icon>\n              edit\n            </button>\n            <button ion-button color="danger" (click)="workout(program)">\n                <ion-icon name="pulse"></ion-icon>\n                workout\n              </button>\n           \n          </ion-item-options>\n          <ion-item-options side="right">\n            <button ion-button color="primary" (click)="edit(program)">\n              <ion-icon name="settings"></ion-icon>\n              edit\n            </button>\n            <button ion-button color="danger" (click)="workout(program)">\n                <ion-icon name="pulse"></ion-icon>\n                workout\n              </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n\n\n</ion-scroll>\n<div style="position: absolute; left: 28% ; bottom: 5%; width: 100%" >\n    <button ion-button icon-left (click)="newProgram()">\n      <ion-icon name="add"> </ion-icon>\n       New Program\n    </button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\prog\programs\programs.html"*/
+            selector: 'programs',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\prog\programs\programs.html"*/'\n    <ion-scroll scrollY="true" style="width: 100%; height: 65vh">\n      \n    <ion-list>\n        <ion-item-sliding  *ngFor="let program of programs | async" >\n          <ion-item >\n              \n              <p>Name: </p>{{program.title}}\n              <p>Key: </p>{{program.key}}\n           \n          </ion-item>\n          <ion-item-options side="left">\n            <button ion-button color="primary" (click)="edit(program)">\n              <ion-icon name="settings"></ion-icon>\n              edit\n            </button>\n            <button ion-button color="danger" (click)="workout(program)">\n                <ion-icon name="pulse"></ion-icon>\n                workout\n              </button>\n           \n          </ion-item-options>\n          <ion-item-options side="right">\n            <button ion-button color="primary" (click)="edit(program)">\n              <ion-icon name="settings"></ion-icon>\n              edit\n            </button>\n            <button ion-button color="danger" (click)="workout(program)">\n                <ion-icon name="pulse"></ion-icon>\n                workout\n              </button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n\n\n\n<div style="position: absolute; left: 28% ; bottom: 5%; width: 100%" >\n    <button ion-button icon-left (click)="newProgram()">\n      <ion-icon name="add"> </ion-icon>\n       New Program\n    </button>\n    </div>\n\n'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\prog\programs\programs.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -1706,6 +1706,7 @@ var GraphComponent = (function () {
     function GraphComponent(ev, workoutService) {
         this.ev = ev;
         this.workoutService = workoutService;
+        this.series = true;
         this.lineChartData = [
             { data: [[100, 80], [50, 90]], label: ' 2' },
             { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
@@ -1715,6 +1716,8 @@ var GraphComponent = (function () {
             responsive: true,
             scales: {
                 xAxes: [{
+                        type: 'time',
+                        distribution: 'linear',
                         ticks: {
                             beginAtZero: true,
                             callback: function (label) {
@@ -1773,6 +1776,7 @@ var GraphComponent = (function () {
         this.ev.subscribe('addToGraph', function (data) {
             var graphDataX = [];
             var graphDataY = [];
+            var graphData = [];
             console.log("data1", data, "  ");
             _this.exercises.forEach(function (element) {
                 console.log("foreach");
@@ -1782,16 +1786,30 @@ var GraphComponent = (function () {
                         graphDataX.push(element.maxWeight);
                         console.log(element.maxWeight, graphDataX);
                         graphDataY.push(element.date);
+                        graphData.push({ x: new Date(element.date), y: element.maxWeight });
                     }
                 });
-                _this.update(graphDataX, graphDataY, data);
+                _this.update(graphData, graphDataX, graphDataY, data);
             });
         });
     };
-    GraphComponent.prototype.update = function (graphDataX, graphDataY, data) {
+    GraphComponent.prototype.toggleDistribution = function () {
+        if (this.series) {
+            this.lineChartOptions.scales.xAxes[0].distribution = 'linear';
+            console.log("linear");
+        }
+        else if (!this.series) {
+            this.lineChartOptions.scales.xAxes[0].distribution = 'series';
+            console.log("series", this.lineChartOptions.scales.xAxes);
+        }
+        this.series = !this.series;
+        console.log("the labels", this.lineChartLabels);
+        this.chart.refresh();
+    };
+    GraphComponent.prototype.update = function (graphData, graphDataX, graphDataY, data) {
         console.log(this.chart.datasets, "this.chart.datasets");
-        this.chart.datasets = [{ data: graphDataX, label: data }];
-        this.lineChartLabels = graphDataY;
+        this.chart.datasets = [{ data: graphData, label: data }];
+        //this.lineChartLabels = graphDataY;
         //this.chart.chart.update();
         this.chart.refresh();
     };
@@ -1808,7 +1826,7 @@ var GraphComponent = (function () {
     ], GraphComponent.prototype, "chart", void 0);
     GraphComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'graph',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\stats\graph\graph.html"*/'<!-- Generated template for the GraphComponent component -->\n<ion-content padding>\n    <div class="row">\n      <div class="col-md-6">\n      \n        <div style="display: block;" >\n        <canvas baseChart width="500" height="400"\n                    [datasets]="lineChartData"\n                    [labels]="lineChartLabels"\n                    [options]="lineChartOptions"\n                    [colors]="lineChartColors"\n                    [legend]="lineChartLegend"\n                    [chartType]="lineChartType"\n                    (chartHover)="chartHovered($event)"\n                    (chartClick)="chartClicked($event)"\n                    ></canvas>\n        </div>\n       \n      </div>\n    </div>\n  </ion-content>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\stats\graph\graph.html"*/
+            selector: 'graph',template:/*ion-inline-start:"E:\here\RUN\Ionic_exercise_app\src\components\stats\graph\graph.html"*/'<!-- Generated template for the GraphComponent component -->\n<ion-content padding>\n    <div class="row">\n      <div class="col-md-6">\n          \n   \n        <div style="display: block; overflow:scroll; width:100vw; ">\n          \n          <canvas baseChart width="420vw" height="500vw" \n                    [datasets]="lineChartData"\n                    [labels]="lineChartLabels"\n                    [options]="lineChartOptions"\n                    [colors]="lineChartColors"\n                    [legend]="lineChartLegend"\n                    [chartType]="lineChartType"\n                    (chartHover)="chartHovered($event)"\n                    (chartClick)="chartClicked($event)"\n                    ></canvas>\n                    \n                  \n         \n        </div>\n        <ion-grid>\n            <ion-row>\n              <ion-col>\n                <button ion-button color="primary" (click)="toggleDistribution()">asdasd</button>\n              </ion-col>\n              <ion-col>\n                2 of 3\n              </ion-col>\n              <ion-col>\n                3 of 3\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n\n \n     \n\n\n\n      </div>\n    </div>\n  </ion-content>'/*ion-inline-end:"E:\here\RUN\Ionic_exercise_app\src\components\stats\graph\graph.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__service_workout_service__["a" /* WorkoutService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_workout_service__["a" /* WorkoutService */]) === "function" && _c || Object])
     ], GraphComponent);
